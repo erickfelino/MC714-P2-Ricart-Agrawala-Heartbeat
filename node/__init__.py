@@ -1,0 +1,1 @@
+"""Pacote do nó real para o algoritmo de Ricart-Agrawala e Heartbeat."""
