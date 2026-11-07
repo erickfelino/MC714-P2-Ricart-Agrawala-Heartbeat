@@ -1,6 +1,6 @@
 # CONTRATO.md — Interfaces entre o nó (Pessoa A) e a infraestrutura (Pessoa B)
 
-**Versão:** 1 (05/11/2026)
+**Versão:** 2 (07/11/2026)
 
 Este documento é a referência única entre as duas frentes do trabalho:
 - O **nó real** (Pessoa A) deve produzir e consumir exatamente o que está aqui.
@@ -64,6 +64,7 @@ Os endereços **não são fixos no código**. Eles chegam por configuração (Se
 - Se a conexão falhar, tenta reconectar no próximo envio.
 - Toda operação de conexão e de envio usa timeout (`CONNECT_TIMEOUT_MS`).
 - **A ordem FIFO por destino deve ser mantida**, inclusive com atraso injetado (Seção 4.2).
+- **Desacoplamento de Concorrência Local:** Chamadas de E/S de rede (`send_message`) devem ser executadas **fora** do lock de exclusão mútua local (`_lock`) do nó, garantindo que o processamento imediato de mensagens recebidas pela thread de rede não sofra bloqueios indesejados.
 
 ### 4.1 Formatos
 
@@ -111,7 +112,10 @@ Campos comuns a todas as mensagens:
 
 O contador é o **recurso compartilhado**. Ele **não tem lock nem incremento atômico**: oferece apenas `READ` e `WRITE` separados. Cada operação individual é atômica, mas nada impede outro nó de escrever entre o `READ` e o `WRITE` de alguém. É exatamente isso que a exclusão mútua precisa evitar.
 
-**Conexão:** uma conexão TCP por nó, reutilizada; um JSON por linha na ida e outro na volta.
+**Conexão e Servidor Multi-thread**
+- O servidor do contador deve aceitar conexões escutando em `0.0.0.0:6000` e tratar cada conexão TCP em **threads dedicadas ou concorrentes** (`threading.Thread`), garantindo que chamadas `accept()` não fiquem bloqueadas por requisições síncronas de um único cliente.
+- O cliente (`counter_client`) deve implementar mecanismo de **reconexão automática com retentativas** em caso de indisponibilidade inicial durante a subida do ambiente Docker.
+- As mensagens de requisição e resposta obrigatoriamente devem ser delimitadas por quebra de linha (`\n`).
 
 | Requisição | Resposta |
 |---|---|
@@ -132,6 +136,7 @@ O contador é o **recurso compartilhado**. Ele **não tem lock nem incremento at
 1. `READ`, obtendo `v`.
 2. Espera `CS_DURATION_MS`.
 3. `WRITE` com `v + 1`.
+4. **Resiliência a Falhas (Try-Finally):** Todas as operações na Região Crítica devem ser englobadas em blocos `try...finally`. Mesmo em caso de timeout ou erro de I/O na comunicação com o contador, o nó deve executar a liberação da Região Crítica (`EXIT`) e processar sua fila de solicitações adiadas (`deferred_queue`).
 
 ---
 
@@ -149,7 +154,7 @@ O contador é o **recurso compartilhado**. Ele **não tem lock nem incremento at
 | `SEED` | `1` | Semente base dos geradores aleatórios. |
 | `DURATION_S` | `60` | Tempo, a partir do `START`, durante o qual o nó gera pedidos. |
 | `START_DELAY_S` | `3` | Espera antes de gerar o primeiro pedido e de começar a suspeitar de pares, para dar tempo de todos subirem. |
-| `DRAIN_S` | `5` | Depois de `DURATION_S`, tempo em que o nó continua respondendo a pedidos e enviando heartbeats antes de sair. |
+| `DRAIN_S` | `5` | Depois de `DURATION_S`, tempo em que o nó continua respondendo a pedidos antes de sair. |
 | `REQ_INTERVAL_MS` | `200` | Média do intervalo entre o fim de uma região crítica e o próximo pedido, com distribuição exponencial. |
 | `CS_DURATION_MS` | `50` | Espera entre o `READ` e o `WRITE` dentro da região crítica. |
 | `HB_INTERVAL_MS` | `500` | Intervalo `T` entre heartbeats. |
@@ -180,10 +185,11 @@ O mesmo `SEED` produz a mesma carga em execuções diferentes.
 5. Depois de `DURATION_S`:
    - **não faz novos pedidos**;
    - **o detector para de marcar suspeitos**, para que nós encerrando normalmente não sejam confundidos com falhas;
-   - continua respondendo `REQUEST` e enviando heartbeats por `DRAIN_S`.
-6. Registra `STOP` e encerra com código de saída 0.
+   - interrompe a transmissão ativa de novos `HEARTBEAT` (`hb.stop()`);
+   - continua respondendo `REQUEST` pendentes por `DRAIN_S`.
+6. Executa a limpeza dos componentes em bloco `finally`, registra obrigatoriamente `STOP` e encerra com código de saída 0.
 
-**Nós suspeitos (modelo crash-stop):** um par suspeito é tratado como morto para sempre.
+**Nós suspeitos (modelo crash-stop):** um par suspeito é treated como morto para sempre.
 - Não se espera mais `REPLY` dele.
 - Os pedidos dele são removidos da fila de adiados.
 - Mensagens recebidas dele são registradas como `RECV` e ignoradas.
@@ -260,13 +266,6 @@ O nó real (A) precisa cumprir isto, e o verificador (B) testa exatamente isto.
 | **Sem suspeitas falsas** | Em execuções sem `KILL`, não existe nenhum `SUSPECT`. Com `KILL`, só existe `SUSPECT` do nó morto e sempre depois do `KILL`. |
 | **Completude** | Com `KILL` do nó `k`, todo nó que não foi morto registra `SUSPECT` com `peer = k`. |
 
-**Métricas extraídas dos logs**
-- Tempo de espera: `ENTER.t_us − REQUEST.t_us`, mesmo nó e mesmo `req_ts`.
-- Mensagens por entrada: contagem de `SEND` de tipo `REQUEST` e `REPLY`, dividida pelo número de `ENTER`.
-- Tempo de detecção: `SUSPECT.t_us − KILL.t_us`.
-- Suspeitas falsas: `SUSPECT` de um nó que não foi morto.
-- Vazão: número de `EXIT` por segundo, descontado o aquecimento.
-
 ---
 
 ## 11. O que o nó falso (B) deve imitar
@@ -276,8 +275,6 @@ O nó falso respeita as Seções 2, 3, 5, 6, 7 e 8, mas **sem algoritmo nenhum**
 - Acessa o contador de verdade.
 - Envia e recebe heartbeats de verdade.
 
-Como não tem exclusão mútua, ele **deve falhar** no teste de exclusão e de contador quando houver concorrência. Isso também serve para provar que o verificador detecta erros.
-
 ---
 
 ## Histórico de versões
@@ -285,3 +282,4 @@ Como não tem exclusão mútua, ele **deve falhar** no teste de exclusão e de c
 | Versão | Data | Mudança |
 |---|---|---|
 | 1 | 05/11/2026 | Versão inicial. |
+| 2 | 07/11/2026 | Atualização da resiliência do contador (bind em `0.0.0.0`, concorrência multi-thread e retentativas no cliente), desacoplamento do envio de E/S fora dos locks do Ricart-Agrawala, tratamento defensivo (`try...finally`) na Seção Crítica e encerramento garantido de `HEARTBEAT`/`STOP` no ciclo de vida. |
