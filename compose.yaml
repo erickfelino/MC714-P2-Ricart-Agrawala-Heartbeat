@@ -1,0 +1,68 @@
+# Ambiente padrão: 3 nós + contador (CONTRATO.md, Seções 2, 3 e 6).
+#
+# Os parâmetros podem ser trocados por variáveis de ambiente sem editar
+# este arquivo, por exemplo:
+#   SEED=2 HB_TIMEOUT_MS=1000 docker compose up --build -d
+#
+# Os logs de todos os serviços vão para a pasta LOGS_HOST deste computador
+# (padrão: ./results/raw/_dev/logs).
+#
+# Para N diferente de 3, os experimentos usam um compose gerado por script.
+
+name: mc714-ra-hb
+
+x-common: &common
+  build: .
+  image: mc714-ra-hb:latest
+  init: true            # repassa sinais corretamente (docker compose down encerra na hora)
+  volumes:
+    - ${LOGS_HOST:-./results/raw/_dev/logs}:/logs
+
+x-node-env: &node-env
+  PEERS: 1@node1:5000,2@node2:5000,3@node3:5000
+  COUNTER_ADDR: counter:6000
+  LOG_DIR: /logs
+  RUN_ID: ${RUN_ID:-_dev}
+  SEED: ${SEED:-1}
+  DURATION_S: ${DURATION_S:-60}
+  START_DELAY_S: ${START_DELAY_S:-3}
+  DRAIN_S: ${DRAIN_S:-5}
+  REQ_INTERVAL_MS: ${REQ_INTERVAL_MS:-200}
+  CS_DURATION_MS: ${CS_DURATION_MS:-50}
+  HB_INTERVAL_MS: ${HB_INTERVAL_MS:-500}
+  HB_TIMEOUT_MS: ${HB_TIMEOUT_MS:-2000}
+  HB_CHECK_MS: ${HB_CHECK_MS:-100}
+  NET_DELAY_MS: ${NET_DELAY_MS:-0}
+  NET_JITTER_MS: ${NET_JITTER_MS:-0}
+  CONNECT_TIMEOUT_MS: ${CONNECT_TIMEOUT_MS:-1000}
+
+x-node: &node
+  <<: *common
+  command: ["python", "-m", "node"]
+  depends_on: [counter]
+
+services:
+  counter:
+    <<: *common
+    command: ["python", "-m", "counter"]
+    environment:
+      COUNTER_ADDR: counter:6000
+      LOG_DIR: /logs
+
+  node1:
+    <<: *node
+    environment:
+      <<: *node-env
+      NODE_ID: 1
+
+  node2:
+    <<: *node
+    environment:
+      <<: *node-env
+      NODE_ID: 2
+
+  node3:
+    <<: *node
+    environment:
+      <<: *node-env
+      NODE_ID: 3
