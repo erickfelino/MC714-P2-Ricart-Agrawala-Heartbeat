@@ -67,10 +67,11 @@ def main():
         interval_ms = load_rng.expovariate(1.0 / config.REQ_INTERVAL_MS)
         time.sleep(interval_ms / 1000.0)
 
-    # 4. Encerramento (DRAIN_S)
+    # 4. Encerramento (DRAIN_S): para de suspeitar, mas continua mandando
+    # heartbeats e respondendo REQUESTs ate o fim do DRAIN
     hb.disable_suspect_checking()
-    hb.stop()
     time.sleep(config.DRAIN_S)
+    hb.stop()
 
     # 5. Finalizacao
     logger.log("STOP", ra.get_lamport(), reason="duration")

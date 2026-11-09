@@ -1,4 +1,5 @@
 import json
+import queue
 import random
 import socket
 import threading
@@ -20,8 +21,13 @@ class NetworkManager:
         self._sockets_lock = threading.Lock()
         self._peer_sockets: Dict[int, socket.socket] = {}
         
-        # Controle de envio FIFO por destino
-        self._fifo_locks: Dict[int, threading.Lock] = {p: threading.Lock() for p in config.PEERS}
+        # Envio FIFO por destino: uma fila e uma thread de envio para cada par.
+        # O horario de envio e calculado quando a mensagem entra na fila,
+        # entao o atraso injetado nao se acumula entre mensagens.
+        self._enqueue_lock = threading.Lock()
+        self._queues: Dict[int, queue.Queue] = {
+            p: queue.Queue() for p in config.PEERS if p != config.NODE_ID
+        }
         self._last_send_time_us: Dict[int, int] = {p: 0 for p in config.PEERS}
 
     def set_message_handler(self, callback: Callable[[dict], None]):
@@ -36,6 +42,9 @@ class NetworkManager:
         
         t = threading.Thread(target=self._accept_loop, daemon=True)
         t.start()
+
+        for peer in self._queues:
+            threading.Thread(target=self._sender_loop, args=(peer,), daemon=True).start()
 
     def _accept_loop(self):
         while self._running:
@@ -69,13 +78,19 @@ class NetworkManager:
         with self._sockets_lock:
             if to_node in self._peer_sockets:
                 return self._peer_sockets[to_node]
-            
-            host, port = self.config.PEERS[to_node]
-            s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
-            s.settimeout(self.config.CONNECT_TIMEOUT_MS / 1000.0)
+
+        # connect fora do lock global: um par morto nao trava o envio aos outros
+        host, port = self.config.PEERS[to_node]
+        s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+        s.settimeout(self.config.CONNECT_TIMEOUT_MS / 1000.0)
+        try:
             s.connect((host, port))
+        except Exception:
+            s.close()
+            raise
+        with self._sockets_lock:
             self._peer_sockets[to_node] = s
-            return s
+        return s
 
     def _drop_connection(self, to_node: int):
         with self._sockets_lock:
@@ -87,46 +102,40 @@ class NetworkManager:
                     pass
 
     def send_message(self, to_node: int, msg: dict):
-        """Envia mensagem assincronamente injetando atraso artificial e mantendo FIFO."""
-        t = threading.Thread(target=self._send_task, args=(to_node, msg), daemon=True)
-        t.start()
-
-    def _send_task(self, to_node: int, msg: dict):
-        fifo_lock = self._fifo_locks[to_node]
-        
-        with fifo_lock:
-            # Calculo do atraso sintético
+        """Coloca a mensagem na fila do destino com o horario de envio ja calculado."""
+        with self._enqueue_lock:
             delay_ms = self.config.NET_DELAY_MS
             if self.config.NET_JITTER_MS > 0:
                 delay_ms += self.net_rng.uniform(0, self.config.NET_JITTER_MS)
-                
-            delay_us = int(delay_ms * 1000)
             now_us = time.time_ns() // 1000
-            target_send_us = max(now_us + delay_us, self._last_send_time_us[to_node])
+            target_send_us = max(now_us + int(delay_ms * 1000), self._last_send_time_us[to_node])
             self._last_send_time_us[to_node] = target_send_us
-            
-            # Aguarda ate o momento exato de envio
+            self._queues[to_node].put((target_send_us, msg))
+
+    def _sender_loop(self, to_node: int):
+        q = self._queues[to_node]
+        while self._running:
+            try:
+                target_send_us, msg = q.get(timeout=0.5)
+            except queue.Empty:
+                continue
             sleep_us = target_send_us - (time.time_ns() // 1000)
             if sleep_us > 0:
                 time.sleep(sleep_us / 1_000_000.0)
-                
-            # Tentativa de envio TCP
-            try:
-                sock = self._get_connection(to_node)
-                payload = json.dumps(msg, ensure_ascii=False) + "\n"
-                sock.sendall(payload.encode("utf-8"))
-                
-                # Log de SEND
-                extra = {"msg": msg["type"], "to": to_node}
-                if "req_ts" in msg:
-                    extra["req_ts"] = msg["req_ts"]
-                self.logger.log("SEND", self.get_lamport(), **extra)
-            except Exception as e:
-                self._drop_connection(to_node)
-                extra = {"msg": msg["type"], "to": to_node, "error": str(e)}
-                if "req_ts" in msg:
-                    extra["req_ts"] = msg["req_ts"]
-                self.logger.log("SEND_FAIL", self.get_lamport(), **extra)
+            self._deliver(to_node, msg)
+
+    def _deliver(self, to_node: int, msg: dict):
+        extra = {"msg": msg["type"], "to": to_node}
+        if "req_ts" in msg:
+            extra["req_ts"] = msg["req_ts"]
+        try:
+            sock = self._get_connection(to_node)
+            payload = json.dumps(msg, ensure_ascii=False) + "\n"
+            sock.sendall(payload.encode("utf-8"))
+            self.logger.log("SEND", self.get_lamport(), **extra)
+        except Exception as e:
+            self._drop_connection(to_node)
+            self.logger.log("SEND_FAIL", self.get_lamport(), error=str(e), **extra)
 
     def stop(self):
         self._running = False
