@@ -1,6 +1,6 @@
 # CONTRATO.md — Interfaces entre o nó (Pessoa A) e a infraestrutura (Pessoa B)
 
-**Versão:** 3 (10/11/2026)
+**Versão:** 4 (10/11/2026)
 
 Este documento é a referência única entre as duas frentes do trabalho:
 - O **nó** (Pessoa A) deve produzir e consumir exatamente o que está aqui.
@@ -18,7 +18,7 @@ Este documento é a referência única entre as duas frentes do trabalho:
 | IDs dos nós | Inteiros `1..N`. |
 | Codificação | UTF-8. |
 | Serialização na rede | **JSON, um objeto por linha** (terminado em `\n`), via TCP. |
-| Horário nos logs | `t_us` = `time.time_ns() // 1000` (microssegundos, relógio de parede). Todos os contêineres usam o relógio da mesma máquina, então os horários são comparáveis. |
+| Horário nos logs | `t_us` = `time.time_ns() // 1000` (microssegundos, relógio de parede). Todos os contêineres usam o relógio da mesma máquina, então os horários são comparáveis. **Todo `t_us` está no relógio dos contêineres**, inclusive o do `KILL`, que é escrito pelo script no computador e convertido (Seção 9). |
 | Unidades de tempo na configuração | Sufixo indica a unidade: `_MS` = milissegundos, `_S` = segundos. |
 
 ---
@@ -262,7 +262,16 @@ O mesmo `SEED` produz a mesma carga em execuções diferentes.
 {"t_us": 1762358407000000, "event": "KILL", "target": 3}
 ```
 
-**Regra:** registrar `KILL` imediatamente **antes** de executar `docker compose kill node<target>`.
+**Regras**
+- Registrar `KILL` imediatamente **antes** de executar `docker compose kill node<target>`.
+- **O `t_us` do `KILL` precisa estar no relógio dos contêineres.** O injetor roda no computador, fora do Docker. No Windows e no Mac, os contêineres rodam numa máquina virtual cujo relógio pode estar diferente do relógio do computador. Sem correção, o tempo de detecção (`SUSPECT.t_us − KILL.t_us`) mistura os dois relógios.
+- **Correção (método de Cristian):** antes do kill, o injetor estima o deslocamento `θ` entre o relógio dos contêineres e o seu:
+  1. abre um processo dentro do contêiner do contador e faz várias trocas pergunta/resposta com ele;
+  2. em cada troca, anota `t1` (envio), a hora `tc` respondida pelo contêiner e `t2` (resposta recebida);
+  3. supõe que `tc` corresponde ao meio da ida e volta: `θ = tc − (t1 + t2) / 2`;
+  4. fica com a amostra de menor ida e volta (`RTT = t2 − t1`), cujo erro máximo é `RTT / 2`.
+- O `KILL` é gravado com `t_us = hora do computador + θ`. Nenhum relógio é ajustado: só esse horário é corrigido.
+- `θ` e o `RTT` da amostra usada ficam em `run.json` (`clock_offset_us` e `clock_offset_rtt_us`) para cada execução.
 
 ---
 
@@ -295,3 +304,4 @@ O nó (A) precisa cumprir isto, e o verificador (B) testa exatamente isto.
 | 1 | 05/11/2026 | Versão inicial. |
 | 2 | 07/11/2026 | Atualização da resiliência do contador (bind em `0.0.0.0`, concorrência multi-thread e retentativas no cliente), desacoplamento do envio de E/S fora dos locks do Ricart-Agrawala, tratamento defensivo (`try...finally`) na Seção Crítica e encerramento garantido de `HEARTBEAT`/`STOP` no ciclo de vida. |
 | 3 | 10/11/2026 | **Rede:** uma fila e uma thread de envio por destino, com horário de envio calculado ao enfileirar (o atraso injetado não se acumula) e `connect` fora do lock global. **Ciclo de vida:** heartbeats continuam durante o `DRAIN_S` (evita suspeitas falsas no encerramento); `DURATION_S` contado a partir do fim do `START_DELAY_S`, como no código. **Log:** `SEND` não implica entrega; `RECV` de `HEARTBEAT` não é registrado; `EXIT` pode ter `read`/`written` nulos; `last_hb_us` nunca é nulo. **Verificador:** contador comparado só com `EXIT` que escreveram; seção de métricas restaurada. **Estrutura:** contrato na raiz, nó falso removido (o nó real já existe), pastas `tests/`, `results/figures/` e `docs/` adicionadas; imagem Docker contém só `node/` e `counter/`. |
+| 4 | 10/11/2026 | **Relógio do `KILL`:** o `t_us` do injetor passa a ser convertido para o relógio dos contêineres com o método de Cristian (deslocamento estimado pela amostra de menor RTT, erro máximo RTT/2), registrado em `run.json`. |
