@@ -1,0 +1,202 @@
+# Gerado por scripts/gen_compose.py (n=7, run_id=n7-s2)
+services:
+  counter:
+    image: mc714-ra-hb:latest
+    init: true
+    command: ["python", "-m", "counter"]
+    environment:
+      COUNTER_ADDR: "counter:6000"
+      LOG_DIR: "/logs"
+    volumes:
+      - type: bind
+        source: "C:/Users/erick/Documents/MC714 - Sistemas Distribuidos/MC714-P2-Ricart-Agrawala-Heartbeat/results/raw/exp-ra/n7-s2/logs"
+        target: /logs
+  node1:
+    image: mc714-ra-hb:latest
+    init: true
+    command: ["python", "-m", "node"]
+    depends_on: [counter]
+    environment:
+      NODE_ID: "1"
+      PEERS: "1@node1:5000,2@node2:5000,3@node3:5000,4@node4:5000,5@node5:5000,6@node6:5000,7@node7:5000"
+      COUNTER_ADDR: "counter:6000"
+      LOG_DIR: "/logs"
+      RUN_ID: "n7-s2"
+      SEED: "2"
+      DURATION_S: "30.0"
+      START_DELAY_S: "3"
+      DRAIN_S: "5"
+      REQ_INTERVAL_MS: "200"
+      CS_DURATION_MS: "50"
+      HB_INTERVAL_MS: "500"
+      HB_TIMEOUT_MS: "2000"
+      HB_CHECK_MS: "100"
+      NET_DELAY_MS: "0"
+      NET_JITTER_MS: "0"
+      CONNECT_TIMEOUT_MS: "1000"
+    volumes:
+      - type: bind
+        source: "C:/Users/erick/Documents/MC714 - Sistemas Distribuidos/MC714-P2-Ricart-Agrawala-Heartbeat/results/raw/exp-ra/n7-s2/logs"
+        target: /logs
+  node2:
+    image: mc714-ra-hb:latest
+    init: true
+    command: ["python", "-m", "node"]
+    depends_on: [counter]
+    environment:
+      NODE_ID: "2"
+      PEERS: "1@node1:5000,2@node2:5000,3@node3:5000,4@node4:5000,5@node5:5000,6@node6:5000,7@node7:5000"
+      COUNTER_ADDR: "counter:6000"
+      LOG_DIR: "/logs"
+      RUN_ID: "n7-s2"
+      SEED: "2"
+      DURATION_S: "30.0"
+      START_DELAY_S: "3"
+      DRAIN_S: "5"
+      REQ_INTERVAL_MS: "200"
+      CS_DURATION_MS: "50"
+      HB_INTERVAL_MS: "500"
+      HB_TIMEOUT_MS: "2000"
+      HB_CHECK_MS: "100"
+      NET_DELAY_MS: "0"
+      NET_JITTER_MS: "0"
+      CONNECT_TIMEOUT_MS: "1000"
+    volumes:
+      - type: bind
+        source: "C:/Users/erick/Documents/MC714 - Sistemas Distribuidos/MC714-P2-Ricart-Agrawala-Heartbeat/results/raw/exp-ra/n7-s2/logs"
+        target: /logs
+  node3:
+    image: mc714-ra-hb:latest
+    init: true
+    command: ["python", "-m", "node"]
+    depends_on: [counter]
+    environment:
+      NODE_ID: "3"
+      PEERS: "1@node1:5000,2@node2:5000,3@node3:5000,4@node4:5000,5@node5:5000,6@node6:5000,7@node7:5000"
+      COUNTER_ADDR: "counter:6000"
+      LOG_DIR: "/logs"
+      RUN_ID: "n7-s2"
+      SEED: "2"
+      DURATION_S: "30.0"
+      START_DELAY_S: "3"
+      DRAIN_S: "5"
+      REQ_INTERVAL_MS: "200"
+      CS_DURATION_MS: "50"
+      HB_INTERVAL_MS: "500"
+      HB_TIMEOUT_MS: "2000"
+      HB_CHECK_MS: "100"
+      NET_DELAY_MS: "0"
+      NET_JITTER_MS: "0"
+      CONNECT_TIMEOUT_MS: "1000"
+    volumes:
+      - type: bind
+        source: "C:/Users/erick/Documents/MC714 - Sistemas Distribuidos/MC714-P2-Ricart-Agrawala-Heartbeat/results/raw/exp-ra/n7-s2/logs"
+        target: /logs
+  node4:
+    image: mc714-ra-hb:latest
+    init: true
+    command: ["python", "-m", "node"]
+    depends_on: [counter]
+    environment:
+      NODE_ID: "4"
+      PEERS: "1@node1:5000,2@node2:5000,3@node3:5000,4@node4:5000,5@node5:5000,6@node6:5000,7@node7:5000"
+      COUNTER_ADDR: "counter:6000"
+      LOG_DIR: "/logs"
+      RUN_ID: "n7-s2"
+      SEED: "2"
+      DURATION_S: "30.0"
+      START_DELAY_S: "3"
+      DRAIN_S: "5"
+      REQ_INTERVAL_MS: "200"
+      CS_DURATION_MS: "50"
+      HB_INTERVAL_MS: "500"
+      HB_TIMEOUT_MS: "2000"
+      HB_CHECK_MS: "100"
+      NET_DELAY_MS: "0"
+      NET_JITTER_MS: "0"
+      CONNECT_TIMEOUT_MS: "1000"
+    volumes:
+      - type: bind
+        source: "C:/Users/erick/Documents/MC714 - Sistemas Distribuidos/MC714-P2-Ricart-Agrawala-Heartbeat/results/raw/exp-ra/n7-s2/logs"
+        target: /logs
+  node5:
+    image: mc714-ra-hb:latest
+    init: true
+    command: ["python", "-m", "node"]
+    depends_on: [counter]
+    environment:
+      NODE_ID: "5"
+      PEERS: "1@node1:5000,2@node2:5000,3@node3:5000,4@node4:5000,5@node5:5000,6@node6:5000,7@node7:5000"
+      COUNTER_ADDR: "counter:6000"
+      LOG_DIR: "/logs"
+      RUN_ID: "n7-s2"
+      SEED: "2"
+      DURATION_S: "30.0"
+      START_DELAY_S: "3"
+      DRAIN_S: "5"
+      REQ_INTERVAL_MS: "200"
+      CS_DURATION_MS: "50"
+      HB_INTERVAL_MS: "500"
+      HB_TIMEOUT_MS: "2000"
+      HB_CHECK_MS: "100"
+      NET_DELAY_MS: "0"
+      NET_JITTER_MS: "0"
+      CONNECT_TIMEOUT_MS: "1000"
+    volumes:
+      - type: bind
+        source: "C:/Users/erick/Documents/MC714 - Sistemas Distribuidos/MC714-P2-Ricart-Agrawala-Heartbeat/results/raw/exp-ra/n7-s2/logs"
+        target: /logs
+  node6:
+    image: mc714-ra-hb:latest
+    init: true
+    command: ["python", "-m", "node"]
+    depends_on: [counter]
+    environment:
+      NODE_ID: "6"
+      PEERS: "1@node1:5000,2@node2:5000,3@node3:5000,4@node4:5000,5@node5:5000,6@node6:5000,7@node7:5000"
+      COUNTER_ADDR: "counter:6000"
+      LOG_DIR: "/logs"
+      RUN_ID: "n7-s2"
+      SEED: "2"
+      DURATION_S: "30.0"
+      START_DELAY_S: "3"
+      DRAIN_S: "5"
+      REQ_INTERVAL_MS: "200"
+      CS_DURATION_MS: "50"
+      HB_INTERVAL_MS: "500"
+      HB_TIMEOUT_MS: "2000"
+      HB_CHECK_MS: "100"
+      NET_DELAY_MS: "0"
+      NET_JITTER_MS: "0"
+      CONNECT_TIMEOUT_MS: "1000"
+    volumes:
+      - type: bind
+        source: "C:/Users/erick/Documents/MC714 - Sistemas Distribuidos/MC714-P2-Ricart-Agrawala-Heartbeat/results/raw/exp-ra/n7-s2/logs"
+        target: /logs
+  node7:
+    image: mc714-ra-hb:latest
+    init: true
+    command: ["python", "-m", "node"]
+    depends_on: [counter]
+    environment:
+      NODE_ID: "7"
+      PEERS: "1@node1:5000,2@node2:5000,3@node3:5000,4@node4:5000,5@node5:5000,6@node6:5000,7@node7:5000"
+      COUNTER_ADDR: "counter:6000"
+      LOG_DIR: "/logs"
+      RUN_ID: "n7-s2"
+      SEED: "2"
+      DURATION_S: "30.0"
+      START_DELAY_S: "3"
+      DRAIN_S: "5"
+      REQ_INTERVAL_MS: "200"
+      CS_DURATION_MS: "50"
+      HB_INTERVAL_MS: "500"
+      HB_TIMEOUT_MS: "2000"
+      HB_CHECK_MS: "100"
+      NET_DELAY_MS: "0"
+      NET_JITTER_MS: "0"
+      CONNECT_TIMEOUT_MS: "1000"
+    volumes:
+      - type: bind
+        source: "C:/Users/erick/Documents/MC714 - Sistemas Distribuidos/MC714-P2-Ricart-Agrawala-Heartbeat/results/raw/exp-ra/n7-s2/logs"
+        target: /logs

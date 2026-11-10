@@ -1,0 +1,35 @@
+{
+  "name": "hb",
+  "description": "Heartbeat: variação do timeout com atraso de rede variável e um nó morto",
+  "parameter": "HB_TIMEOUT_MS",
+  "levels": [
+    {
+      "label": "t750",
+      "value": 750
+    },
+    {
+      "label": "t1500",
+      "value": 1500
+    },
+    {
+      "label": "t3000",
+      "value": 3000
+    }
+  ],
+  "seeds": [
+    1,
+    2,
+    3,
+    4,
+    5
+  ],
+  "duration_s": 30,
+  "common_args": [
+    "--n",
+    "3",
+    "--kill",
+    "3",
+    "NET_DELAY_MS=100",
+    "NET_JITTER_MS=600"
+  ]
+}

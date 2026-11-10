@@ -332,18 +332,31 @@ def detection_times_ms(run: Run) -> List[dict]:
 
 
 def detection_bounds_ms(run: Run):
-    """Limites teóricos do tempo de detecção (ver docs/plano, Seção 5.2).
+    """Limites teóricos do tempo de detecção, medido do KILL até o SUSPECT.
 
-    O último heartbeat chega até T antes do crash; a suspeita ocorre na
-    primeira checagem depois de "último heartbeat + timeout". Logo:
-        timeout - T  <=  detecção  <=  timeout + atraso máximo + período de checagem
+    Seja K o instante do crash e A a chegada do último heartbeat do nó morto.
+    O nó suspeita na primeira checagem depois de A + timeout, então
+        detecção = A + timeout + (espera pela checagem) - K.
+
+    - A <= K: o atraso injetado acontece dentro do nó, antes de a mensagem
+      sair; heartbeats ainda na fila de atraso morrem junto com o nó.
+      Logo detecção <= timeout + período de checagem.
+    - Heartbeats saem a cada T e cada um sofre atraso em [d, d + jitter];
+      o intervalo entre duas chegadas é no máximo T + jitter, então
+      A >= K - (T + jitter). Logo detecção >= timeout - T - jitter.
+
+        timeout - T - jitter  <=  detecção  <=  timeout + período de checagem
+
+    O valor medido também inclui o tempo que o comando de kill leva para
+    matar o contêiner (o KILL é registrado antes do comando; ver run.json),
+    coberto pela folga DETECTION_SLACK_MS.
     """
     timeout = run.cfg("HB_TIMEOUT_MS", 2000)
     interval = run.cfg("HB_INTERVAL_MS", 500)
     check = run.cfg("HB_CHECK_MS", 100)
-    delay_max = run.cfg("NET_DELAY_MS", 0) + run.cfg("NET_JITTER_MS", 0)
-    low = timeout - interval
-    high = timeout + delay_max + check
+    jitter = run.cfg("NET_JITTER_MS", 0)
+    low = max(0.0, timeout - interval - jitter)
+    high = timeout + check
     return low, high
 
 

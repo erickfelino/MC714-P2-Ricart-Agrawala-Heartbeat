@@ -1,0 +1,6 @@
+# Dependências dos scripts que rodam no computador (fora do Docker).
+# O nó, o contador, o verificador e os scripts de execução usam só a
+# biblioteca padrão. Só a geração de gráficos (scripts/analyze.py) precisa disto.
+#
+#   pip install -r requirements.txt
+matplotlib>=3.8,<4

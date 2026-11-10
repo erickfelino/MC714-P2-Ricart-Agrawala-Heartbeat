@@ -1,0 +1,73 @@
+{
+  "passed": false,
+  "checks": [
+    {
+      "name": "Exclusão mútua",
+      "passed": false,
+      "applicable": true,
+      "summary": "185 entradas na RC, 41 sobreposições",
+      "problems": [
+        "sobreposição: nó 2 na RC de 8.448s a 8.504s e nó 1 entrou em 8.448s",
+        "sobreposição: nó 2 na RC de 10.043s a 10.097s e nó 1 entrou em 10.087s",
+        "sobreposição: nó 2 na RC de 10.219s a 10.281s e nó 1 entrou em 10.280s",
+        "sobreposição: nó 2 na RC de 11.078s a 11.148s e nó 1 entrou em 11.078s",
+        "sobreposição: nó 3 na RC de 11.283s a 11.356s e nó 2 entrou em 11.350s",
+        "sobreposição: nó 1 na RC de 11.488s a 11.554s e nó 2 entrou em 11.496s",
+        "sobreposição: nó 3 na RC de 11.624s a 11.681s e nó 2 entrou em 11.624s",
+        "sobreposição: nó 2 na RC de 11.741s a 11.795s e nó 1 entrou em 11.770s",
+        "sobreposição: nó 1 na RC de 11.916s a 11.985s e nó 3 entrou em 11.958s",
+        "sobreposição: nó 2 na RC de 12.229s a 12.287s e nó 3 entrou em 12.233s",
+        "... e mais 31 sobreposições"
+      ]
+    },
+    {
+      "name": "Contador correto",
+      "passed": false,
+      "applicable": true,
+      "summary": "valor final 151, esperado 185",
+      "problems": [
+        "valor final 151, mas 185 entradas na RC escreveram no contador (185 EXIT com escrita + 0 de nó morto na RC)",
+        "escrita nº 9 foi do valor 8 pelo nó 1 (esperado 9: atualização perdida)"
+      ]
+    },
+    {
+      "name": "Vivacidade",
+      "passed": true,
+      "applicable": true,
+      "summary": "176 pedidos de nós vivos, 176 atendidos",
+      "problems": []
+    },
+    {
+      "name": "Sem suspeitas falsas",
+      "passed": false,
+      "applicable": true,
+      "summary": "6 suspeitas, 6 falsas",
+      "problems": [
+        "nó 1 suspeitou do nó 3 antes do KILL",
+        "nó 1 suspeitou do nó 2, que não foi morto (8.209s)",
+        "nó 2 suspeitou do nó 1, que não foi morto (5.774s)",
+        "nó 2 suspeitou do nó 3 antes do KILL",
+        "nó 3 suspeitou do nó 1, que não foi morto (3.244s)",
+        "nó 3 suspeitou do nó 2, que não foi morto (11.280s)"
+      ]
+    },
+    {
+      "name": "Completude",
+      "passed": true,
+      "applicable": true,
+      "summary": "nós mortos [3], detectados por 2/2 vivos",
+      "problems": []
+    },
+    {
+      "name": "Tempo de detecção",
+      "passed": false,
+      "applicable": true,
+      "summary": "-6067, -4651 ms (teoria: 0 a 850 ms)",
+      "problems": [
+        "nó 1 detectou o nó 3 em -4651 ms, fora do intervalo [0, 850] ms (folga de 1000 ms)",
+        "nó 2 detectou o nó 3 em -6067 ms, fora do intervalo [0, 850] ms (folga de 1000 ms)"
+      ]
+    }
+  ],
+  "warnings": []
+}

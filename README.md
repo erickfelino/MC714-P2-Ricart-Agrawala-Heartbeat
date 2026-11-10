@@ -9,7 +9,8 @@ As interfaces entre as partes (mensagens, logs, configuração) estão em [`CONT
 ## Requisitos
 
 - Docker com Docker Compose v2 (no Windows e no Mac: Docker Desktop aberto).
-- Python 3.8+ no computador, apenas para os scripts e o verificador (só biblioteca padrão).
+- Python 3.8+ no computador, para os scripts e o verificador (só biblioteca padrão).
+- Para os gráficos: `pip install -r requirements.txt` (só o matplotlib; sem ele, a análise gera só tabelas).
 
 Nos comandos abaixo, use `python` no Windows e `python3` no Linux/Mac. Todos são executados na **raiz do repositório**.
 
@@ -33,11 +34,15 @@ scripts/
   gen_compose.py           gera um compose para N nós com uma configuração
   run.py                   roda UMA execução (com falha opcional) e verifica
   correctness.py           os 4 testes de correção (normal/falha de cada algoritmo)
+  experiments.py           os experimentos (um parâmetro em 3 níveis, várias sementes)
+  analyze.py               métricas, tabelas e gráficos dos experimentos
 tests/
   fixtures/                logs de exemplo, corretos e com erros de propósito
   make_fixtures.py         gera os logs de exemplo
   test_checker.py          prova que o verificador detecta cada tipo de erro
 results/raw/<run_id>/      dados brutos de cada execução
+results/analysis/          tabelas (CSV), resumo e ambiente dos experimentos
+results/figures/           gráficos (PNG e PDF) para o relatório
 docs/                      plano do trabalho
 ```
 
@@ -102,7 +107,7 @@ Checa, a partir dos logs (CONTRATO.md, Seção 10):
 | Vivacidade | todo pedido de nó vivo entrou na região crítica; todo nó vivo terminou normalmente |
 | Sem suspeitas falsas | só o nó morto é suspeito, e só depois do `KILL` |
 | Completude | todo nó vivo suspeita do nó morto |
-| Tempo de detecção | dentro de `[timeout − T, timeout + atraso máx. + período de checagem]`, com 1 s de folga |
+| Tempo de detecção | dentro de `[timeout − T − jitter, timeout + período de checagem]`, com 1 s de folga (cobre o tempo do comando de kill) |
 
 Sai com código 0 se tudo passou e 1 se algo falhou.
 
@@ -128,3 +133,31 @@ python scripts/correctness.py
 | `hb-falha` | 5 nós, nó 4 morto, atraso de 20–50 ms | todos os sobreviventes detectam, dentro do prazo teórico |
 
 Resultados em `results/raw/correctness/<cenário>/`.
+
+## Experimentos
+
+```
+python scripts/experiments.py      # ~25 minutos; pode interromper e rodar de novo para continuar
+python scripts/analyze.py
+```
+
+| Experimento | Parâmetro (3 níveis) | Fixo | Métricas | Teoria |
+|---|---|---|---|---|
+| `ra` | N = 3, 5, 7 | sem falhas, sem atraso | espera para entrar na RC (média, desvio, p50/p95/p99), mensagens por entrada, vazão, custo do heartbeat | `2(N−1)` mensagens por entrada; `N(N−1)/T` heartbeats por segundo; espera cresce com N |
+| `hb` | `HB_TIMEOUT_MS` = 750, 1500, 3000 | 3 nós, nó 3 morto, atraso de 100 a 700 ms | tempo de detecção (p50/p95/p99), suspeitas falsas, sobreposições na RC | detecção em `[timeout − T − jitter, timeout + período de checagem]`; timeout curto gera suspeitas falsas, que quebram a exclusão mútua |
+
+Cada nível roda com 5 sementes (`--seeds` muda isso) e 30 s de carga (`--duration`). Os primeiros 2 s de carga de cada execução são descartados como aquecimento.
+
+No experimento `hb`, o nível de 750 ms **falha no verificador de propósito**: com atraso de até 700 ms e heartbeats a cada 500 ms, a hipótese de sincronia parcial deixa de valer, os nós suspeitam uns dos outros sem falha real e entram juntos na região crítica. É a demonstração prática de que a segurança do Ricart-Agrawala com detector depende de o timeout ser maior que os atrasos.
+
+`analyze.py` gera:
+
+| Arquivo | Conteúdo |
+|---|---|
+| `results/analysis/resumo.md` | tabelas prontas para o relatório, comparadas com a teoria |
+| `results/analysis/*_execucoes.csv`, `*_niveis.csv` | métricas por execução e por nível |
+| `results/analysis/ambiente.md` | sistema operacional, processador, versões do Docker e do Python, diferença de relógio medida |
+| `results/figures/ra_espera` | espera (p50/p95/p99) × N |
+| `results/figures/ra_mensagens` | mensagens por entrada × N, com a teoria |
+| `results/figures/hb_deteccao` | tempo de detecção × timeout, com a faixa teórica |
+| `results/figures/hb_seguranca` | suspeitas falsas e sobreposições na RC × timeout |

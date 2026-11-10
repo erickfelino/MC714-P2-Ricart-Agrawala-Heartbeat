@@ -1,0 +1,1003 @@
+{"t_us": 1794312957398017, "node": 2, "event": "START", "lamport": 0, "config": {"NODE_ID": 2, "PEERS": "1@node1:5000,2@node2:5000,3@node3:5000", "COUNTER_ADDR": "counter:6000", "LOG_DIR": "/logs", "RUN_ID": "n3-s1", "SEED": 1, "DURATION_S": 30.0, "START_DELAY_S": 3.0, "DRAIN_S": 5.0, "REQ_INTERVAL_MS": 200.0, "CS_DURATION_MS": 50.0, "HB_INTERVAL_MS": 500.0, "HB_TIMEOUT_MS": 2000.0, "HB_CHECK_MS": 100.0, "NET_DELAY_MS": 0.0, "NET_JITTER_MS": 0.0, "CONNECT_TIMEOUT_MS": 1000.0}}
+{"t_us": 1794312957400751, "node": 2, "event": "SEND", "lamport": 0, "msg": "HEARTBEAT", "to": 3}
+{"t_us": 1794312957900563, "node": 2, "event": "SEND", "lamport": 0, "msg": "HEARTBEAT", "to": 3}
+{"t_us": 1794312958400646, "node": 2, "event": "SEND", "lamport": 0, "msg": "HEARTBEAT", "to": 3}
+{"t_us": 1794312958901568, "node": 2, "event": "SEND", "lamport": 0, "msg": "HEARTBEAT", "to": 3}
+{"t_us": 1794312959401392, "node": 2, "event": "SEND", "lamport": 0, "msg": "HEARTBEAT", "to": 3}
+{"t_us": 1794312959901985, "node": 2, "event": "SEND", "lamport": 0, "msg": "HEARTBEAT", "to": 3}
+{"t_us": 1794312960309709, "node": 2, "event": "RECV", "lamport": 2, "msg": "REQUEST", "from": 3, "req_ts": 1}
+{"t_us": 1794312960310869, "node": 2, "event": "SEND", "lamport": 3, "msg": "REPLY", "to": 3, "req_ts": 1}
+{"t_us": 1794312960400728, "node": 2, "event": "REQUEST", "lamport": 4, "req_ts": 4}
+{"t_us": 1794312960406732, "node": 2, "event": "SEND", "lamport": 4, "msg": "HEARTBEAT", "to": 3}
+{"t_us": 1794312960408500, "node": 2, "event": "SEND", "lamport": 4, "msg": "REQUEST", "to": 3, "req_ts": 4}
+{"t_us": 1794312960537559, "node": 2, "event": "RECV", "lamport": 5, "msg": "REQUEST", "from": 1, "req_ts": 1}
+{"t_us": 1794312960902341, "node": 2, "event": "SEND", "lamport": 6, "msg": "HEARTBEAT", "to": 3}
+{"t_us": 1794312961402258, "node": 2, "event": "SEND", "lamport": 6, "msg": "HEARTBEAT", "to": 1}
+{"t_us": 1794312961402529, "node": 2, "event": "SEND", "lamport": 6, "msg": "HEARTBEAT", "to": 3}
+{"t_us": 1794312961403310, "node": 2, "event": "SEND", "lamport": 6, "msg": "HEARTBEAT", "to": 1}
+{"t_us": 1794312961411246, "node": 2, "event": "SEND", "lamport": 6, "msg": "HEARTBEAT", "to": 1}
+{"t_us": 1794312961412366, "node": 2, "event": "SEND", "lamport": 6, "msg": "HEARTBEAT", "to": 1}
+{"t_us": 1794312961413516, "node": 2, "event": "SEND", "lamport": 6, "msg": "HEARTBEAT", "to": 1}
+{"t_us": 1794312961415034, "node": 2, "event": "SEND", "lamport": 6, "msg": "HEARTBEAT", "to": 1}
+{"t_us": 1794312961431992, "node": 2, "event": "SEND", "lamport": 6, "msg": "HEARTBEAT", "to": 1}
+{"t_us": 1794312961434989, "node": 2, "event": "SEND", "lamport": 6, "msg": "REQUEST", "to": 1, "req_ts": 4}
+{"t_us": 1794312961436089, "node": 2, "event": "SEND", "lamport": 6, "msg": "REPLY", "to": 1, "req_ts": 1}
+{"t_us": 1794312961438166, "node": 2, "event": "SEND", "lamport": 6, "msg": "HEARTBEAT", "to": 1}
+{"t_us": 1794312961440683, "node": 2, "event": "SEND", "lamport": 6, "msg": "HEARTBEAT", "to": 1}
+{"t_us": 1794312961499637, "node": 2, "event": "RECV", "lamport": 13, "msg": "REPLY", "from": 1, "req_ts": 4}
+{"t_us": 1794312961573274, "node": 2, "event": "RECV", "lamport": 14, "msg": "REPLY", "from": 3, "req_ts": 4}
+{"t_us": 1794312961575488, "node": 2, "event": "ENTER", "lamport": 14, "req_ts": 4}
+{"t_us": 1794312961612507, "node": 2, "event": "RECV", "lamport": 15, "msg": "REQUEST", "from": 3, "req_ts": 14}
+{"t_us": 1794312961638870, "node": 2, "event": "EXIT", "lamport": 15, "req_ts": 4, "read": 2, "written": 3}
+{"t_us": 1794312961640668, "node": 2, "event": "SEND", "lamport": 16, "msg": "REPLY", "to": 3, "req_ts": 14}
+{"t_us": 1794312961678616, "node": 2, "event": "RECV", "lamport": 18, "msg": "REQUEST", "from": 1, "req_ts": 17}
+{"t_us": 1794312961680959, "node": 2, "event": "SEND", "lamport": 19, "msg": "REPLY", "to": 1, "req_ts": 17}
+{"t_us": 1794312961772146, "node": 2, "event": "RECV", "lamport": 22, "msg": "REQUEST", "from": 3, "req_ts": 21}
+{"t_us": 1794312961790570, "node": 2, "event": "SEND", "lamport": 23, "msg": "REPLY", "to": 3, "req_ts": 21}
+{"t_us": 1794312961903411, "node": 2, "event": "SEND", "lamport": 23, "msg": "HEARTBEAT", "to": 1}
+{"t_us": 1794312961903639, "node": 2, "event": "SEND", "lamport": 23, "msg": "HEARTBEAT", "to": 3}
+{"t_us": 1794312961941832, "node": 2, "event": "RECV", "lamport": 27, "msg": "REQUEST", "from": 3, "req_ts": 26}
+{"t_us": 1794312961957946, "node": 2, "event": "SEND", "lamport": 28, "msg": "REPLY", "to": 3, "req_ts": 26}
+{"t_us": 1794312962152888, "node": 2, "event": "RECV", "lamport": 30, "msg": "REQUEST", "from": 1, "req_ts": 29}
+{"t_us": 1794312962159028, "node": 2, "event": "SEND", "lamport": 31, "msg": "REPLY", "to": 1, "req_ts": 29}
+{"t_us": 1794312962338511, "node": 2, "event": "REQUEST", "lamport": 32, "req_ts": 32}
+{"t_us": 1794312962567693, "node": 2, "event": "SEND", "lamport": 32, "msg": "HEARTBEAT", "to": 3}
+{"t_us": 1794312962567821, "node": 2, "event": "SEND", "lamport": 32, "msg": "HEARTBEAT", "to": 1}
+{"t_us": 1794312962602658, "node": 2, "event": "SEND", "lamport": 32, "msg": "REQUEST", "to": 3, "req_ts": 32}
+{"t_us": 1794312962607841, "node": 2, "event": "RECV", "lamport": 34, "msg": "REQUEST", "from": 3, "req_ts": 33}
+{"t_us": 1794312962629483, "node": 2, "event": "RECV", "lamport": 36, "msg": "REPLY", "from": 3, "req_ts": 32}
+{"t_us": 1794312962633745, "node": 2, "event": "SEND", "lamport": 36, "msg": "REQUEST", "to": 1, "req_ts": 32}
+{"t_us": 1794312962657231, "node": 2, "event": "RECV", "lamport": 39, "msg": "REPLY", "from": 1, "req_ts": 32}
+{"t_us": 1794312962659807, "node": 2, "event": "ENTER", "lamport": 39, "req_ts": 32}
+{"t_us": 1794312962720475, "node": 2, "event": "EXIT", "lamport": 39, "req_ts": 32, "read": 8, "written": 9}
+{"t_us": 1794312962725710, "node": 2, "event": "SEND", "lamport": 40, "msg": "REPLY", "to": 3, "req_ts": 33}
+{"t_us": 1794312962893883, "node": 2, "event": "REQUEST", "lamport": 41, "req_ts": 41}
+{"t_us": 1794312962896165, "node": 2, "event": "SEND", "lamport": 41, "msg": "REQUEST", "to": 3, "req_ts": 41}
+{"t_us": 1794312962896330, "node": 2, "event": "SEND", "lamport": 41, "msg": "REQUEST", "to": 1, "req_ts": 41}
+{"t_us": 1794312962898505, "node": 2, "event": "RECV", "lamport": 44, "msg": "REPLY", "from": 3, "req_ts": 41}
+{"t_us": 1794312962925569, "node": 2, "event": "SEND", "lamport": 44, "msg": "HEARTBEAT", "to": 3}
+{"t_us": 1794312962925700, "node": 2, "event": "RECV", "lamport": 45, "msg": "REPLY", "from": 1, "req_ts": 41}
+{"t_us": 1794312962929060, "node": 2, "event": "ENTER", "lamport": 45, "req_ts": 41}
+{"t_us": 1794312962930649, "node": 2, "event": "SEND", "lamport": 45, "msg": "HEARTBEAT", "to": 1}
+{"t_us": 1794312962985010, "node": 2, "event": "EXIT", "lamport": 45, "req_ts": 41, "read": 10, "written": 11}
+{"t_us": 1794312963060663, "node": 2, "event": "RECV", "lamport": 46, "msg": "REQUEST", "from": 3, "req_ts": 44}
+{"t_us": 1794312963074428, "node": 2, "event": "SEND", "lamport": 47, "msg": "REPLY", "to": 3, "req_ts": 44}
+{"t_us": 1794312963147942, "node": 2, "event": "RECV", "lamport": 48, "msg": "REQUEST", "from": 1, "req_ts": 47}
+{"t_us": 1794312963149037, "node": 2, "event": "SEND", "lamport": 49, "msg": "REPLY", "to": 1, "req_ts": 47}
+{"t_us": 1794312963257506, "node": 2, "event": "RECV", "lamport": 53, "msg": "REQUEST", "from": 1, "req_ts": 52}
+{"t_us": 1794312963272770, "node": 2, "event": "SEND", "lamport": 54, "msg": "REPLY", "to": 1, "req_ts": 52}
+{"t_us": 1794312963275381, "node": 2, "event": "RECV", "lamport": 56, "msg": "REQUEST", "from": 3, "req_ts": 55}
+{"t_us": 1794312963278081, "node": 2, "event": "SEND", "lamport": 57, "msg": "REPLY", "to": 3, "req_ts": 55}
+{"t_us": 1794312963403927, "node": 2, "event": "SEND", "lamport": 57, "msg": "HEARTBEAT", "to": 3}
+{"t_us": 1794312963404185, "node": 2, "event": "SEND", "lamport": 57, "msg": "HEARTBEAT", "to": 1}
+{"t_us": 1794312963443556, "node": 2, "event": "REQUEST", "lamport": 58, "req_ts": 58}
+{"t_us": 1794312963449019, "node": 2, "event": "SEND", "lamport": 58, "msg": "REQUEST", "to": 1, "req_ts": 58}
+{"t_us": 1794312963449135, "node": 2, "event": "RECV", "lamport": 60, "msg": "REQUEST", "from": 1, "req_ts": 59}
+{"t_us": 1794312963454036, "node": 2, "event": "SEND", "lamport": 60, "msg": "REQUEST", "to": 3, "req_ts": 58}
+{"t_us": 1794312963454144, "node": 2, "event": "RECV", "lamport": 62, "msg": "REPLY", "from": 3, "req_ts": 58}
+{"t_us": 1794312963459030, "node": 2, "event": "RECV", "lamport": 63, "msg": "REPLY", "from": 1, "req_ts": 58}
+{"t_us": 1794312963460735, "node": 2, "event": "ENTER", "lamport": 63, "req_ts": 58}
+{"t_us": 1794312963528233, "node": 2, "event": "EXIT", "lamport": 63, "req_ts": 58, "read": 15, "written": 16}
+{"t_us": 1794312963529210, "node": 2, "event": "SEND", "lamport": 64, "msg": "REPLY", "to": 1, "req_ts": 59}
+{"t_us": 1794312963540825, "node": 2, "event": "REQUEST", "lamport": 65, "req_ts": 65}
+{"t_us": 1794312963542430, "node": 2, "event": "SEND", "lamport": 65, "msg": "REQUEST", "to": 3, "req_ts": 65}
+{"t_us": 1794312963542479, "node": 2, "event": "SEND", "lamport": 65, "msg": "REQUEST", "to": 1, "req_ts": 65}
+{"t_us": 1794312963544384, "node": 2, "event": "RECV", "lamport": 68, "msg": "REPLY", "from": 3, "req_ts": 65}
+{"t_us": 1794312963598949, "node": 2, "event": "RECV", "lamport": 69, "msg": "REPLY", "from": 1, "req_ts": 65}
+{"t_us": 1794312963602315, "node": 2, "event": "ENTER", "lamport": 69, "req_ts": 65}
+{"t_us": 1794312963604980, "node": 2, "event": "RECV", "lamport": 70, "msg": "REQUEST", "from": 1, "req_ts": 68}
+{"t_us": 1794312963660251, "node": 2, "event": "EXIT", "lamport": 70, "req_ts": 65, "read": 17, "written": 18}
+{"t_us": 1794312963662637, "node": 2, "event": "SEND", "lamport": 71, "msg": "REPLY", "to": 1, "req_ts": 68}
+{"t_us": 1794312963904087, "node": 2, "event": "SEND", "lamport": 71, "msg": "HEARTBEAT", "to": 1}
+{"t_us": 1794312963904207, "node": 2, "event": "SEND", "lamport": 71, "msg": "HEARTBEAT", "to": 3}
+{"t_us": 1794312964070817, "node": 2, "event": "RECV", "lamport": 74, "msg": "REQUEST", "from": 1, "req_ts": 73}
+{"t_us": 1794312964079149, "node": 2, "event": "SEND", "lamport": 75, "msg": "REPLY", "to": 1, "req_ts": 73}
+{"t_us": 1794312964080106, "node": 2, "event": "REQUEST", "lamport": 76, "req_ts": 76}
+{"t_us": 1794312964090385, "node": 2, "event": "SEND", "lamport": 76, "msg": "REQUEST", "to": 1, "req_ts": 76}
+{"t_us": 1794312964090524, "node": 2, "event": "SEND", "lamport": 76, "msg": "REQUEST", "to": 3, "req_ts": 76}
+{"t_us": 1794312964096192, "node": 2, "event": "RECV", "lamport": 79, "msg": "REPLY", "from": 3, "req_ts": 76}
+{"t_us": 1794312964173696, "node": 2, "event": "RECV", "lamport": 80, "msg": "REPLY", "from": 1, "req_ts": 76}
+{"t_us": 1794312964176907, "node": 2, "event": "ENTER", "lamport": 80, "req_ts": 76}
+{"t_us": 1794312964208271, "node": 2, "event": "RECV", "lamport": 81, "msg": "REQUEST", "from": 3, "req_ts": 79}
+{"t_us": 1794312964233236, "node": 2, "event": "EXIT", "lamport": 81, "req_ts": 76, "read": 20, "written": 21}
+{"t_us": 1794312964235511, "node": 2, "event": "SEND", "lamport": 82, "msg": "REPLY", "to": 3, "req_ts": 79}
+{"t_us": 1794312964316523, "node": 2, "event": "REQUEST", "lamport": 83, "req_ts": 83}
+{"t_us": 1794312964318476, "node": 2, "event": "SEND", "lamport": 83, "msg": "REQUEST", "to": 3, "req_ts": 83}
+{"t_us": 1794312964318515, "node": 2, "event": "SEND", "lamport": 83, "msg": "REQUEST", "to": 1, "req_ts": 83}
+{"t_us": 1794312964320584, "node": 2, "event": "RECV", "lamport": 86, "msg": "REPLY", "from": 3, "req_ts": 83}
+{"t_us": 1794312964324441, "node": 2, "event": "RECV", "lamport": 87, "msg": "REPLY", "from": 1, "req_ts": 83}
+{"t_us": 1794312964326144, "node": 2, "event": "ENTER", "lamport": 87, "req_ts": 83}
+{"t_us": 1794312964356137, "node": 2, "event": "RECV", "lamport": 88, "msg": "REQUEST", "from": 3, "req_ts": 86}
+{"t_us": 1794312964371035, "node": 2, "event": "RECV", "lamport": 90, "msg": "REQUEST", "from": 1, "req_ts": 89}
+{"t_us": 1794312964385302, "node": 2, "event": "EXIT", "lamport": 90, "req_ts": 83, "read": 22, "written": 23}
+{"t_us": 1794312964387689, "node": 2, "event": "SEND", "lamport": 92, "msg": "REPLY", "to": 3, "req_ts": 86}
+{"t_us": 1794312964387760, "node": 2, "event": "SEND", "lamport": 92, "msg": "REPLY", "to": 1, "req_ts": 89}
+{"t_us": 1794312964404533, "node": 2, "event": "SEND", "lamport": 92, "msg": "HEARTBEAT", "to": 1}
+{"t_us": 1794312964404639, "node": 2, "event": "SEND", "lamport": 92, "msg": "HEARTBEAT", "to": 3}
+{"t_us": 1794312964557088, "node": 2, "event": "RECV", "lamport": 96, "msg": "REQUEST", "from": 1, "req_ts": 95}
+{"t_us": 1794312964559953, "node": 2, "event": "SEND", "lamport": 97, "msg": "REPLY", "to": 1, "req_ts": 95}
+{"t_us": 1794312964676005, "node": 2, "event": "RECV", "lamport": 101, "msg": "REQUEST", "from": 1, "req_ts": 100}
+{"t_us": 1794312964678436, "node": 2, "event": "SEND", "lamport": 102, "msg": "REPLY", "to": 1, "req_ts": 100}
+{"t_us": 1794312964695540, "node": 2, "event": "REQUEST", "lamport": 103, "req_ts": 103}
+{"t_us": 1794312964697123, "node": 2, "event": "SEND", "lamport": 103, "msg": "REQUEST", "to": 1, "req_ts": 103}
+{"t_us": 1794312964697171, "node": 2, "event": "SEND", "lamport": 103, "msg": "REQUEST", "to": 3, "req_ts": 103}
+{"t_us": 1794312964698678, "node": 2, "event": "RECV", "lamport": 106, "msg": "REPLY", "from": 3, "req_ts": 103}
+{"t_us": 1794312964739867, "node": 2, "event": "RECV", "lamport": 107, "msg": "REPLY", "from": 1, "req_ts": 103}
+{"t_us": 1794312964742977, "node": 2, "event": "ENTER", "lamport": 107, "req_ts": 103}
+{"t_us": 1794312964804732, "node": 2, "event": "EXIT", "lamport": 107, "req_ts": 103, "read": 27, "written": 28}
+{"t_us": 1794312964872350, "node": 2, "event": "RECV", "lamport": 108, "msg": "REQUEST", "from": 3, "req_ts": 106}
+{"t_us": 1794312964899999, "node": 2, "event": "SEND", "lamport": 109, "msg": "REPLY", "to": 3, "req_ts": 106}
+{"t_us": 1794312964904940, "node": 2, "event": "SEND", "lamport": 109, "msg": "HEARTBEAT", "to": 1}
+{"t_us": 1794312964910311, "node": 2, "event": "SEND", "lamport": 109, "msg": "HEARTBEAT", "to": 3}
+{"t_us": 1794312964926657, "node": 2, "event": "RECV", "lamport": 110, "msg": "REQUEST", "from": 1, "req_ts": 109}
+{"t_us": 1794312964929038, "node": 2, "event": "SEND", "lamport": 111, "msg": "REPLY", "to": 1, "req_ts": 109}
+{"t_us": 1794312964965537, "node": 2, "event": "REQUEST", "lamport": 112, "req_ts": 112}
+{"t_us": 1794312964967233, "node": 2, "event": "SEND", "lamport": 112, "msg": "REQUEST", "to": 3, "req_ts": 112}
+{"t_us": 1794312964967251, "node": 2, "event": "SEND", "lamport": 112, "msg": "REQUEST", "to": 1, "req_ts": 112}
+{"t_us": 1794312964986290, "node": 2, "event": "RECV", "lamport": 116, "msg": "REPLY", "from": 3, "req_ts": 112}
+{"t_us": 1794312965038921, "node": 2, "event": "RECV", "lamport": 117, "msg": "REQUEST", "from": 3, "req_ts": 116}
+{"t_us": 1794312965045125, "node": 2, "event": "RECV", "lamport": 119, "msg": "REPLY", "from": 1, "req_ts": 112}
+{"t_us": 1794312965046773, "node": 2, "event": "ENTER", "lamport": 119, "req_ts": 112}
+{"t_us": 1794312965102493, "node": 2, "event": "EXIT", "lamport": 119, "req_ts": 112, "read": 30, "written": 31}
+{"t_us": 1794312965104314, "node": 2, "event": "SEND", "lamport": 120, "msg": "REPLY", "to": 3, "req_ts": 116}
+{"t_us": 1794312965168079, "node": 2, "event": "REQUEST", "lamport": 121, "req_ts": 121}
+{"t_us": 1794312965184558, "node": 2, "event": "SEND", "lamport": 121, "msg": "REQUEST", "to": 3, "req_ts": 121}
+{"t_us": 1794312965184865, "node": 2, "event": "SEND", "lamport": 121, "msg": "REQUEST", "to": 1, "req_ts": 121}
+{"t_us": 1794312965197463, "node": 2, "event": "RECV", "lamport": 124, "msg": "REPLY", "from": 1, "req_ts": 121}
+{"t_us": 1794312965216064, "node": 2, "event": "RECV", "lamport": 125, "msg": "REPLY", "from": 3, "req_ts": 121}
+{"t_us": 1794312965226610, "node": 2, "event": "ENTER", "lamport": 125, "req_ts": 121}
+{"t_us": 1794312965304873, "node": 2, "event": "RECV", "lamport": 126, "msg": "REQUEST", "from": 1, "req_ts": 124}
+{"t_us": 1794312965313516, "node": 2, "event": "EXIT", "lamport": 126, "req_ts": 121, "read": 32, "written": 33}
+{"t_us": 1794312965331869, "node": 2, "event": "SEND", "lamport": 127, "msg": "REPLY", "to": 1, "req_ts": 124}
+{"t_us": 1794312965338470, "node": 2, "event": "RECV", "lamport": 128, "msg": "REQUEST", "from": 3, "req_ts": 127}
+{"t_us": 1794312965360726, "node": 2, "event": "REQUEST", "lamport": 130, "req_ts": 130}
+{"t_us": 1794312965367617, "node": 2, "event": "SEND", "lamport": 130, "msg": "REPLY", "to": 3, "req_ts": 127}
+{"t_us": 1794312965368063, "node": 2, "event": "SEND", "lamport": 130, "msg": "REQUEST", "to": 1, "req_ts": 130}
+{"t_us": 1794312965373001, "node": 2, "event": "SEND", "lamport": 130, "msg": "REQUEST", "to": 3, "req_ts": 130}
+{"t_us": 1794312965404953, "node": 2, "event": "SEND", "lamport": 130, "msg": "HEARTBEAT", "to": 1}
+{"t_us": 1794312965405043, "node": 2, "event": "SEND", "lamport": 130, "msg": "HEARTBEAT", "to": 3}
+{"t_us": 1794312965536222, "node": 2, "event": "RECV", "lamport": 134, "msg": "REPLY", "from": 1, "req_ts": 130}
+{"t_us": 1794312965594946, "node": 2, "event": "RECV", "lamport": 136, "msg": "REQUEST", "from": 1, "req_ts": 135}
+{"t_us": 1794312965597597, "node": 2, "event": "RECV", "lamport": 137, "msg": "REPLY", "from": 3, "req_ts": 130}
+{"t_us": 1794312965598629, "node": 2, "event": "ENTER", "lamport": 137, "req_ts": 130}
+{"t_us": 1794312965669681, "node": 2, "event": "EXIT", "lamport": 137, "req_ts": 130, "read": 35, "written": 36}
+{"t_us": 1794312965684967, "node": 2, "event": "SEND", "lamport": 138, "msg": "REPLY", "to": 1, "req_ts": 135}
+{"t_us": 1794312965728540, "node": 2, "event": "REQUEST", "lamport": 139, "req_ts": 139}
+{"t_us": 1794312965731638, "node": 2, "event": "RECV", "lamport": 140, "msg": "REQUEST", "from": 3, "req_ts": 139}
+{"t_us": 1794312965733919, "node": 2, "event": "SEND", "lamport": 140, "msg": "REQUEST", "to": 3, "req_ts": 139}
+{"t_us": 1794312965734051, "node": 2, "event": "SEND", "lamport": 140, "msg": "REQUEST", "to": 1, "req_ts": 139}
+{"t_us": 1794312965736394, "node": 2, "event": "RECV", "lamport": 142, "msg": "REPLY", "from": 3, "req_ts": 139}
+{"t_us": 1794312965744777, "node": 2, "event": "RECV", "lamport": 145, "msg": "REPLY", "from": 1, "req_ts": 139}
+{"t_us": 1794312965747959, "node": 2, "event": "ENTER", "lamport": 145, "req_ts": 139}
+{"t_us": 1794312965757214, "node": 2, "event": "RECV", "lamport": 146, "msg": "REQUEST", "from": 1, "req_ts": 145}
+{"t_us": 1794312965804925, "node": 2, "event": "EXIT", "lamport": 146, "req_ts": 139, "read": 37, "written": 38}
+{"t_us": 1794312965806677, "node": 2, "event": "SEND", "lamport": 148, "msg": "REPLY", "to": 1, "req_ts": 145}
+{"t_us": 1794312965806759, "node": 2, "event": "SEND", "lamport": 148, "msg": "REPLY", "to": 3, "req_ts": 139}
+{"t_us": 1794312965827332, "node": 2, "event": "REQUEST", "lamport": 149, "req_ts": 149}
+{"t_us": 1794312965828907, "node": 2, "event": "SEND", "lamport": 149, "msg": "REQUEST", "to": 3, "req_ts": 149}
+{"t_us": 1794312965828940, "node": 2, "event": "SEND", "lamport": 149, "msg": "REQUEST", "to": 1, "req_ts": 149}
+{"t_us": 1794312965872328, "node": 2, "event": "RECV", "lamport": 153, "msg": "REPLY", "from": 3, "req_ts": 149}
+{"t_us": 1794312965891037, "node": 2, "event": "RECV", "lamport": 154, "msg": "REQUEST", "from": 3, "req_ts": 153}
+{"t_us": 1794312965905333, "node": 2, "event": "SEND", "lamport": 154, "msg": "HEARTBEAT", "to": 3}
+{"t_us": 1794312965905452, "node": 2, "event": "SEND", "lamport": 154, "msg": "HEARTBEAT", "to": 1}
+{"t_us": 1794312965938382, "node": 2, "event": "RECV", "lamport": 156, "msg": "REPLY", "from": 1, "req_ts": 149}
+{"t_us": 1794312965941703, "node": 2, "event": "ENTER", "lamport": 156, "req_ts": 149}
+{"t_us": 1794312965999997, "node": 2, "event": "EXIT", "lamport": 156, "req_ts": 149, "read": 40, "written": 41}
+{"t_us": 1794312966001704, "node": 2, "event": "SEND", "lamport": 157, "msg": "REPLY", "to": 3, "req_ts": 153}
+{"t_us": 1794312966155560, "node": 2, "event": "RECV", "lamport": 158, "msg": "REQUEST", "from": 1, "req_ts": 157}
+{"t_us": 1794312966157813, "node": 2, "event": "SEND", "lamport": 159, "msg": "REPLY", "to": 1, "req_ts": 157}
+{"t_us": 1794312966259594, "node": 2, "event": "RECV", "lamport": 163, "msg": "REQUEST", "from": 1, "req_ts": 162}
+{"t_us": 1794312966262349, "node": 2, "event": "SEND", "lamport": 164, "msg": "REPLY", "to": 1, "req_ts": 162}
+{"t_us": 1794312966293797, "node": 2, "event": "RECV", "lamport": 166, "msg": "REQUEST", "from": 3, "req_ts": 165}
+{"t_us": 1794312966296342, "node": 2, "event": "SEND", "lamport": 167, "msg": "REPLY", "to": 3, "req_ts": 165}
+{"t_us": 1794312966320665, "node": 2, "event": "REQUEST", "lamport": 168, "req_ts": 168}
+{"t_us": 1794312966322415, "node": 2, "event": "SEND", "lamport": 168, "msg": "REQUEST", "to": 1, "req_ts": 168}
+{"t_us": 1794312966322462, "node": 2, "event": "SEND", "lamport": 168, "msg": "REQUEST", "to": 3, "req_ts": 168}
+{"t_us": 1794312966339542, "node": 2, "event": "RECV", "lamport": 172, "msg": "REPLY", "from": 1, "req_ts": 168}
+{"t_us": 1794312966398779, "node": 2, "event": "RECV", "lamport": 173, "msg": "REPLY", "from": 3, "req_ts": 168}
+{"t_us": 1794312966400774, "node": 2, "event": "ENTER", "lamport": 173, "req_ts": 168}
+{"t_us": 1794312966406950, "node": 2, "event": "SEND", "lamport": 173, "msg": "HEARTBEAT", "to": 3}
+{"t_us": 1794312966407034, "node": 2, "event": "SEND", "lamport": 173, "msg": "HEARTBEAT", "to": 1}
+{"t_us": 1794312966465534, "node": 2, "event": "EXIT", "lamport": 173, "req_ts": 168, "read": 45, "written": 46}
+{"t_us": 1794312966495299, "node": 2, "event": "RECV", "lamport": 174, "msg": "REQUEST", "from": 3, "req_ts": 173}
+{"t_us": 1794312966499863, "node": 2, "event": "SEND", "lamport": 175, "msg": "REPLY", "to": 3, "req_ts": 173}
+{"t_us": 1794312966609535, "node": 2, "event": "REQUEST", "lamport": 176, "req_ts": 176}
+{"t_us": 1794312966661276, "node": 2, "event": "SEND", "lamport": 176, "msg": "REQUEST", "to": 3, "req_ts": 176}
+{"t_us": 1794312966661358, "node": 2, "event": "SEND", "lamport": 176, "msg": "REQUEST", "to": 1, "req_ts": 176}
+{"t_us": 1794312966689381, "node": 2, "event": "RECV", "lamport": 177, "msg": "REQUEST", "from": 1, "req_ts": 176}
+{"t_us": 1794312966916718, "node": 2, "event": "SEND", "lamport": 178, "msg": "HEARTBEAT", "to": 3}
+{"t_us": 1794312966916865, "node": 2, "event": "SEND", "lamport": 178, "msg": "HEARTBEAT", "to": 1}
+{"t_us": 1794312966938463, "node": 2, "event": "SEND", "lamport": 178, "msg": "REPLY", "to": 1, "req_ts": 176}
+{"t_us": 1794312966938647, "node": 2, "event": "RECV", "lamport": 180, "msg": "REPLY", "from": 3, "req_ts": 176}
+{"t_us": 1794312967054385, "node": 2, "event": "RECV", "lamport": 185, "msg": "REPLY", "from": 1, "req_ts": 176}
+{"t_us": 1794312967055991, "node": 2, "event": "ENTER", "lamport": 185, "req_ts": 176}
+{"t_us": 1794312967112030, "node": 2, "event": "EXIT", "lamport": 185, "req_ts": 176, "read": 48, "written": 49}
+{"t_us": 1794312967147392, "node": 2, "event": "RECV", "lamport": 186, "msg": "REQUEST", "from": 3, "req_ts": 182}
+{"t_us": 1794312967150740, "node": 2, "event": "SEND", "lamport": 187, "msg": "REPLY", "to": 3, "req_ts": 182}
+{"t_us": 1794312967190576, "node": 2, "event": "REQUEST", "lamport": 188, "req_ts": 188}
+{"t_us": 1794312967205043, "node": 2, "event": "SEND", "lamport": 188, "msg": "REQUEST", "to": 1, "req_ts": 188}
+{"t_us": 1794312967205091, "node": 2, "event": "SEND", "lamport": 188, "msg": "REQUEST", "to": 3, "req_ts": 188}
+{"t_us": 1794312967207447, "node": 2, "event": "RECV", "lamport": 191, "msg": "REPLY", "from": 1, "req_ts": 188}
+{"t_us": 1794312967226946, "node": 2, "event": "RECV", "lamport": 192, "msg": "REQUEST", "from": 1, "req_ts": 191}
+{"t_us": 1794312967269162, "node": 2, "event": "RECV", "lamport": 194, "msg": "REPLY", "from": 3, "req_ts": 188}
+{"t_us": 1794312967271154, "node": 2, "event": "ENTER", "lamport": 194, "req_ts": 188}
+{"t_us": 1794312967326929, "node": 2, "event": "EXIT", "lamport": 194, "req_ts": 188, "read": 50, "written": 51}
+{"t_us": 1794312967328279, "node": 2, "event": "SEND", "lamport": 195, "msg": "REPLY", "to": 1, "req_ts": 191}
+{"t_us": 1794312967405994, "node": 2, "event": "SEND", "lamport": 195, "msg": "HEARTBEAT", "to": 1}
+{"t_us": 1794312967406024, "node": 2, "event": "SEND", "lamport": 195, "msg": "HEARTBEAT", "to": 3}
+{"t_us": 1794312967489471, "node": 2, "event": "REQUEST", "lamport": 196, "req_ts": 196}
+{"t_us": 1794312967491946, "node": 2, "event": "SEND", "lamport": 196, "msg": "REQUEST", "to": 1, "req_ts": 196}
+{"t_us": 1794312967492100, "node": 2, "event": "SEND", "lamport": 196, "msg": "REQUEST", "to": 3, "req_ts": 196}
+{"t_us": 1794312967494432, "node": 2, "event": "RECV", "lamport": 199, "msg": "REPLY", "from": 3, "req_ts": 196}
+{"t_us": 1794312967505042, "node": 2, "event": "RECV", "lamport": 200, "msg": "REPLY", "from": 1, "req_ts": 196}
+{"t_us": 1794312967509263, "node": 2, "event": "ENTER", "lamport": 200, "req_ts": 196}
+{"t_us": 1794312967562934, "node": 2, "event": "RECV", "lamport": 201, "msg": "REQUEST", "from": 1, "req_ts": 199}
+{"t_us": 1794312967579523, "node": 2, "event": "EXIT", "lamport": 201, "req_ts": 196, "read": 52, "written": 53}
+{"t_us": 1794312967585742, "node": 2, "event": "SEND", "lamport": 202, "msg": "REPLY", "to": 1, "req_ts": 199}
+{"t_us": 1794312967784946, "node": 2, "event": "REQUEST", "lamport": 203, "req_ts": 203}
+{"t_us": 1794312967787481, "node": 2, "event": "SEND", "lamport": 203, "msg": "REQUEST", "to": 1, "req_ts": 203}
+{"t_us": 1794312967787518, "node": 2, "event": "SEND", "lamport": 203, "msg": "REQUEST", "to": 3, "req_ts": 203}
+{"t_us": 1794312967790567, "node": 2, "event": "RECV", "lamport": 206, "msg": "REPLY", "from": 1, "req_ts": 203}
+{"t_us": 1794312967792892, "node": 2, "event": "RECV", "lamport": 207, "msg": "REPLY", "from": 3, "req_ts": 203}
+{"t_us": 1794312967794569, "node": 2, "event": "ENTER", "lamport": 207, "req_ts": 203}
+{"t_us": 1794312967850251, "node": 2, "event": "EXIT", "lamport": 207, "req_ts": 203, "read": 54, "written": 55}
+{"t_us": 1794312967906910, "node": 2, "event": "SEND", "lamport": 207, "msg": "HEARTBEAT", "to": 1}
+{"t_us": 1794312967907025, "node": 2, "event": "SEND", "lamport": 207, "msg": "HEARTBEAT", "to": 3}
+{"t_us": 1794312967914899, "node": 2, "event": "REQUEST", "lamport": 208, "req_ts": 208}
+{"t_us": 1794312967917302, "node": 2, "event": "SEND", "lamport": 208, "msg": "REQUEST", "to": 1, "req_ts": 208}
+{"t_us": 1794312967917373, "node": 2, "event": "SEND", "lamport": 208, "msg": "REQUEST", "to": 3, "req_ts": 208}
+{"t_us": 1794312967920762, "node": 2, "event": "RECV", "lamport": 211, "msg": "REPLY", "from": 3, "req_ts": 208}
+{"t_us": 1794312967929074, "node": 2, "event": "RECV", "lamport": 212, "msg": "REPLY", "from": 1, "req_ts": 208}
+{"t_us": 1794312967932322, "node": 2, "event": "ENTER", "lamport": 212, "req_ts": 208}
+{"t_us": 1794312967998417, "node": 2, "event": "EXIT", "lamport": 212, "req_ts": 208, "read": 55, "written": 56}
+{"t_us": 1794312968083992, "node": 2, "event": "REQUEST", "lamport": 213, "req_ts": 213}
+{"t_us": 1794312968349242, "node": 2, "event": "RECV", "lamport": 214, "msg": "REQUEST", "from": 1, "req_ts": 211}
+{"t_us": 1794312968464627, "node": 2, "event": "SEND", "lamport": 215, "msg": "REQUEST", "to": 1, "req_ts": 213}
+{"t_us": 1794312968464707, "node": 2, "event": "SEND", "lamport": 215, "msg": "REQUEST", "to": 3, "req_ts": 213}
+{"t_us": 1794312968464792, "node": 2, "event": "RECV", "lamport": 216, "msg": "REQUEST", "from": 3, "req_ts": 211}
+{"t_us": 1794312968486973, "node": 2, "event": "SEND", "lamport": 217, "msg": "HEARTBEAT", "to": 1}
+{"t_us": 1794312968487028, "node": 2, "event": "SEND", "lamport": 217, "msg": "HEARTBEAT", "to": 3}
+{"t_us": 1794312968487932, "node": 2, "event": "SEND", "lamport": 217, "msg": "REPLY", "to": 1, "req_ts": 211}
+{"t_us": 1794312968488767, "node": 2, "event": "SEND", "lamport": 217, "msg": "REPLY", "to": 3, "req_ts": 211}
+{"t_us": 1794312968583642, "node": 2, "event": "RECV", "lamport": 220, "msg": "REPLY", "from": 1, "req_ts": 213}
+{"t_us": 1794312968636241, "node": 2, "event": "RECV", "lamport": 222, "msg": "REQUEST", "from": 1, "req_ts": 221}
+{"t_us": 1794312968665660, "node": 2, "event": "RECV", "lamport": 224, "msg": "REPLY", "from": 3, "req_ts": 213}
+{"t_us": 1794312968667735, "node": 2, "event": "ENTER", "lamport": 224, "req_ts": 213}
+{"t_us": 1794312968732380, "node": 2, "event": "EXIT", "lamport": 224, "req_ts": 213, "read": 58, "written": 59}
+{"t_us": 1794312968734172, "node": 2, "event": "SEND", "lamport": 225, "msg": "REPLY", "to": 1, "req_ts": 221}
+{"t_us": 1794312968774143, "node": 2, "event": "REQUEST", "lamport": 226, "req_ts": 226}
+{"t_us": 1794312968784579, "node": 2, "event": "SEND", "lamport": 226, "msg": "REQUEST", "to": 1, "req_ts": 226}
+{"t_us": 1794312968784756, "node": 2, "event": "SEND", "lamport": 226, "msg": "REQUEST", "to": 3, "req_ts": 226}
+{"t_us": 1794312968786881, "node": 2, "event": "RECV", "lamport": 229, "msg": "REPLY", "from": 3, "req_ts": 226}
+{"t_us": 1794312968798615, "node": 2, "event": "RECV", "lamport": 230, "msg": "REPLY", "from": 1, "req_ts": 226}
+{"t_us": 1794312968799831, "node": 2, "event": "ENTER", "lamport": 230, "req_ts": 226}
+{"t_us": 1794312968833328, "node": 2, "event": "RECV", "lamport": 231, "msg": "REQUEST", "from": 3, "req_ts": 229}
+{"t_us": 1794312968856924, "node": 2, "event": "EXIT", "lamport": 231, "req_ts": 226, "read": 60, "written": 61}
+{"t_us": 1794312968861779, "node": 2, "event": "SEND", "lamport": 232, "msg": "REPLY", "to": 3, "req_ts": 229}
+{"t_us": 1794312968907480, "node": 2, "event": "SEND", "lamport": 232, "msg": "HEARTBEAT", "to": 1}
+{"t_us": 1794312968907636, "node": 2, "event": "SEND", "lamport": 232, "msg": "HEARTBEAT", "to": 3}
+{"t_us": 1794312969028031, "node": 2, "event": "RECV", "lamport": 233, "msg": "REQUEST", "from": 1, "req_ts": 232}
+{"t_us": 1794312969030478, "node": 2, "event": "SEND", "lamport": 234, "msg": "REPLY", "to": 1, "req_ts": 232}
+{"t_us": 1794312969087164, "node": 2, "event": "REQUEST", "lamport": 235, "req_ts": 235}
+{"t_us": 1794312969093558, "node": 2, "event": "SEND", "lamport": 235, "msg": "REQUEST", "to": 1, "req_ts": 235}
+{"t_us": 1794312969093868, "node": 2, "event": "RECV", "lamport": 237, "msg": "REQUEST", "from": 3, "req_ts": 236}
+{"t_us": 1794312969099352, "node": 2, "event": "SEND", "lamport": 237, "msg": "REQUEST", "to": 3, "req_ts": 235}
+{"t_us": 1794312969099434, "node": 2, "event": "RECV", "lamport": 239, "msg": "REPLY", "from": 1, "req_ts": 235}
+{"t_us": 1794312969105518, "node": 2, "event": "RECV", "lamport": 240, "msg": "REPLY", "from": 3, "req_ts": 235}
+{"t_us": 1794312969108320, "node": 2, "event": "ENTER", "lamport": 240, "req_ts": 235}
+{"t_us": 1794312969165025, "node": 2, "event": "EXIT", "lamport": 240, "req_ts": 235, "read": 63, "written": 64}
+{"t_us": 1794312969166396, "node": 2, "event": "SEND", "lamport": 241, "msg": "REPLY", "to": 3, "req_ts": 236}
+{"t_us": 1794312969181800, "node": 2, "event": "RECV", "lamport": 242, "msg": "REQUEST", "from": 1, "req_ts": 241}
+{"t_us": 1794312969184035, "node": 2, "event": "SEND", "lamport": 243, "msg": "REPLY", "to": 1, "req_ts": 241}
+{"t_us": 1794312969362577, "node": 2, "event": "RECV", "lamport": 246, "msg": "REQUEST", "from": 3, "req_ts": 245}
+{"t_us": 1794312969370026, "node": 2, "event": "SEND", "lamport": 247, "msg": "REPLY", "to": 3, "req_ts": 245}
+{"t_us": 1794312969407591, "node": 2, "event": "SEND", "lamport": 247, "msg": "HEARTBEAT", "to": 3}
+{"t_us": 1794312969407708, "node": 2, "event": "SEND", "lamport": 247, "msg": "HEARTBEAT", "to": 1}
+{"t_us": 1794312969423805, "node": 2, "event": "RECV", "lamport": 249, "msg": "REQUEST", "from": 1, "req_ts": 248}
+{"t_us": 1794312969427396, "node": 2, "event": "SEND", "lamport": 250, "msg": "REPLY", "to": 1, "req_ts": 248}
+{"t_us": 1794312969469125, "node": 2, "event": "REQUEST", "lamport": 251, "req_ts": 251}
+{"t_us": 1794312969471600, "node": 2, "event": "SEND", "lamport": 251, "msg": "REQUEST", "to": 1, "req_ts": 251}
+{"t_us": 1794312969471656, "node": 2, "event": "SEND", "lamport": 251, "msg": "REQUEST", "to": 3, "req_ts": 251}
+{"t_us": 1794312969476360, "node": 2, "event": "RECV", "lamport": 254, "msg": "REPLY", "from": 3, "req_ts": 251}
+{"t_us": 1794312969490984, "node": 2, "event": "RECV", "lamport": 255, "msg": "REQUEST", "from": 3, "req_ts": 254}
+{"t_us": 1794312969507978, "node": 2, "event": "RECV", "lamport": 257, "msg": "REPLY", "from": 1, "req_ts": 251}
+{"t_us": 1794312969510593, "node": 2, "event": "ENTER", "lamport": 257, "req_ts": 251}
+{"t_us": 1794312969658285, "node": 2, "event": "EXIT", "lamport": 257, "req_ts": 251, "read": 68, "written": 69}
+{"t_us": 1794312969723866, "node": 2, "event": "SEND", "lamport": 258, "msg": "REPLY", "to": 3, "req_ts": 254}
+{"t_us": 1794312969767681, "node": 2, "event": "RECV", "lamport": 259, "msg": "REQUEST", "from": 1, "req_ts": 258}
+{"t_us": 1794312969842056, "node": 2, "event": "SEND", "lamport": 260, "msg": "REPLY", "to": 1, "req_ts": 258}
+{"t_us": 1794312969907488, "node": 2, "event": "SEND", "lamport": 260, "msg": "HEARTBEAT", "to": 1}
+{"t_us": 1794312969907520, "node": 2, "event": "SEND", "lamport": 260, "msg": "HEARTBEAT", "to": 3}
+{"t_us": 1794312969971291, "node": 2, "event": "REQUEST", "lamport": 261, "req_ts": 261}
+{"t_us": 1794312970020654, "node": 2, "event": "SEND", "lamport": 261, "msg": "REQUEST", "to": 1, "req_ts": 261}
+{"t_us": 1794312970020794, "node": 2, "event": "SEND", "lamport": 261, "msg": "REQUEST", "to": 3, "req_ts": 261}
+{"t_us": 1794312970034424, "node": 2, "event": "RECV", "lamport": 263, "msg": "REQUEST", "from": 3, "req_ts": 262}
+{"t_us": 1794312970056167, "node": 2, "event": "RECV", "lamport": 265, "msg": "REPLY", "from": 3, "req_ts": 261}
+{"t_us": 1794312970103983, "node": 2, "event": "RECV", "lamport": 266, "msg": "REPLY", "from": 1, "req_ts": 261}
+{"t_us": 1794312970106263, "node": 2, "event": "ENTER", "lamport": 266, "req_ts": 261}
+{"t_us": 1794312970176544, "node": 2, "event": "RECV", "lamport": 268, "msg": "REQUEST", "from": 1, "req_ts": 267}
+{"t_us": 1794312970178616, "node": 2, "event": "EXIT", "lamport": 268, "req_ts": 261, "read": 71, "written": 72}
+{"t_us": 1794312970186309, "node": 2, "event": "SEND", "lamport": 270, "msg": "REPLY", "to": 1, "req_ts": 267}
+{"t_us": 1794312970186356, "node": 2, "event": "SEND", "lamport": 270, "msg": "REPLY", "to": 3, "req_ts": 262}
+{"t_us": 1794312970378120, "node": 2, "event": "RECV", "lamport": 274, "msg": "REQUEST", "from": 1, "req_ts": 273}
+{"t_us": 1794312970380557, "node": 2, "event": "SEND", "lamport": 275, "msg": "REPLY", "to": 1, "req_ts": 273}
+{"t_us": 1794312970391226, "node": 2, "event": "RECV", "lamport": 277, "msg": "REQUEST", "from": 3, "req_ts": 276}
+{"t_us": 1794312970393331, "node": 2, "event": "SEND", "lamport": 278, "msg": "REPLY", "to": 3, "req_ts": 276}
+{"t_us": 1794312970407689, "node": 2, "event": "SEND", "lamport": 278, "msg": "HEARTBEAT", "to": 3}
+{"t_us": 1794312970407791, "node": 2, "event": "SEND", "lamport": 278, "msg": "HEARTBEAT", "to": 1}
+{"t_us": 1794312970473650, "node": 2, "event": "REQUEST", "lamport": 279, "req_ts": 279}
+{"t_us": 1794312970475049, "node": 2, "event": "SEND", "lamport": 279, "msg": "REQUEST", "to": 3, "req_ts": 279}
+{"t_us": 1794312970475104, "node": 2, "event": "SEND", "lamport": 279, "msg": "REQUEST", "to": 1, "req_ts": 279}
+{"t_us": 1794312970487476, "node": 2, "event": "RECV", "lamport": 282, "msg": "REPLY", "from": 1, "req_ts": 279}
+{"t_us": 1794312970535326, "node": 2, "event": "RECV", "lamport": 283, "msg": "REPLY", "from": 3, "req_ts": 279}
+{"t_us": 1794312970539468, "node": 2, "event": "ENTER", "lamport": 283, "req_ts": 279}
+{"t_us": 1794312970600523, "node": 2, "event": "EXIT", "lamport": 283, "req_ts": 279, "read": 76, "written": 77}
+{"t_us": 1794312970721830, "node": 2, "event": "RECV", "lamport": 284, "msg": "REQUEST", "from": 1, "req_ts": 282}
+{"t_us": 1794312970734450, "node": 2, "event": "SEND", "lamport": 285, "msg": "REPLY", "to": 1, "req_ts": 282}
+{"t_us": 1794312970737701, "node": 2, "event": "RECV", "lamport": 286, "msg": "REQUEST", "from": 3, "req_ts": 285}
+{"t_us": 1794312970739626, "node": 2, "event": "SEND", "lamport": 287, "msg": "REPLY", "to": 3, "req_ts": 285}
+{"t_us": 1794312970872451, "node": 2, "event": "RECV", "lamport": 291, "msg": "REQUEST", "from": 3, "req_ts": 290}
+{"t_us": 1794312970875269, "node": 2, "event": "SEND", "lamport": 292, "msg": "REPLY", "to": 3, "req_ts": 290}
+{"t_us": 1794312970908377, "node": 2, "event": "SEND", "lamport": 292, "msg": "HEARTBEAT", "to": 3}
+{"t_us": 1794312970908515, "node": 2, "event": "SEND", "lamport": 292, "msg": "HEARTBEAT", "to": 1}
+{"t_us": 1794312970989201, "node": 2, "event": "REQUEST", "lamport": 293, "req_ts": 293}
+{"t_us": 1794312970991360, "node": 2, "event": "SEND", "lamport": 293, "msg": "REQUEST", "to": 1, "req_ts": 293}
+{"t_us": 1794312970991485, "node": 2, "event": "SEND", "lamport": 293, "msg": "REQUEST", "to": 3, "req_ts": 293}
+{"t_us": 1794312971014965, "node": 2, "event": "RECV", "lamport": 297, "msg": "REPLY", "from": 3, "req_ts": 293}
+{"t_us": 1794312971020607, "node": 2, "event": "RECV", "lamport": 298, "msg": "REPLY", "from": 1, "req_ts": 293}
+{"t_us": 1794312971022435, "node": 2, "event": "ENTER", "lamport": 298, "req_ts": 293}
+{"t_us": 1794312971080778, "node": 2, "event": "EXIT", "lamport": 298, "req_ts": 293, "read": 80, "written": 81}
+{"t_us": 1794312971090930, "node": 2, "event": "RECV", "lamport": 299, "msg": "REQUEST", "from": 1, "req_ts": 296}
+{"t_us": 1794312971101968, "node": 2, "event": "SEND", "lamport": 300, "msg": "REPLY", "to": 1, "req_ts": 296}
+{"t_us": 1794312971123294, "node": 2, "event": "REQUEST", "lamport": 301, "req_ts": 301}
+{"t_us": 1794312971133457, "node": 2, "event": "SEND", "lamport": 301, "msg": "REQUEST", "to": 1, "req_ts": 301}
+{"t_us": 1794312971133576, "node": 2, "event": "SEND", "lamport": 301, "msg": "REQUEST", "to": 3, "req_ts": 301}
+{"t_us": 1794312971143201, "node": 2, "event": "RECV", "lamport": 304, "msg": "REPLY", "from": 3, "req_ts": 301}
+{"t_us": 1794312971177491, "node": 2, "event": "RECV", "lamport": 305, "msg": "REQUEST", "from": 3, "req_ts": 304}
+{"t_us": 1794312971219607, "node": 2, "event": "RECV", "lamport": 307, "msg": "REPLY", "from": 1, "req_ts": 301}
+{"t_us": 1794312971227268, "node": 2, "event": "ENTER", "lamport": 307, "req_ts": 301}
+{"t_us": 1794312971338506, "node": 2, "event": "RECV", "lamport": 309, "msg": "REQUEST", "from": 1, "req_ts": 308}
+{"t_us": 1794312971368837, "node": 2, "event": "EXIT", "lamport": 309, "req_ts": 301, "read": 82, "written": 83}
+{"t_us": 1794312971385719, "node": 2, "event": "SEND", "lamport": 311, "msg": "REPLY", "to": 3, "req_ts": 304}
+{"t_us": 1794312971385841, "node": 2, "event": "SEND", "lamport": 311, "msg": "REPLY", "to": 1, "req_ts": 308}
+{"t_us": 1794312971411844, "node": 2, "event": "SEND", "lamport": 311, "msg": "HEARTBEAT", "to": 3}
+{"t_us": 1794312971426049, "node": 2, "event": "SEND", "lamport": 311, "msg": "HEARTBEAT", "to": 1}
+{"t_us": 1794312971657744, "node": 2, "event": "REQUEST", "lamport": 312, "req_ts": 312}
+{"t_us": 1794312971659713, "node": 2, "event": "SEND", "lamport": 312, "msg": "REQUEST", "to": 3, "req_ts": 312}
+{"t_us": 1794312971659929, "node": 2, "event": "SEND", "lamport": 312, "msg": "REQUEST", "to": 1, "req_ts": 312}
+{"t_us": 1794312971663024, "node": 2, "event": "RECV", "lamport": 316, "msg": "REPLY", "from": 1, "req_ts": 312}
+{"t_us": 1794312971667861, "node": 2, "event": "RECV", "lamport": 317, "msg": "REPLY", "from": 3, "req_ts": 312}
+{"t_us": 1794312971669221, "node": 2, "event": "ENTER", "lamport": 317, "req_ts": 312}
+{"t_us": 1794312971711077, "node": 2, "event": "RECV", "lamport": 318, "msg": "REQUEST", "from": 3, "req_ts": 315}
+{"t_us": 1794312971723847, "node": 2, "event": "EXIT", "lamport": 318, "req_ts": 312, "read": 85, "written": 86}
+{"t_us": 1794312971726019, "node": 2, "event": "SEND", "lamport": 319, "msg": "REPLY", "to": 3, "req_ts": 315}
+{"t_us": 1794312971743649, "node": 2, "event": "RECV", "lamport": 320, "msg": "REQUEST", "from": 1, "req_ts": 318}
+{"t_us": 1794312971747126, "node": 2, "event": "SEND", "lamport": 321, "msg": "REPLY", "to": 1, "req_ts": 318}
+{"t_us": 1794312971819914, "node": 2, "event": "RECV", "lamport": 324, "msg": "REQUEST", "from": 3, "req_ts": 323}
+{"t_us": 1794312971824710, "node": 2, "event": "SEND", "lamport": 325, "msg": "REPLY", "to": 3, "req_ts": 323}
+{"t_us": 1794312971895025, "node": 2, "event": "REQUEST", "lamport": 326, "req_ts": 326}
+{"t_us": 1794312971906937, "node": 2, "event": "SEND", "lamport": 326, "msg": "REQUEST", "to": 1, "req_ts": 326}
+{"t_us": 1794312971907060, "node": 2, "event": "SEND", "lamport": 326, "msg": "REQUEST", "to": 3, "req_ts": 326}
+{"t_us": 1794312971916173, "node": 2, "event": "SEND", "lamport": 326, "msg": "HEARTBEAT", "to": 1}
+{"t_us": 1794312971916316, "node": 2, "event": "RECV", "lamport": 329, "msg": "REPLY", "from": 1, "req_ts": 326}
+{"t_us": 1794312971938401, "node": 2, "event": "SEND", "lamport": 329, "msg": "HEARTBEAT", "to": 3}
+{"t_us": 1794312971938798, "node": 2, "event": "RECV", "lamport": 330, "msg": "REPLY", "from": 3, "req_ts": 326}
+{"t_us": 1794312971944888, "node": 2, "event": "ENTER", "lamport": 330, "req_ts": 326}
+{"t_us": 1794312971996439, "node": 2, "event": "RECV", "lamport": 331, "msg": "REQUEST", "from": 3, "req_ts": 330}
+{"t_us": 1794312972003396, "node": 2, "event": "EXIT", "lamport": 331, "req_ts": 326, "read": 89, "written": 90}
+{"t_us": 1794312972009614, "node": 2, "event": "SEND", "lamport": 332, "msg": "REPLY", "to": 3, "req_ts": 330}
+{"t_us": 1794312972043084, "node": 2, "event": "REQUEST", "lamport": 333, "req_ts": 333}
+{"t_us": 1794312972050131, "node": 2, "event": "SEND", "lamport": 333, "msg": "REQUEST", "to": 3, "req_ts": 333}
+{"t_us": 1794312972050425, "node": 2, "event": "SEND", "lamport": 333, "msg": "REQUEST", "to": 1, "req_ts": 333}
+{"t_us": 1794312972056124, "node": 2, "event": "RECV", "lamport": 336, "msg": "REPLY", "from": 1, "req_ts": 333}
+{"t_us": 1794312972067850, "node": 2, "event": "RECV", "lamport": 337, "msg": "REPLY", "from": 3, "req_ts": 333}
+{"t_us": 1794312972069580, "node": 2, "event": "ENTER", "lamport": 337, "req_ts": 333}
+{"t_us": 1794312972081422, "node": 2, "event": "RECV", "lamport": 338, "msg": "REQUEST", "from": 3, "req_ts": 337}
+{"t_us": 1794312972128073, "node": 2, "event": "EXIT", "lamport": 338, "req_ts": 333, "read": 91, "written": 92}
+{"t_us": 1794312972131667, "node": 2, "event": "SEND", "lamport": 339, "msg": "REPLY", "to": 3, "req_ts": 337}
+{"t_us": 1794312972132660, "node": 2, "event": "REQUEST", "lamport": 340, "req_ts": 340}
+{"t_us": 1794312972135692, "node": 2, "event": "SEND", "lamport": 340, "msg": "REQUEST", "to": 1, "req_ts": 340}
+{"t_us": 1794312972136020, "node": 2, "event": "SEND", "lamport": 340, "msg": "REQUEST", "to": 3, "req_ts": 340}
+{"t_us": 1794312972138578, "node": 2, "event": "RECV", "lamport": 343, "msg": "REPLY", "from": 1, "req_ts": 340}
+{"t_us": 1794312972196647, "node": 2, "event": "RECV", "lamport": 344, "msg": "REPLY", "from": 3, "req_ts": 340}
+{"t_us": 1794312972198989, "node": 2, "event": "ENTER", "lamport": 344, "req_ts": 340}
+{"t_us": 1794312972212589, "node": 2, "event": "RECV", "lamport": 345, "msg": "REQUEST", "from": 3, "req_ts": 344}
+{"t_us": 1794312972260235, "node": 2, "event": "EXIT", "lamport": 345, "req_ts": 340, "read": 93, "written": 94}
+{"t_us": 1794312972262715, "node": 2, "event": "SEND", "lamport": 346, "msg": "REPLY", "to": 3, "req_ts": 344}
+{"t_us": 1794312972315048, "node": 2, "event": "REQUEST", "lamport": 347, "req_ts": 347}
+{"t_us": 1794312972317852, "node": 2, "event": "SEND", "lamport": 347, "msg": "REQUEST", "to": 3, "req_ts": 347}
+{"t_us": 1794312972317992, "node": 2, "event": "SEND", "lamport": 347, "msg": "REQUEST", "to": 1, "req_ts": 347}
+{"t_us": 1794312972319889, "node": 2, "event": "RECV", "lamport": 350, "msg": "REPLY", "from": 1, "req_ts": 347}
+{"t_us": 1794312972327965, "node": 2, "event": "RECV", "lamport": 351, "msg": "REPLY", "from": 3, "req_ts": 347}
+{"t_us": 1794312972329772, "node": 2, "event": "ENTER", "lamport": 351, "req_ts": 347}
+{"t_us": 1794312972343142, "node": 2, "event": "RECV", "lamport": 352, "msg": "REQUEST", "from": 3, "req_ts": 351}
+{"t_us": 1794312972387166, "node": 2, "event": "EXIT", "lamport": 352, "req_ts": 347, "read": 95, "written": 96}
+{"t_us": 1794312972389112, "node": 2, "event": "SEND", "lamport": 353, "msg": "REPLY", "to": 3, "req_ts": 351}
+{"t_us": 1794312972409001, "node": 2, "event": "SEND", "lamport": 353, "msg": "HEARTBEAT", "to": 1}
+{"t_us": 1794312972409053, "node": 2, "event": "SEND", "lamport": 353, "msg": "HEARTBEAT", "to": 3}
+{"t_us": 1794312972476954, "node": 2, "event": "RECV", "lamport": 357, "msg": "REQUEST", "from": 3, "req_ts": 356}
+{"t_us": 1794312972480749, "node": 2, "event": "SEND", "lamport": 358, "msg": "REPLY", "to": 3, "req_ts": 356}
+{"t_us": 1794312972616171, "node": 2, "event": "RECV", "lamport": 360, "msg": "REQUEST", "from": 1, "req_ts": 359}
+{"t_us": 1794312972629423, "node": 2, "event": "SEND", "lamport": 361, "msg": "REPLY", "to": 1, "req_ts": 359}
+{"t_us": 1794312972845350, "node": 2, "event": "RECV", "lamport": 365, "msg": "REQUEST", "from": 1, "req_ts": 364}
+{"t_us": 1794312972856857, "node": 2, "event": "SEND", "lamport": 366, "msg": "REPLY", "to": 1, "req_ts": 364}
+{"t_us": 1794312972887626, "node": 2, "event": "RECV", "lamport": 368, "msg": "REQUEST", "from": 3, "req_ts": 367}
+{"t_us": 1794312972892979, "node": 2, "event": "SEND", "lamport": 369, "msg": "REPLY", "to": 3, "req_ts": 367}
+{"t_us": 1794312972909398, "node": 2, "event": "SEND", "lamport": 369, "msg": "HEARTBEAT", "to": 1}
+{"t_us": 1794312972909481, "node": 2, "event": "SEND", "lamport": 369, "msg": "HEARTBEAT", "to": 3}
+{"t_us": 1794312973142890, "node": 2, "event": "REQUEST", "lamport": 370, "req_ts": 370}
+{"t_us": 1794312973145148, "node": 2, "event": "SEND", "lamport": 370, "msg": "REQUEST", "to": 3, "req_ts": 370}
+{"t_us": 1794312973145209, "node": 2, "event": "SEND", "lamport": 370, "msg": "REQUEST", "to": 1, "req_ts": 370}
+{"t_us": 1794312973148720, "node": 2, "event": "RECV", "lamport": 374, "msg": "REPLY", "from": 3, "req_ts": 370}
+{"t_us": 1794312973154846, "node": 2, "event": "RECV", "lamport": 375, "msg": "REPLY", "from": 1, "req_ts": 370}
+{"t_us": 1794312973156182, "node": 2, "event": "ENTER", "lamport": 375, "req_ts": 370}
+{"t_us": 1794312973186360, "node": 2, "event": "RECV", "lamport": 376, "msg": "REQUEST", "from": 3, "req_ts": 374}
+{"t_us": 1794312973214453, "node": 2, "event": "EXIT", "lamport": 376, "req_ts": 370, "read": 101, "written": 102}
+{"t_us": 1794312973215873, "node": 2, "event": "SEND", "lamport": 377, "msg": "REPLY", "to": 3, "req_ts": 374}
+{"t_us": 1794312973305589, "node": 2, "event": "RECV", "lamport": 380, "msg": "REQUEST", "from": 3, "req_ts": 379}
+{"t_us": 1794312973307867, "node": 2, "event": "SEND", "lamport": 381, "msg": "REPLY", "to": 3, "req_ts": 379}
+{"t_us": 1794312973409869, "node": 2, "event": "SEND", "lamport": 381, "msg": "HEARTBEAT", "to": 1}
+{"t_us": 1794312973410004, "node": 2, "event": "SEND", "lamport": 381, "msg": "HEARTBEAT", "to": 3}
+{"t_us": 1794312973458303, "node": 2, "event": "RECV", "lamport": 385, "msg": "REQUEST", "from": 3, "req_ts": 384}
+{"t_us": 1794312973461978, "node": 2, "event": "SEND", "lamport": 386, "msg": "REPLY", "to": 3, "req_ts": 384}
+{"t_us": 1794312973659692, "node": 2, "event": "RECV", "lamport": 388, "msg": "REQUEST", "from": 1, "req_ts": 387}
+{"t_us": 1794312973675320, "node": 2, "event": "SEND", "lamport": 389, "msg": "REPLY", "to": 1, "req_ts": 387}
+{"t_us": 1794312973725583, "node": 2, "event": "RECV", "lamport": 392, "msg": "REQUEST", "from": 3, "req_ts": 391}
+{"t_us": 1794312973727868, "node": 2, "event": "SEND", "lamport": 393, "msg": "REPLY", "to": 3, "req_ts": 391}
+{"t_us": 1794312973836867, "node": 2, "event": "RECV", "lamport": 397, "msg": "REQUEST", "from": 3, "req_ts": 396}
+{"t_us": 1794312973838734, "node": 2, "event": "SEND", "lamport": 398, "msg": "REPLY", "to": 3, "req_ts": 396}
+{"t_us": 1794312973910224, "node": 2, "event": "SEND", "lamport": 398, "msg": "HEARTBEAT", "to": 3}
+{"t_us": 1794312973910273, "node": 2, "event": "SEND", "lamport": 398, "msg": "HEARTBEAT", "to": 1}
+{"t_us": 1794312973940210, "node": 2, "event": "RECV", "lamport": 400, "msg": "REQUEST", "from": 1, "req_ts": 399}
+{"t_us": 1794312973942267, "node": 2, "event": "SEND", "lamport": 401, "msg": "REPLY", "to": 1, "req_ts": 399}
+{"t_us": 1794312974227740, "node": 2, "event": "RECV", "lamport": 406, "msg": "REQUEST", "from": 1, "req_ts": 405}
+{"t_us": 1794312974292051, "node": 2, "event": "SEND", "lamport": 407, "msg": "REPLY", "to": 1, "req_ts": 405}
+{"t_us": 1794312974341661, "node": 2, "event": "REQUEST", "lamport": 408, "req_ts": 408}
+{"t_us": 1794312974372047, "node": 2, "event": "RECV", "lamport": 409, "msg": "REQUEST", "from": 3, "req_ts": 408}
+{"t_us": 1794312974393153, "node": 2, "event": "SEND", "lamport": 409, "msg": "REQUEST", "to": 1, "req_ts": 408}
+{"t_us": 1794312974393339, "node": 2, "event": "SEND", "lamport": 409, "msg": "REQUEST", "to": 3, "req_ts": 408}
+{"t_us": 1794312974410461, "node": 2, "event": "SEND", "lamport": 409, "msg": "HEARTBEAT", "to": 1}
+{"t_us": 1794312974411676, "node": 2, "event": "RECV", "lamport": 411, "msg": "REPLY", "from": 3, "req_ts": 408}
+{"t_us": 1794312974416909, "node": 2, "event": "SEND", "lamport": 411, "msg": "HEARTBEAT", "to": 3}
+{"t_us": 1794312974457214, "node": 2, "event": "RECV", "lamport": 413, "msg": "REPLY", "from": 1, "req_ts": 408}
+{"t_us": 1794312974459158, "node": 2, "event": "ENTER", "lamport": 413, "req_ts": 408}
+{"t_us": 1794312974516998, "node": 2, "event": "EXIT", "lamport": 413, "req_ts": 408, "read": 110, "written": 111}
+{"t_us": 1794312974527931, "node": 2, "event": "SEND", "lamport": 414, "msg": "REPLY", "to": 3, "req_ts": 408}
+{"t_us": 1794312974649894, "node": 2, "event": "REQUEST", "lamport": 415, "req_ts": 415}
+{"t_us": 1794312974651681, "node": 2, "event": "SEND", "lamport": 415, "msg": "REQUEST", "to": 3, "req_ts": 415}
+{"t_us": 1794312974651809, "node": 2, "event": "SEND", "lamport": 415, "msg": "REQUEST", "to": 1, "req_ts": 415}
+{"t_us": 1794312974654719, "node": 2, "event": "RECV", "lamport": 418, "msg": "REPLY", "from": 3, "req_ts": 415}
+{"t_us": 1794312974663084, "node": 2, "event": "RECV", "lamport": 419, "msg": "REPLY", "from": 1, "req_ts": 415}
+{"t_us": 1794312974670695, "node": 2, "event": "ENTER", "lamport": 419, "req_ts": 415}
+{"t_us": 1794312974736787, "node": 2, "event": "EXIT", "lamport": 419, "req_ts": 415, "read": 112, "written": 113}
+{"t_us": 1794312974799410, "node": 2, "event": "REQUEST", "lamport": 420, "req_ts": 420}
+{"t_us": 1794312974800876, "node": 2, "event": "SEND", "lamport": 420, "msg": "REQUEST", "to": 1, "req_ts": 420}
+{"t_us": 1794312974800910, "node": 2, "event": "SEND", "lamport": 420, "msg": "REQUEST", "to": 3, "req_ts": 420}
+{"t_us": 1794312974802861, "node": 2, "event": "RECV", "lamport": 423, "msg": "REPLY", "from": 3, "req_ts": 420}
+{"t_us": 1794312974805890, "node": 2, "event": "RECV", "lamport": 424, "msg": "REPLY", "from": 1, "req_ts": 420}
+{"t_us": 1794312974807784, "node": 2, "event": "ENTER", "lamport": 424, "req_ts": 420}
+{"t_us": 1794312974836788, "node": 2, "event": "RECV", "lamport": 425, "msg": "REQUEST", "from": 1, "req_ts": 423}
+{"t_us": 1794312974862988, "node": 2, "event": "EXIT", "lamport": 425, "req_ts": 420, "read": 113, "written": 114}
+{"t_us": 1794312974864369, "node": 2, "event": "SEND", "lamport": 426, "msg": "REPLY", "to": 1, "req_ts": 423}
+{"t_us": 1794312974899809, "node": 2, "event": "RECV", "lamport": 427, "msg": "REQUEST", "from": 3, "req_ts": 426}
+{"t_us": 1794312974903805, "node": 2, "event": "SEND", "lamport": 428, "msg": "REPLY", "to": 3, "req_ts": 426}
+{"t_us": 1794312974910526, "node": 2, "event": "SEND", "lamport": 428, "msg": "HEARTBEAT", "to": 1}
+{"t_us": 1794312974910563, "node": 2, "event": "SEND", "lamport": 428, "msg": "HEARTBEAT", "to": 3}
+{"t_us": 1794312974968549, "node": 2, "event": "REQUEST", "lamport": 429, "req_ts": 429}
+{"t_us": 1794312974970383, "node": 2, "event": "SEND", "lamport": 429, "msg": "REQUEST", "to": 1, "req_ts": 429}
+{"t_us": 1794312974970411, "node": 2, "event": "SEND", "lamport": 429, "msg": "REQUEST", "to": 3, "req_ts": 429}
+{"t_us": 1794312974971373, "node": 2, "event": "RECV", "lamport": 432, "msg": "REPLY", "from": 1, "req_ts": 429}
+{"t_us": 1794312974981600, "node": 2, "event": "RECV", "lamport": 433, "msg": "REPLY", "from": 3, "req_ts": 429}
+{"t_us": 1794312974983672, "node": 2, "event": "ENTER", "lamport": 433, "req_ts": 429}
+{"t_us": 1794312975040551, "node": 2, "event": "EXIT", "lamport": 433, "req_ts": 429, "read": 116, "written": 117}
+{"t_us": 1794312975044485, "node": 2, "event": "RECV", "lamport": 434, "msg": "REQUEST", "from": 3, "req_ts": 433}
+{"t_us": 1794312975046430, "node": 2, "event": "SEND", "lamport": 435, "msg": "REPLY", "to": 3, "req_ts": 433}
+{"t_us": 1794312975063785, "node": 2, "event": "REQUEST", "lamport": 436, "req_ts": 436}
+{"t_us": 1794312975065609, "node": 2, "event": "SEND", "lamport": 436, "msg": "REQUEST", "to": 1, "req_ts": 436}
+{"t_us": 1794312975065627, "node": 2, "event": "SEND", "lamport": 436, "msg": "REQUEST", "to": 3, "req_ts": 436}
+{"t_us": 1794312975067774, "node": 2, "event": "RECV", "lamport": 439, "msg": "REPLY", "from": 1, "req_ts": 436}
+{"t_us": 1794312975105796, "node": 2, "event": "RECV", "lamport": 440, "msg": "REPLY", "from": 3, "req_ts": 436}
+{"t_us": 1794312975108808, "node": 2, "event": "ENTER", "lamport": 440, "req_ts": 436}
+{"t_us": 1794312975163302, "node": 2, "event": "RECV", "lamport": 441, "msg": "REQUEST", "from": 3, "req_ts": 440}
+{"t_us": 1794312975164464, "node": 2, "event": "EXIT", "lamport": 441, "req_ts": 436, "read": 118, "written": 119}
+{"t_us": 1794312975165980, "node": 2, "event": "SEND", "lamport": 442, "msg": "REPLY", "to": 3, "req_ts": 440}
+{"t_us": 1794312975188924, "node": 2, "event": "REQUEST", "lamport": 443, "req_ts": 443}
+{"t_us": 1794312975190735, "node": 2, "event": "SEND", "lamport": 443, "msg": "REQUEST", "to": 1, "req_ts": 443}
+{"t_us": 1794312975190804, "node": 2, "event": "SEND", "lamport": 443, "msg": "REQUEST", "to": 3, "req_ts": 443}
+{"t_us": 1794312975193169, "node": 2, "event": "RECV", "lamport": 446, "msg": "REPLY", "from": 1, "req_ts": 443}
+{"t_us": 1794312975225052, "node": 2, "event": "RECV", "lamport": 447, "msg": "REPLY", "from": 3, "req_ts": 443}
+{"t_us": 1794312975226895, "node": 2, "event": "ENTER", "lamport": 447, "req_ts": 443}
+{"t_us": 1794312975230011, "node": 2, "event": "RECV", "lamport": 448, "msg": "REQUEST", "from": 3, "req_ts": 447}
+{"t_us": 1794312975283072, "node": 2, "event": "EXIT", "lamport": 448, "req_ts": 443, "read": 120, "written": 121}
+{"t_us": 1794312975284251, "node": 2, "event": "SEND", "lamport": 449, "msg": "REPLY", "to": 3, "req_ts": 447}
+{"t_us": 1794312975353250, "node": 2, "event": "RECV", "lamport": 453, "msg": "REQUEST", "from": 3, "req_ts": 452}
+{"t_us": 1794312975356923, "node": 2, "event": "SEND", "lamport": 454, "msg": "REPLY", "to": 3, "req_ts": 452}
+{"t_us": 1794312975410985, "node": 2, "event": "SEND", "lamport": 454, "msg": "HEARTBEAT", "to": 1}
+{"t_us": 1794312975411129, "node": 2, "event": "SEND", "lamport": 454, "msg": "HEARTBEAT", "to": 3}
+{"t_us": 1794312975459447, "node": 2, "event": "RECV", "lamport": 456, "msg": "REQUEST", "from": 1, "req_ts": 455}
+{"t_us": 1794312975471793, "node": 2, "event": "SEND", "lamport": 457, "msg": "REPLY", "to": 1, "req_ts": 455}
+{"t_us": 1794312975523456, "node": 2, "event": "RECV", "lamport": 460, "msg": "REQUEST", "from": 3, "req_ts": 459}
+{"t_us": 1794312975749544, "node": 2, "event": "REQUEST", "lamport": 462, "req_ts": 462}
+{"t_us": 1794312975799349, "node": 2, "event": "SEND", "lamport": 462, "msg": "REPLY", "to": 3, "req_ts": 459}
+{"t_us": 1794312975799786, "node": 2, "event": "SEND", "lamport": 462, "msg": "REQUEST", "to": 1, "req_ts": 462}
+{"t_us": 1794312975812042, "node": 2, "event": "SEND", "lamport": 462, "msg": "REQUEST", "to": 3, "req_ts": 462}
+{"t_us": 1794312975911233, "node": 2, "event": "SEND", "lamport": 462, "msg": "HEARTBEAT", "to": 1}
+{"t_us": 1794312975911261, "node": 2, "event": "SEND", "lamport": 462, "msg": "HEARTBEAT", "to": 3}
+{"t_us": 1794312975911906, "node": 2, "event": "RECV", "lamport": 466, "msg": "REPLY", "from": 1, "req_ts": 462}
+{"t_us": 1794312975977483, "node": 2, "event": "RECV", "lamport": 469, "msg": "REPLY", "from": 3, "req_ts": 462}
+{"t_us": 1794312975978858, "node": 2, "event": "ENTER", "lamport": 469, "req_ts": 462}
+{"t_us": 1794312976033589, "node": 2, "event": "RECV", "lamport": 470, "msg": "REQUEST", "from": 3, "req_ts": 469}
+{"t_us": 1794312976035533, "node": 2, "event": "EXIT", "lamport": 470, "req_ts": 462, "read": 125, "written": 126}
+{"t_us": 1794312976037515, "node": 2, "event": "SEND", "lamport": 471, "msg": "REPLY", "to": 3, "req_ts": 469}
+{"t_us": 1794312976068972, "node": 2, "event": "REQUEST", "lamport": 472, "req_ts": 472}
+{"t_us": 1794312976070742, "node": 2, "event": "SEND", "lamport": 472, "msg": "REQUEST", "to": 1, "req_ts": 472}
+{"t_us": 1794312976070818, "node": 2, "event": "SEND", "lamport": 472, "msg": "REQUEST", "to": 3, "req_ts": 472}
+{"t_us": 1794312976073558, "node": 2, "event": "RECV", "lamport": 475, "msg": "REPLY", "from": 1, "req_ts": 472}
+{"t_us": 1794312976098429, "node": 2, "event": "RECV", "lamport": 476, "msg": "REPLY", "from": 3, "req_ts": 472}
+{"t_us": 1794312976100539, "node": 2, "event": "ENTER", "lamport": 476, "req_ts": 472}
+{"t_us": 1794312976162320, "node": 2, "event": "EXIT", "lamport": 476, "req_ts": 472, "read": 127, "written": 128}
+{"t_us": 1794312976230332, "node": 2, "event": "RECV", "lamport": 477, "msg": "REQUEST", "from": 1, "req_ts": 475}
+{"t_us": 1794312976233105, "node": 2, "event": "SEND", "lamport": 478, "msg": "REPLY", "to": 1, "req_ts": 475}
+{"t_us": 1794312976412127, "node": 2, "event": "SEND", "lamport": 478, "msg": "HEARTBEAT", "to": 1}
+{"t_us": 1794312976412294, "node": 2, "event": "SEND", "lamport": 478, "msg": "HEARTBEAT", "to": 3}
+{"t_us": 1794312976431514, "node": 2, "event": "RECV", "lamport": 481, "msg": "REQUEST", "from": 1, "req_ts": 480}
+{"t_us": 1794312976433782, "node": 2, "event": "SEND", "lamport": 482, "msg": "REPLY", "to": 1, "req_ts": 480}
+{"t_us": 1794312976528350, "node": 2, "event": "RECV", "lamport": 484, "msg": "REQUEST", "from": 3, "req_ts": 483}
+{"t_us": 1794312976530749, "node": 2, "event": "SEND", "lamport": 485, "msg": "REPLY", "to": 3, "req_ts": 483}
+{"t_us": 1794312976733628, "node": 2, "event": "RECV", "lamport": 489, "msg": "REQUEST", "from": 3, "req_ts": 488}
+{"t_us": 1794312976735909, "node": 2, "event": "SEND", "lamport": 490, "msg": "REPLY", "to": 3, "req_ts": 488}
+{"t_us": 1794312976826886, "node": 2, "event": "RECV", "lamport": 492, "msg": "REQUEST", "from": 1, "req_ts": 491}
+{"t_us": 1794312976831439, "node": 2, "event": "SEND", "lamport": 493, "msg": "REPLY", "to": 1, "req_ts": 491}
+{"t_us": 1794312976912507, "node": 2, "event": "SEND", "lamport": 493, "msg": "HEARTBEAT", "to": 1}
+{"t_us": 1794312976912559, "node": 2, "event": "SEND", "lamport": 493, "msg": "HEARTBEAT", "to": 3}
+{"t_us": 1794312977127736, "node": 2, "event": "REQUEST", "lamport": 494, "req_ts": 494}
+{"t_us": 1794312977332396, "node": 2, "event": "RECV", "lamport": 496, "msg": "REQUEST", "from": 3, "req_ts": 495}
+{"t_us": 1794312977346863, "node": 2, "event": "SEND", "lamport": 496, "msg": "REQUEST", "to": 3, "req_ts": 494}
+{"t_us": 1794312977346986, "node": 2, "event": "SEND", "lamport": 496, "msg": "REQUEST", "to": 1, "req_ts": 494}
+{"t_us": 1794312977370974, "node": 2, "event": "RECV", "lamport": 500, "msg": "REPLY", "from": 1, "req_ts": 494}
+{"t_us": 1794312977398462, "node": 2, "event": "RECV", "lamport": 501, "msg": "REPLY", "from": 3, "req_ts": 494}
+{"t_us": 1794312977408876, "node": 2, "event": "ENTER", "lamport": 501, "req_ts": 494}
+{"t_us": 1794312977411319, "node": 2, "event": "RECV", "lamport": 502, "msg": "REQUEST", "from": 1, "req_ts": 500}
+{"t_us": 1794312977414703, "node": 2, "event": "SEND", "lamport": 502, "msg": "HEARTBEAT", "to": 1}
+{"t_us": 1794312977414748, "node": 2, "event": "SEND", "lamport": 502, "msg": "HEARTBEAT", "to": 3}
+{"t_us": 1794312977467724, "node": 2, "event": "EXIT", "lamport": 502, "req_ts": 494, "read": 133, "written": 134}
+{"t_us": 1794312977469086, "node": 2, "event": "SEND", "lamport": 504, "msg": "REPLY", "to": 3, "req_ts": 495}
+{"t_us": 1794312977469134, "node": 2, "event": "SEND", "lamport": 504, "msg": "REPLY", "to": 1, "req_ts": 500}
+{"t_us": 1794312977502318, "node": 2, "event": "REQUEST", "lamport": 505, "req_ts": 505}
+{"t_us": 1794312977504464, "node": 2, "event": "SEND", "lamport": 505, "msg": "REQUEST", "to": 1, "req_ts": 505}
+{"t_us": 1794312977504508, "node": 2, "event": "SEND", "lamport": 505, "msg": "REQUEST", "to": 3, "req_ts": 505}
+{"t_us": 1794312977530731, "node": 2, "event": "RECV", "lamport": 509, "msg": "REPLY", "from": 3, "req_ts": 505}
+{"t_us": 1794312977589274, "node": 2, "event": "RECV", "lamport": 510, "msg": "REPLY", "from": 1, "req_ts": 505}
+{"t_us": 1794312977596944, "node": 2, "event": "ENTER", "lamport": 510, "req_ts": 505}
+{"t_us": 1794312977612822, "node": 2, "event": "RECV", "lamport": 511, "msg": "REQUEST", "from": 3, "req_ts": 509}
+{"t_us": 1794312977655906, "node": 2, "event": "EXIT", "lamport": 511, "req_ts": 505, "read": 136, "written": 137}
+{"t_us": 1794312977658037, "node": 2, "event": "SEND", "lamport": 512, "msg": "REPLY", "to": 3, "req_ts": 509}
+{"t_us": 1794312977689239, "node": 2, "event": "REQUEST", "lamport": 513, "req_ts": 513}
+{"t_us": 1794312977691836, "node": 2, "event": "SEND", "lamport": 513, "msg": "REQUEST", "to": 1, "req_ts": 513}
+{"t_us": 1794312977692139, "node": 2, "event": "SEND", "lamport": 513, "msg": "REQUEST", "to": 3, "req_ts": 513}
+{"t_us": 1794312977695491, "node": 2, "event": "RECV", "lamport": 516, "msg": "REPLY", "from": 1, "req_ts": 513}
+{"t_us": 1794312977719564, "node": 2, "event": "RECV", "lamport": 517, "msg": "REPLY", "from": 3, "req_ts": 513}
+{"t_us": 1794312977721628, "node": 2, "event": "ENTER", "lamport": 517, "req_ts": 513}
+{"t_us": 1794312977779732, "node": 2, "event": "RECV", "lamport": 518, "msg": "REQUEST", "from": 3, "req_ts": 516}
+{"t_us": 1794312977783799, "node": 2, "event": "EXIT", "lamport": 518, "req_ts": 513, "read": 138, "written": 139}
+{"t_us": 1794312977787000, "node": 2, "event": "SEND", "lamport": 519, "msg": "REPLY", "to": 3, "req_ts": 516}
+{"t_us": 1794312977814495, "node": 2, "event": "REQUEST", "lamport": 520, "req_ts": 520}
+{"t_us": 1794312977817047, "node": 2, "event": "SEND", "lamport": 520, "msg": "REQUEST", "to": 3, "req_ts": 520}
+{"t_us": 1794312977817173, "node": 2, "event": "SEND", "lamport": 520, "msg": "REQUEST", "to": 1, "req_ts": 520}
+{"t_us": 1794312977820303, "node": 2, "event": "RECV", "lamport": 523, "msg": "REPLY", "from": 1, "req_ts": 520}
+{"t_us": 1794312977861006, "node": 2, "event": "RECV", "lamport": 524, "msg": "REPLY", "from": 3, "req_ts": 520}
+{"t_us": 1794312977863232, "node": 2, "event": "ENTER", "lamport": 524, "req_ts": 520}
+{"t_us": 1794312977912659, "node": 2, "event": "SEND", "lamport": 524, "msg": "HEARTBEAT", "to": 3}
+{"t_us": 1794312977912876, "node": 2, "event": "SEND", "lamport": 524, "msg": "HEARTBEAT", "to": 1}
+{"t_us": 1794312977916710, "node": 2, "event": "RECV", "lamport": 525, "msg": "REQUEST", "from": 1, "req_ts": 523}
+{"t_us": 1794312977920544, "node": 2, "event": "EXIT", "lamport": 525, "req_ts": 520, "read": 140, "written": 141}
+{"t_us": 1794312977923296, "node": 2, "event": "SEND", "lamport": 526, "msg": "REPLY", "to": 1, "req_ts": 523}
+{"t_us": 1794312977930767, "node": 2, "event": "RECV", "lamport": 527, "msg": "REQUEST", "from": 3, "req_ts": 526}
+{"t_us": 1794312977933718, "node": 2, "event": "SEND", "lamport": 528, "msg": "REPLY", "to": 3, "req_ts": 526}
+{"t_us": 1794312978114957, "node": 2, "event": "RECV", "lamport": 532, "msg": "REQUEST", "from": 3, "req_ts": 531}
+{"t_us": 1794312978117332, "node": 2, "event": "SEND", "lamport": 533, "msg": "REPLY", "to": 3, "req_ts": 531}
+{"t_us": 1794312978195469, "node": 2, "event": "RECV", "lamport": 535, "msg": "REQUEST", "from": 1, "req_ts": 534}
+{"t_us": 1794312978196328, "node": 2, "event": "SEND", "lamport": 536, "msg": "REPLY", "to": 1, "req_ts": 534}
+{"t_us": 1794312978205949, "node": 2, "event": "REQUEST", "lamport": 537, "req_ts": 537}
+{"t_us": 1794312978207119, "node": 2, "event": "SEND", "lamport": 537, "msg": "REQUEST", "to": 3, "req_ts": 537}
+{"t_us": 1794312978207195, "node": 2, "event": "SEND", "lamport": 537, "msg": "REQUEST", "to": 1, "req_ts": 537}
+{"t_us": 1794312978208645, "node": 2, "event": "RECV", "lamport": 540, "msg": "REPLY", "from": 3, "req_ts": 537}
+{"t_us": 1794312978276878, "node": 2, "event": "RECV", "lamport": 541, "msg": "REPLY", "from": 1, "req_ts": 537}
+{"t_us": 1794312978278874, "node": 2, "event": "ENTER", "lamport": 541, "req_ts": 537}
+{"t_us": 1794312978331635, "node": 2, "event": "EXIT", "lamport": 541, "req_ts": 537, "read": 145, "written": 146}
+{"t_us": 1794312978366603, "node": 2, "event": "RECV", "lamport": 542, "msg": "REQUEST", "from": 1, "req_ts": 541}
+{"t_us": 1794312978368081, "node": 2, "event": "SEND", "lamport": 543, "msg": "REPLY", "to": 1, "req_ts": 541}
+{"t_us": 1794312978413103, "node": 2, "event": "SEND", "lamport": 543, "msg": "HEARTBEAT", "to": 1}
+{"t_us": 1794312978413201, "node": 2, "event": "SEND", "lamport": 543, "msg": "HEARTBEAT", "to": 3}
+{"t_us": 1794312978677716, "node": 2, "event": "RECV", "lamport": 545, "msg": "REQUEST", "from": 3, "req_ts": 544}
+{"t_us": 1794312978692685, "node": 2, "event": "SEND", "lamport": 546, "msg": "REPLY", "to": 3, "req_ts": 544}
+{"t_us": 1794312978722754, "node": 2, "event": "RECV", "lamport": 547, "msg": "REQUEST", "from": 1, "req_ts": 546}
+{"t_us": 1794312978752233, "node": 2, "event": "SEND", "lamport": 548, "msg": "REPLY", "to": 1, "req_ts": 546}
+{"t_us": 1794312978913388, "node": 2, "event": "SEND", "lamport": 548, "msg": "HEARTBEAT", "to": 1}
+{"t_us": 1794312978913459, "node": 2, "event": "SEND", "lamport": 548, "msg": "HEARTBEAT", "to": 3}
+{"t_us": 1794312979026930, "node": 2, "event": "RECV", "lamport": 553, "msg": "REQUEST", "from": 1, "req_ts": 552}
+{"t_us": 1794312979039106, "node": 2, "event": "SEND", "lamport": 554, "msg": "REPLY", "to": 1, "req_ts": 552}
+{"t_us": 1794312979047660, "node": 2, "event": "RECV", "lamport": 556, "msg": "REQUEST", "from": 3, "req_ts": 555}
+{"t_us": 1794312979050661, "node": 2, "event": "SEND", "lamport": 557, "msg": "REPLY", "to": 3, "req_ts": 555}
+{"t_us": 1794312979064276, "node": 2, "event": "REQUEST", "lamport": 558, "req_ts": 558}
+{"t_us": 1794312979066462, "node": 2, "event": "SEND", "lamport": 558, "msg": "REQUEST", "to": 1, "req_ts": 558}
+{"t_us": 1794312979066539, "node": 2, "event": "SEND", "lamport": 558, "msg": "REQUEST", "to": 3, "req_ts": 558}
+{"t_us": 1794312979116771, "node": 2, "event": "RECV", "lamport": 562, "msg": "REPLY", "from": 1, "req_ts": 558}
+{"t_us": 1794312979178028, "node": 2, "event": "RECV", "lamport": 563, "msg": "REPLY", "from": 3, "req_ts": 558}
+{"t_us": 1794312979180363, "node": 2, "event": "ENTER", "lamport": 563, "req_ts": 558}
+{"t_us": 1794312979235529, "node": 2, "event": "EXIT", "lamport": 563, "req_ts": 558, "read": 151, "written": 152}
+{"t_us": 1794312979295919, "node": 2, "event": "REQUEST", "lamport": 564, "req_ts": 564}
+{"t_us": 1794312979305812, "node": 2, "event": "SEND", "lamport": 564, "msg": "REQUEST", "to": 3, "req_ts": 564}
+{"t_us": 1794312979305867, "node": 2, "event": "SEND", "lamport": 564, "msg": "REQUEST", "to": 1, "req_ts": 564}
+{"t_us": 1794312979306028, "node": 2, "event": "RECV", "lamport": 565, "msg": "REQUEST", "from": 1, "req_ts": 562}
+{"t_us": 1794312979313691, "node": 2, "event": "RECV", "lamport": 567, "msg": "REPLY", "from": 3, "req_ts": 564}
+{"t_us": 1794312979315620, "node": 2, "event": "SEND", "lamport": 567, "msg": "REPLY", "to": 1, "req_ts": 562}
+{"t_us": 1794312979378865, "node": 2, "event": "RECV", "lamport": 569, "msg": "REPLY", "from": 1, "req_ts": 564}
+{"t_us": 1794312979380052, "node": 2, "event": "ENTER", "lamport": 569, "req_ts": 564}
+{"t_us": 1794312979413533, "node": 2, "event": "SEND", "lamport": 569, "msg": "HEARTBEAT", "to": 1}
+{"t_us": 1794312979413580, "node": 2, "event": "SEND", "lamport": 569, "msg": "HEARTBEAT", "to": 3}
+{"t_us": 1794312979436291, "node": 2, "event": "EXIT", "lamport": 569, "req_ts": 564, "read": 153, "written": 154}
+{"t_us": 1794312979456937, "node": 2, "event": "RECV", "lamport": 570, "msg": "REQUEST", "from": 1, "req_ts": 569}
+{"t_us": 1794312979459098, "node": 2, "event": "SEND", "lamport": 571, "msg": "REPLY", "to": 1, "req_ts": 569}
+{"t_us": 1794312979636030, "node": 2, "event": "REQUEST", "lamport": 572, "req_ts": 572}
+{"t_us": 1794312979639628, "node": 2, "event": "SEND", "lamport": 572, "msg": "REQUEST", "to": 1, "req_ts": 572}
+{"t_us": 1794312979639738, "node": 2, "event": "SEND", "lamport": 572, "msg": "REQUEST", "to": 3, "req_ts": 572}
+{"t_us": 1794312979642686, "node": 2, "event": "RECV", "lamport": 576, "msg": "REPLY", "from": 1, "req_ts": 572}
+{"t_us": 1794312979647059, "node": 2, "event": "RECV", "lamport": 577, "msg": "REPLY", "from": 3, "req_ts": 572}
+{"t_us": 1794312979649379, "node": 2, "event": "ENTER", "lamport": 577, "req_ts": 572}
+{"t_us": 1794312979653636, "node": 2, "event": "RECV", "lamport": 578, "msg": "REQUEST", "from": 1, "req_ts": 576}
+{"t_us": 1794312979696572, "node": 2, "event": "RECV", "lamport": 580, "msg": "REQUEST", "from": 3, "req_ts": 579}
+{"t_us": 1794312979703675, "node": 2, "event": "EXIT", "lamport": 580, "req_ts": 572, "read": 155, "written": 156}
+{"t_us": 1794312979704814, "node": 2, "event": "SEND", "lamport": 582, "msg": "REPLY", "to": 3, "req_ts": 579}
+{"t_us": 1794312979704903, "node": 2, "event": "SEND", "lamport": 582, "msg": "REPLY", "to": 1, "req_ts": 576}
+{"t_us": 1794312979727226, "node": 2, "event": "REQUEST", "lamport": 583, "req_ts": 583}
+{"t_us": 1794312979728649, "node": 2, "event": "SEND", "lamport": 583, "msg": "REQUEST", "to": 3, "req_ts": 583}
+{"t_us": 1794312979728706, "node": 2, "event": "SEND", "lamport": 583, "msg": "REQUEST", "to": 1, "req_ts": 583}
+{"t_us": 1794312979761245, "node": 2, "event": "RECV", "lamport": 587, "msg": "REPLY", "from": 1, "req_ts": 583}
+{"t_us": 1794312979823359, "node": 2, "event": "RECV", "lamport": 588, "msg": "REPLY", "from": 3, "req_ts": 583}
+{"t_us": 1794312979855498, "node": 2, "event": "ENTER", "lamport": 588, "req_ts": 583}
+{"t_us": 1794312980033216, "node": 2, "event": "SEND", "lamport": 588, "msg": "HEARTBEAT", "to": 1}
+{"t_us": 1794312980033401, "node": 2, "event": "SEND", "lamport": 588, "msg": "HEARTBEAT", "to": 3}
+{"t_us": 1794312980220327, "node": 2, "event": "RECV", "lamport": 589, "msg": "REQUEST", "from": 1, "req_ts": 587}
+{"t_us": 1794312980270879, "node": 2, "event": "EXIT", "lamport": 589, "req_ts": 583, "read": 158, "written": 159}
+{"t_us": 1794312980325349, "node": 2, "event": "SEND", "lamport": 590, "msg": "REPLY", "to": 1, "req_ts": 587}
+{"t_us": 1794312980399008, "node": 2, "event": "REQUEST", "lamport": 591, "req_ts": 591}
+{"t_us": 1794312980413893, "node": 2, "event": "SEND", "lamport": 591, "msg": "HEARTBEAT", "to": 1}
+{"t_us": 1794312980413968, "node": 2, "event": "SEND", "lamport": 591, "msg": "HEARTBEAT", "to": 3}
+{"t_us": 1794312980465194, "node": 2, "event": "SEND", "lamport": 591, "msg": "REQUEST", "to": 1, "req_ts": 591}
+{"t_us": 1794312980500834, "node": 2, "event": "SEND", "lamport": 591, "msg": "REQUEST", "to": 3, "req_ts": 591}
+{"t_us": 1794312980510853, "node": 2, "event": "RECV", "lamport": 594, "msg": "REPLY", "from": 1, "req_ts": 591}
+{"t_us": 1794312980527963, "node": 2, "event": "RECV", "lamport": 595, "msg": "REPLY", "from": 3, "req_ts": 591}
+{"t_us": 1794312980535452, "node": 2, "event": "RECV", "lamport": 596, "msg": "REQUEST", "from": 1, "req_ts": 594}
+{"t_us": 1794312980538038, "node": 2, "event": "ENTER", "lamport": 596, "req_ts": 591}
+{"t_us": 1794312980595251, "node": 2, "event": "EXIT", "lamport": 596, "req_ts": 591, "read": 160, "written": 161}
+{"t_us": 1794312980597110, "node": 2, "event": "SEND", "lamport": 597, "msg": "REPLY", "to": 1, "req_ts": 594}
+{"t_us": 1794312980627765, "node": 2, "event": "REQUEST", "lamport": 598, "req_ts": 598}
+{"t_us": 1794312980679217, "node": 2, "event": "SEND", "lamport": 598, "msg": "REQUEST", "to": 3, "req_ts": 598}
+{"t_us": 1794312980679420, "node": 2, "event": "SEND", "lamport": 598, "msg": "REQUEST", "to": 1, "req_ts": 598}
+{"t_us": 1794312980914577, "node": 2, "event": "SEND", "lamport": 598, "msg": "HEARTBEAT", "to": 3}
+{"t_us": 1794312980929704, "node": 2, "event": "RECV", "lamport": 601, "msg": "REPLY", "from": 1, "req_ts": 598}
+{"t_us": 1794312980946155, "node": 2, "event": "SEND", "lamport": 601, "msg": "HEARTBEAT", "to": 1}
+{"t_us": 1794312980946268, "node": 2, "event": "RECV", "lamport": 602, "msg": "REPLY", "from": 3, "req_ts": 598}
+{"t_us": 1794312980949492, "node": 2, "event": "RECV", "lamport": 603, "msg": "REQUEST", "from": 3, "req_ts": 601}
+{"t_us": 1794312980952136, "node": 2, "event": "ENTER", "lamport": 603, "req_ts": 598}
+{"t_us": 1794312981008201, "node": 2, "event": "EXIT", "lamport": 603, "req_ts": 598, "read": 162, "written": 163}
+{"t_us": 1794312981010519, "node": 2, "event": "SEND", "lamport": 604, "msg": "REPLY", "to": 3, "req_ts": 601}
+{"t_us": 1794312981108833, "node": 2, "event": "REQUEST", "lamport": 605, "req_ts": 605}
+{"t_us": 1794312981275679, "node": 2, "event": "SEND", "lamport": 605, "msg": "REQUEST", "to": 1, "req_ts": 605}
+{"t_us": 1794312981275732, "node": 2, "event": "SEND", "lamport": 605, "msg": "REQUEST", "to": 3, "req_ts": 605}
+{"t_us": 1794312981363082, "node": 2, "event": "RECV", "lamport": 608, "msg": "REPLY", "from": 1, "req_ts": 605}
+{"t_us": 1794312981414909, "node": 2, "event": "SEND", "lamport": 608, "msg": "HEARTBEAT", "to": 1}
+{"t_us": 1794312981414933, "node": 2, "event": "SEND", "lamport": 608, "msg": "HEARTBEAT", "to": 3}
+{"t_us": 1794312981729242, "node": 2, "event": "RECV", "lamport": 609, "msg": "REPLY", "from": 3, "req_ts": 605}
+{"t_us": 1794312981787407, "node": 2, "event": "ENTER", "lamport": 609, "req_ts": 605}
+{"t_us": 1794312981806778, "node": 2, "event": "RECV", "lamport": 610, "msg": "REQUEST", "from": 1, "req_ts": 608}
+{"t_us": 1794312981817019, "node": 2, "event": "RECV", "lamport": 611, "msg": "REQUEST", "from": 3, "req_ts": 608}
+{"t_us": 1794312981867129, "node": 2, "event": "EXIT", "lamport": 611, "req_ts": 605, "read": 164, "written": 165}
+{"t_us": 1794312981868715, "node": 2, "event": "SEND", "lamport": 613, "msg": "REPLY", "to": 3, "req_ts": 608}
+{"t_us": 1794312981868790, "node": 2, "event": "SEND", "lamport": 613, "msg": "REPLY", "to": 1, "req_ts": 608}
+{"t_us": 1794312981915135, "node": 2, "event": "SEND", "lamport": 613, "msg": "HEARTBEAT", "to": 3}
+{"t_us": 1794312981915183, "node": 2, "event": "SEND", "lamport": 613, "msg": "HEARTBEAT", "to": 1}
+{"t_us": 1794312982180590, "node": 2, "event": "RECV", "lamport": 616, "msg": "REQUEST", "from": 1, "req_ts": 615}
+{"t_us": 1794312982194407, "node": 2, "event": "SEND", "lamport": 617, "msg": "REPLY", "to": 1, "req_ts": 615}
+{"t_us": 1794312982284196, "node": 2, "event": "RECV", "lamport": 619, "msg": "REQUEST", "from": 3, "req_ts": 618}
+{"t_us": 1794312982290989, "node": 2, "event": "SEND", "lamport": 620, "msg": "REPLY", "to": 3, "req_ts": 618}
+{"t_us": 1794312982317815, "node": 2, "event": "REQUEST", "lamport": 621, "req_ts": 621}
+{"t_us": 1794312982322744, "node": 2, "event": "SEND", "lamport": 621, "msg": "REQUEST", "to": 1, "req_ts": 621}
+{"t_us": 1794312982322825, "node": 2, "event": "SEND", "lamport": 621, "msg": "REQUEST", "to": 3, "req_ts": 621}
+{"t_us": 1794312982328112, "node": 2, "event": "RECV", "lamport": 624, "msg": "REPLY", "from": 1, "req_ts": 621}
+{"t_us": 1794312982340037, "node": 2, "event": "RECV", "lamport": 625, "msg": "REQUEST", "from": 1, "req_ts": 624}
+{"t_us": 1794312982378163, "node": 2, "event": "RECV", "lamport": 627, "msg": "REPLY", "from": 3, "req_ts": 621}
+{"t_us": 1794312982380051, "node": 2, "event": "ENTER", "lamport": 627, "req_ts": 621}
+{"t_us": 1794312982415862, "node": 2, "event": "SEND", "lamport": 627, "msg": "HEARTBEAT", "to": 1}
+{"t_us": 1794312982415919, "node": 2, "event": "SEND", "lamport": 627, "msg": "HEARTBEAT", "to": 3}
+{"t_us": 1794312982469039, "node": 2, "event": "EXIT", "lamport": 627, "req_ts": 621, "read": 169, "written": 170}
+{"t_us": 1794312982483030, "node": 2, "event": "SEND", "lamport": 628, "msg": "REPLY", "to": 1, "req_ts": 624}
+{"t_us": 1794312982498135, "node": 2, "event": "RECV", "lamport": 629, "msg": "REQUEST", "from": 3, "req_ts": 628}
+{"t_us": 1794312982513692, "node": 2, "event": "SEND", "lamport": 630, "msg": "REPLY", "to": 3, "req_ts": 628}
+{"t_us": 1794312982664660, "node": 2, "event": "RECV", "lamport": 634, "msg": "REQUEST", "from": 3, "req_ts": 633}
+{"t_us": 1794312982676364, "node": 2, "event": "SEND", "lamport": 635, "msg": "REPLY", "to": 3, "req_ts": 633}
+{"t_us": 1794312982799002, "node": 2, "event": "REQUEST", "lamport": 636, "req_ts": 636}
+{"t_us": 1794312982823439, "node": 2, "event": "SEND", "lamport": 636, "msg": "REQUEST", "to": 1, "req_ts": 636}
+{"t_us": 1794312982823515, "node": 2, "event": "SEND", "lamport": 636, "msg": "REQUEST", "to": 3, "req_ts": 636}
+{"t_us": 1794312982829889, "node": 2, "event": "RECV", "lamport": 639, "msg": "REPLY", "from": 1, "req_ts": 636}
+{"t_us": 1794312982854384, "node": 2, "event": "RECV", "lamport": 640, "msg": "REQUEST", "from": 3, "req_ts": 638}
+{"t_us": 1794312982996162, "node": 2, "event": "SEND", "lamport": 640, "msg": "HEARTBEAT", "to": 1}
+{"t_us": 1794312982996230, "node": 2, "event": "SEND", "lamport": 640, "msg": "HEARTBEAT", "to": 3}
+{"t_us": 1794312983206306, "node": 2, "event": "RECV", "lamport": 641, "msg": "REPLY", "from": 3, "req_ts": 636}
+{"t_us": 1794312983315714, "node": 2, "event": "ENTER", "lamport": 641, "req_ts": 636}
+{"t_us": 1794312983335258, "node": 2, "event": "RECV", "lamport": 642, "msg": "REQUEST", "from": 1, "req_ts": 641}
+{"t_us": 1794312983409446, "node": 2, "event": "EXIT", "lamport": 642, "req_ts": 636, "read": 173, "written": 174}
+{"t_us": 1794312983416791, "node": 2, "event": "SEND", "lamport": 643, "msg": "HEARTBEAT", "to": 1}
+{"t_us": 1794312983419755, "node": 2, "event": "SEND", "lamport": 644, "msg": "REPLY", "to": 1, "req_ts": 641}
+{"t_us": 1794312983416991, "node": 2, "event": "SEND", "lamport": 644, "msg": "HEARTBEAT", "to": 3}
+{"t_us": 1794312983425284, "node": 2, "event": "SEND", "lamport": 644, "msg": "REPLY", "to": 3, "req_ts": 638}
+{"t_us": 1794312983443864, "node": 2, "event": "REQUEST", "lamport": 645, "req_ts": 645}
+{"t_us": 1794312983450472, "node": 2, "event": "SEND", "lamport": 645, "msg": "REQUEST", "to": 1, "req_ts": 645}
+{"t_us": 1794312983450594, "node": 2, "event": "SEND", "lamport": 645, "msg": "REQUEST", "to": 3, "req_ts": 645}
+{"t_us": 1794312983507451, "node": 2, "event": "RECV", "lamport": 649, "msg": "REPLY", "from": 3, "req_ts": 645}
+{"t_us": 1794312983611408, "node": 2, "event": "RECV", "lamport": 650, "msg": "REPLY", "from": 1, "req_ts": 645}
+{"t_us": 1794312983614722, "node": 2, "event": "ENTER", "lamport": 650, "req_ts": 645}
+{"t_us": 1794312983672143, "node": 2, "event": "RECV", "lamport": 651, "msg": "REQUEST", "from": 3, "req_ts": 649}
+{"t_us": 1794312983681113, "node": 2, "event": "EXIT", "lamport": 651, "req_ts": 645, "read": 176, "written": 177}
+{"t_us": 1794312983689887, "node": 2, "event": "SEND", "lamport": 652, "msg": "REPLY", "to": 3, "req_ts": 649}
+{"t_us": 1794312983737701, "node": 2, "event": "REQUEST", "lamport": 653, "req_ts": 653}
+{"t_us": 1794312983745620, "node": 2, "event": "SEND", "lamport": 653, "msg": "REQUEST", "to": 1, "req_ts": 653}
+{"t_us": 1794312983745707, "node": 2, "event": "SEND", "lamport": 653, "msg": "REQUEST", "to": 3, "req_ts": 653}
+{"t_us": 1794312983752106, "node": 2, "event": "RECV", "lamport": 656, "msg": "REPLY", "from": 1, "req_ts": 653}
+{"t_us": 1794312983830154, "node": 2, "event": "RECV", "lamport": 657, "msg": "REPLY", "from": 3, "req_ts": 653}
+{"t_us": 1794312983834861, "node": 2, "event": "ENTER", "lamport": 657, "req_ts": 653}
+{"t_us": 1794312983892198, "node": 2, "event": "RECV", "lamport": 658, "msg": "REQUEST", "from": 1, "req_ts": 656}
+{"t_us": 1794312983911640, "node": 2, "event": "EXIT", "lamport": 658, "req_ts": 653, "read": 178, "written": 179}
+{"t_us": 1794312983926753, "node": 2, "event": "SEND", "lamport": 659, "msg": "HEARTBEAT", "to": 1}
+{"t_us": 1794312983927073, "node": 2, "event": "SEND", "lamport": 659, "msg": "HEARTBEAT", "to": 3}
+{"t_us": 1794312983931538, "node": 2, "event": "SEND", "lamport": 659, "msg": "REPLY", "to": 1, "req_ts": 656}
+{"t_us": 1794312984116801, "node": 2, "event": "REQUEST", "lamport": 660, "req_ts": 660}
+{"t_us": 1794312984126997, "node": 2, "event": "SEND", "lamport": 660, "msg": "REQUEST", "to": 1, "req_ts": 660}
+{"t_us": 1794312984127129, "node": 2, "event": "SEND", "lamport": 660, "msg": "REQUEST", "to": 3, "req_ts": 660}
+{"t_us": 1794312984132207, "node": 2, "event": "RECV", "lamport": 663, "msg": "REPLY", "from": 1, "req_ts": 660}
+{"t_us": 1794312984140713, "node": 2, "event": "RECV", "lamport": 664, "msg": "REPLY", "from": 3, "req_ts": 660}
+{"t_us": 1794312984151376, "node": 2, "event": "ENTER", "lamport": 664, "req_ts": 660}
+{"t_us": 1794312984166838, "node": 2, "event": "RECV", "lamport": 665, "msg": "REQUEST", "from": 3, "req_ts": 663}
+{"t_us": 1794312984199026, "node": 2, "event": "RECV", "lamport": 667, "msg": "REQUEST", "from": 1, "req_ts": 666}
+{"t_us": 1794312984225776, "node": 2, "event": "EXIT", "lamport": 667, "req_ts": 660, "read": 180, "written": 181}
+{"t_us": 1794312984231112, "node": 2, "event": "SEND", "lamport": 669, "msg": "REPLY", "to": 1, "req_ts": 666}
+{"t_us": 1794312984231205, "node": 2, "event": "SEND", "lamport": 669, "msg": "REPLY", "to": 3, "req_ts": 663}
+{"t_us": 1794312984399948, "node": 2, "event": "RECV", "lamport": 672, "msg": "REQUEST", "from": 3, "req_ts": 671}
+{"t_us": 1794312984406269, "node": 2, "event": "SEND", "lamport": 673, "msg": "REPLY", "to": 3, "req_ts": 671}
+{"t_us": 1794312984417268, "node": 2, "event": "SEND", "lamport": 673, "msg": "HEARTBEAT", "to": 3}
+{"t_us": 1794312984417378, "node": 2, "event": "SEND", "lamport": 673, "msg": "HEARTBEAT", "to": 1}
+{"t_us": 1794312984525206, "node": 2, "event": "RECV", "lamport": 675, "msg": "REQUEST", "from": 1, "req_ts": 674}
+{"t_us": 1794312984541071, "node": 2, "event": "SEND", "lamport": 676, "msg": "REPLY", "to": 1, "req_ts": 674}
+{"t_us": 1794312984867306, "node": 2, "event": "RECV", "lamport": 679, "msg": "REQUEST", "from": 3, "req_ts": 678}
+{"t_us": 1794312984875182, "node": 2, "event": "SEND", "lamport": 680, "msg": "REPLY", "to": 3, "req_ts": 678}
+{"t_us": 1794312984917924, "node": 2, "event": "SEND", "lamport": 680, "msg": "HEARTBEAT", "to": 3}
+{"t_us": 1794312984918332, "node": 2, "event": "SEND", "lamport": 680, "msg": "HEARTBEAT", "to": 1}
+{"t_us": 1794312984946838, "node": 2, "event": "RECV", "lamport": 683, "msg": "REQUEST", "from": 1, "req_ts": 682}
+{"t_us": 1794312984954659, "node": 2, "event": "SEND", "lamport": 684, "msg": "REPLY", "to": 1, "req_ts": 682}
+{"t_us": 1794312985157583, "node": 2, "event": "REQUEST", "lamport": 685, "req_ts": 685}
+{"t_us": 1794312985165417, "node": 2, "event": "SEND", "lamport": 685, "msg": "REQUEST", "to": 1, "req_ts": 685}
+{"t_us": 1794312985165499, "node": 2, "event": "SEND", "lamport": 685, "msg": "REQUEST", "to": 3, "req_ts": 685}
+{"t_us": 1794312985177970, "node": 2, "event": "RECV", "lamport": 688, "msg": "REPLY", "from": 3, "req_ts": 685}
+{"t_us": 1794312985199622, "node": 2, "event": "RECV", "lamport": 689, "msg": "REPLY", "from": 1, "req_ts": 685}
+{"t_us": 1794312985203894, "node": 2, "event": "ENTER", "lamport": 689, "req_ts": 685}
+{"t_us": 1794312985207498, "node": 2, "event": "RECV", "lamport": 690, "msg": "REQUEST", "from": 3, "req_ts": 688}
+{"t_us": 1794312985270726, "node": 2, "event": "EXIT", "lamport": 690, "req_ts": 685, "read": 187, "written": 188}
+{"t_us": 1794312985274589, "node": 2, "event": "SEND", "lamport": 691, "msg": "REPLY", "to": 3, "req_ts": 688}
+{"t_us": 1794312985418082, "node": 2, "event": "SEND", "lamport": 691, "msg": "HEARTBEAT", "to": 1}
+{"t_us": 1794312985418102, "node": 2, "event": "SEND", "lamport": 691, "msg": "HEARTBEAT", "to": 3}
+{"t_us": 1794312985444435, "node": 2, "event": "REQUEST", "lamport": 692, "req_ts": 692}
+{"t_us": 1794312985447041, "node": 2, "event": "SEND", "lamport": 692, "msg": "REQUEST", "to": 1, "req_ts": 692}
+{"t_us": 1794312985447097, "node": 2, "event": "SEND", "lamport": 692, "msg": "REQUEST", "to": 3, "req_ts": 692}
+{"t_us": 1794312985450968, "node": 2, "event": "RECV", "lamport": 695, "msg": "REPLY", "from": 3, "req_ts": 692}
+{"t_us": 1794312985453174, "node": 2, "event": "RECV", "lamport": 696, "msg": "REPLY", "from": 1, "req_ts": 692}
+{"t_us": 1794312985454860, "node": 2, "event": "ENTER", "lamport": 696, "req_ts": 692}
+{"t_us": 1794312985511344, "node": 2, "event": "EXIT", "lamport": 696, "req_ts": 692, "read": 189, "written": 190}
+{"t_us": 1794312985540176, "node": 2, "event": "RECV", "lamport": 697, "msg": "REQUEST", "from": 1, "req_ts": 695}
+{"t_us": 1794312985545866, "node": 2, "event": "SEND", "lamport": 698, "msg": "REPLY", "to": 1, "req_ts": 695}
+{"t_us": 1794312985669772, "node": 2, "event": "RECV", "lamport": 699, "msg": "REQUEST", "from": 3, "req_ts": 698}
+{"t_us": 1794312985674161, "node": 2, "event": "SEND", "lamport": 700, "msg": "REPLY", "to": 3, "req_ts": 698}
+{"t_us": 1794312985721137, "node": 2, "event": "RECV", "lamport": 703, "msg": "REQUEST", "from": 1, "req_ts": 702}
+{"t_us": 1794312985724200, "node": 2, "event": "SEND", "lamport": 704, "msg": "REPLY", "to": 1, "req_ts": 702}
+{"t_us": 1794312985745158, "node": 2, "event": "REQUEST", "lamport": 705, "req_ts": 705}
+{"t_us": 1794312985748274, "node": 2, "event": "SEND", "lamport": 705, "msg": "REQUEST", "to": 1, "req_ts": 705}
+{"t_us": 1794312985748347, "node": 2, "event": "SEND", "lamport": 705, "msg": "REQUEST", "to": 3, "req_ts": 705}
+{"t_us": 1794312985751722, "node": 2, "event": "RECV", "lamport": 708, "msg": "REPLY", "from": 3, "req_ts": 705}
+{"t_us": 1794312985802443, "node": 2, "event": "RECV", "lamport": 709, "msg": "REQUEST", "from": 3, "req_ts": 708}
+{"t_us": 1794312985813470, "node": 2, "event": "RECV", "lamport": 711, "msg": "REPLY", "from": 1, "req_ts": 705}
+{"t_us": 1794312985815502, "node": 2, "event": "ENTER", "lamport": 711, "req_ts": 705}
+{"t_us": 1794312985872118, "node": 2, "event": "EXIT", "lamport": 711, "req_ts": 705, "read": 193, "written": 194}
+{"t_us": 1794312985874754, "node": 2, "event": "SEND", "lamport": 712, "msg": "REPLY", "to": 3, "req_ts": 708}
+{"t_us": 1794312985918866, "node": 2, "event": "SEND", "lamport": 712, "msg": "HEARTBEAT", "to": 1}
+{"t_us": 1794312985918941, "node": 2, "event": "SEND", "lamport": 712, "msg": "HEARTBEAT", "to": 3}
+{"t_us": 1794312986041842, "node": 2, "event": "RECV", "lamport": 713, "msg": "REQUEST", "from": 1, "req_ts": 712}
+{"t_us": 1794312986048797, "node": 2, "event": "SEND", "lamport": 714, "msg": "REPLY", "to": 1, "req_ts": 712}
+{"t_us": 1794312986312694, "node": 2, "event": "REQUEST", "lamport": 715, "req_ts": 715}
+{"t_us": 1794312986315637, "node": 2, "event": "SEND", "lamport": 715, "msg": "REQUEST", "to": 3, "req_ts": 715}
+{"t_us": 1794312986315771, "node": 2, "event": "SEND", "lamport": 715, "msg": "REQUEST", "to": 1, "req_ts": 715}
+{"t_us": 1794312986319141, "node": 2, "event": "RECV", "lamport": 720, "msg": "REPLY", "from": 1, "req_ts": 715}
+{"t_us": 1794312986321969, "node": 2, "event": "RECV", "lamport": 721, "msg": "REPLY", "from": 3, "req_ts": 715}
+{"t_us": 1794312986323007, "node": 2, "event": "RECV", "lamport": 722, "msg": "REQUEST", "from": 1, "req_ts": 720}
+{"t_us": 1794312986325990, "node": 2, "event": "ENTER", "lamport": 722, "req_ts": 715}
+{"t_us": 1794312986383006, "node": 2, "event": "EXIT", "lamport": 722, "req_ts": 715, "read": 196, "written": 197}
+{"t_us": 1794312986385387, "node": 2, "event": "SEND", "lamport": 723, "msg": "REPLY", "to": 1, "req_ts": 720}
+{"t_us": 1794312986404791, "node": 2, "event": "REQUEST", "lamport": 724, "req_ts": 724}
+{"t_us": 1794312986408761, "node": 2, "event": "SEND", "lamport": 724, "msg": "REQUEST", "to": 1, "req_ts": 724}
+{"t_us": 1794312986408809, "node": 2, "event": "SEND", "lamport": 724, "msg": "REQUEST", "to": 3, "req_ts": 724}
+{"t_us": 1794312986422480, "node": 2, "event": "SEND", "lamport": 724, "msg": "HEARTBEAT", "to": 1}
+{"t_us": 1794312986422667, "node": 2, "event": "RECV", "lamport": 727, "msg": "REPLY", "from": 3, "req_ts": 724}
+{"t_us": 1794312986478182, "node": 2, "event": "SEND", "lamport": 727, "msg": "HEARTBEAT", "to": 3}
+{"t_us": 1794312986486730, "node": 2, "event": "RECV", "lamport": 728, "msg": "REQUEST", "from": 3, "req_ts": 727}
+{"t_us": 1794312986509258, "node": 2, "event": "RECV", "lamport": 729, "msg": "REPLY", "from": 1, "req_ts": 724}
+{"t_us": 1794312986510605, "node": 2, "event": "ENTER", "lamport": 729, "req_ts": 724}
+{"t_us": 1794312986574789, "node": 2, "event": "EXIT", "lamport": 729, "req_ts": 724, "read": 198, "written": 199}
+{"t_us": 1794312986583106, "node": 2, "event": "SEND", "lamport": 730, "msg": "REPLY", "to": 3, "req_ts": 727}
+{"t_us": 1794312986901075, "node": 2, "event": "REQUEST", "lamport": 731, "req_ts": 731}
+{"t_us": 1794312986903932, "node": 2, "event": "SEND", "lamport": 731, "msg": "REQUEST", "to": 1, "req_ts": 731}
+{"t_us": 1794312986903960, "node": 2, "event": "SEND", "lamport": 731, "msg": "REQUEST", "to": 3, "req_ts": 731}
+{"t_us": 1794312986906921, "node": 2, "event": "RECV", "lamport": 734, "msg": "REPLY", "from": 3, "req_ts": 731}
+{"t_us": 1794312986912206, "node": 2, "event": "RECV", "lamport": 735, "msg": "REPLY", "from": 1, "req_ts": 731}
+{"t_us": 1794312986914841, "node": 2, "event": "ENTER", "lamport": 735, "req_ts": 731}
+{"t_us": 1794312986917614, "node": 2, "event": "RECV", "lamport": 736, "msg": "REQUEST", "from": 3, "req_ts": 734}
+{"t_us": 1794312986920639, "node": 2, "event": "SEND", "lamport": 736, "msg": "HEARTBEAT", "to": 1}
+{"t_us": 1794312986920801, "node": 2, "event": "SEND", "lamport": 736, "msg": "HEARTBEAT", "to": 3}
+{"t_us": 1794312986979239, "node": 2, "event": "EXIT", "lamport": 736, "req_ts": 731, "read": 200, "written": 201}
+{"t_us": 1794312986987681, "node": 2, "event": "SEND", "lamport": 737, "msg": "REPLY", "to": 3, "req_ts": 734}
+{"t_us": 1794312986987974, "node": 2, "event": "RECV", "lamport": 738, "msg": "REQUEST", "from": 1, "req_ts": 737}
+{"t_us": 1794312987000972, "node": 2, "event": "SEND", "lamport": 739, "msg": "REPLY", "to": 1, "req_ts": 737}
+{"t_us": 1794312987021532, "node": 2, "event": "REQUEST", "lamport": 740, "req_ts": 740}
+{"t_us": 1794312987026954, "node": 2, "event": "SEND", "lamport": 740, "msg": "REQUEST", "to": 1, "req_ts": 740}
+{"t_us": 1794312987027044, "node": 2, "event": "SEND", "lamport": 740, "msg": "REQUEST", "to": 3, "req_ts": 740}
+{"t_us": 1794312987084966, "node": 2, "event": "RECV", "lamport": 744, "msg": "REPLY", "from": 3, "req_ts": 740}
+{"t_us": 1794312987194573, "node": 2, "event": "RECV", "lamport": 745, "msg": "REPLY", "from": 1, "req_ts": 740}
+{"t_us": 1794312987198012, "node": 2, "event": "ENTER", "lamport": 745, "req_ts": 740}
+{"t_us": 1794312987257929, "node": 2, "event": "EXIT", "lamport": 745, "req_ts": 740, "read": 203, "written": 204}
+{"t_us": 1794312987283304, "node": 2, "event": "REQUEST", "lamport": 746, "req_ts": 746}
+{"t_us": 1794312987285450, "node": 2, "event": "SEND", "lamport": 746, "msg": "REQUEST", "to": 3, "req_ts": 746}
+{"t_us": 1794312987285543, "node": 2, "event": "SEND", "lamport": 746, "msg": "REQUEST", "to": 1, "req_ts": 746}
+{"t_us": 1794312987287462, "node": 2, "event": "RECV", "lamport": 749, "msg": "REPLY", "from": 3, "req_ts": 746}
+{"t_us": 1794312987292864, "node": 2, "event": "RECV", "lamport": 750, "msg": "REPLY", "from": 1, "req_ts": 746}
+{"t_us": 1794312987294477, "node": 2, "event": "ENTER", "lamport": 750, "req_ts": 746}
+{"t_us": 1794312987324086, "node": 2, "event": "RECV", "lamport": 751, "msg": "REQUEST", "from": 3, "req_ts": 749}
+{"t_us": 1794312987345703, "node": 2, "event": "RECV", "lamport": 753, "msg": "REQUEST", "from": 1, "req_ts": 752}
+{"t_us": 1794312987354732, "node": 2, "event": "EXIT", "lamport": 753, "req_ts": 746, "read": 204, "written": 205}
+{"t_us": 1794312987359062, "node": 2, "event": "SEND", "lamport": 755, "msg": "REPLY", "to": 1, "req_ts": 752}
+{"t_us": 1794312987359094, "node": 2, "event": "SEND", "lamport": 755, "msg": "REPLY", "to": 3, "req_ts": 749}
+{"t_us": 1794312987404569, "node": 2, "event": "REQUEST", "lamport": 756, "req_ts": 756}
+{"t_us": 1794312987406697, "node": 2, "event": "SEND", "lamport": 756, "msg": "REQUEST", "to": 3, "req_ts": 756}
+{"t_us": 1794312987406742, "node": 2, "event": "SEND", "lamport": 756, "msg": "REQUEST", "to": 1, "req_ts": 756}
+{"t_us": 1794312987419817, "node": 2, "event": "SEND", "lamport": 756, "msg": "HEARTBEAT", "to": 1}
+{"t_us": 1794312987419884, "node": 2, "event": "SEND", "lamport": 756, "msg": "HEARTBEAT", "to": 3}
+{"t_us": 1794312987426139, "node": 2, "event": "RECV", "lamport": 760, "msg": "REPLY", "from": 3, "req_ts": 756}
+{"t_us": 1794312987502530, "node": 2, "event": "RECV", "lamport": 761, "msg": "REPLY", "from": 1, "req_ts": 756}
+{"t_us": 1794312987515050, "node": 2, "event": "ENTER", "lamport": 761, "req_ts": 756}
+{"t_us": 1794312987604181, "node": 2, "event": "EXIT", "lamport": 761, "req_ts": 756, "read": 207, "written": 208}
+{"t_us": 1794312987779422, "node": 2, "event": "REQUEST", "lamport": 762, "req_ts": 762}
+{"t_us": 1794312987781643, "node": 2, "event": "SEND", "lamport": 762, "msg": "REQUEST", "to": 1, "req_ts": 762}
+{"t_us": 1794312987781752, "node": 2, "event": "SEND", "lamport": 762, "msg": "REQUEST", "to": 3, "req_ts": 762}
+{"t_us": 1794312987787147, "node": 2, "event": "RECV", "lamport": 765, "msg": "REPLY", "from": 3, "req_ts": 762}
+{"t_us": 1794312987792676, "node": 2, "event": "RECV", "lamport": 766, "msg": "REPLY", "from": 1, "req_ts": 762}
+{"t_us": 1794312987794675, "node": 2, "event": "ENTER", "lamport": 766, "req_ts": 762}
+{"t_us": 1794312987854338, "node": 2, "event": "EXIT", "lamport": 766, "req_ts": 762, "read": 208, "written": 209}
+{"t_us": 1794312987889126, "node": 2, "event": "RECV", "lamport": 767, "msg": "REQUEST", "from": 1, "req_ts": 765}
+{"t_us": 1794312987892803, "node": 2, "event": "SEND", "lamport": 768, "msg": "REPLY", "to": 1, "req_ts": 765}
+{"t_us": 1794312987919944, "node": 2, "event": "SEND", "lamport": 768, "msg": "HEARTBEAT", "to": 1}
+{"t_us": 1794312987920031, "node": 2, "event": "SEND", "lamport": 768, "msg": "HEARTBEAT", "to": 3}
+{"t_us": 1794312987969038, "node": 2, "event": "REQUEST", "lamport": 769, "req_ts": 769}
+{"t_us": 1794312987971697, "node": 2, "event": "SEND", "lamport": 769, "msg": "REQUEST", "to": 3, "req_ts": 769}
+{"t_us": 1794312987971746, "node": 2, "event": "SEND", "lamport": 769, "msg": "REQUEST", "to": 1, "req_ts": 769}
+{"t_us": 1794312987974850, "node": 2, "event": "RECV", "lamport": 772, "msg": "REPLY", "from": 3, "req_ts": 769}
+{"t_us": 1794312987981868, "node": 2, "event": "RECV", "lamport": 773, "msg": "REPLY", "from": 1, "req_ts": 769}
+{"t_us": 1794312987983620, "node": 2, "event": "ENTER", "lamport": 773, "req_ts": 769}
+{"t_us": 1794312988071204, "node": 2, "event": "EXIT", "lamport": 773, "req_ts": 769, "read": 210, "written": 211}
+{"t_us": 1794312988094699, "node": 2, "event": "RECV", "lamport": 774, "msg": "REQUEST", "from": 3, "req_ts": 772}
+{"t_us": 1794312988105402, "node": 2, "event": "SEND", "lamport": 775, "msg": "REPLY", "to": 3, "req_ts": 772}
+{"t_us": 1794312988253524, "node": 2, "event": "RECV", "lamport": 776, "msg": "REQUEST", "from": 1, "req_ts": 775}
+{"t_us": 1794312988256922, "node": 2, "event": "SEND", "lamport": 777, "msg": "REPLY", "to": 1, "req_ts": 775}
+{"t_us": 1794312988272558, "node": 2, "event": "REQUEST", "lamport": 778, "req_ts": 778}
+{"t_us": 1794312988279415, "node": 2, "event": "SEND", "lamport": 778, "msg": "REQUEST", "to": 1, "req_ts": 778}
+{"t_us": 1794312988279442, "node": 2, "event": "SEND", "lamport": 778, "msg": "REQUEST", "to": 3, "req_ts": 778}
+{"t_us": 1794312988281674, "node": 2, "event": "RECV", "lamport": 782, "msg": "REPLY", "from": 3, "req_ts": 778}
+{"t_us": 1794312988339970, "node": 2, "event": "RECV", "lamport": 783, "msg": "REPLY", "from": 1, "req_ts": 778}
+{"t_us": 1794312988342382, "node": 2, "event": "ENTER", "lamport": 783, "req_ts": 778}
+{"t_us": 1794312988410354, "node": 2, "event": "EXIT", "lamport": 783, "req_ts": 778, "read": 213, "written": 214}
+{"t_us": 1794312988420302, "node": 2, "event": "SEND", "lamport": 783, "msg": "HEARTBEAT", "to": 3}
+{"t_us": 1794312988420435, "node": 2, "event": "SEND", "lamport": 783, "msg": "HEARTBEAT", "to": 1}
+{"t_us": 1794312988493156, "node": 2, "event": "REQUEST", "lamport": 784, "req_ts": 784}
+{"t_us": 1794312988499693, "node": 2, "event": "SEND", "lamport": 784, "msg": "REQUEST", "to": 3, "req_ts": 784}
+{"t_us": 1794312988499724, "node": 2, "event": "SEND", "lamport": 784, "msg": "REQUEST", "to": 1, "req_ts": 784}
+{"t_us": 1794312988523365, "node": 2, "event": "RECV", "lamport": 787, "msg": "REPLY", "from": 3, "req_ts": 784}
+{"t_us": 1794312988525268, "node": 2, "event": "RECV", "lamport": 788, "msg": "REPLY", "from": 1, "req_ts": 784}
+{"t_us": 1794312988530347, "node": 2, "event": "ENTER", "lamport": 788, "req_ts": 784}
+{"t_us": 1794312988586275, "node": 2, "event": "EXIT", "lamport": 788, "req_ts": 784, "read": 214, "written": 215}
+{"t_us": 1794312988680517, "node": 2, "event": "RECV", "lamport": 789, "msg": "REQUEST", "from": 1, "req_ts": 787}
+{"t_us": 1794312988682301, "node": 2, "event": "SEND", "lamport": 790, "msg": "REPLY", "to": 1, "req_ts": 787}
+{"t_us": 1794312988682903, "node": 2, "event": "REQUEST", "lamport": 791, "req_ts": 791}
+{"t_us": 1794312988686888, "node": 2, "event": "SEND", "lamport": 791, "msg": "REQUEST", "to": 3, "req_ts": 791}
+{"t_us": 1794312988686972, "node": 2, "event": "SEND", "lamport": 791, "msg": "REQUEST", "to": 1, "req_ts": 791}
+{"t_us": 1794312988691552, "node": 2, "event": "RECV", "lamport": 794, "msg": "REPLY", "from": 3, "req_ts": 791}
+{"t_us": 1794312988763782, "node": 2, "event": "RECV", "lamport": 795, "msg": "REQUEST", "from": 3, "req_ts": 794}
+{"t_us": 1794312988787521, "node": 2, "event": "RECV", "lamport": 797, "msg": "REPLY", "from": 1, "req_ts": 791}
+{"t_us": 1794312988811021, "node": 2, "event": "ENTER", "lamport": 797, "req_ts": 791}
+{"t_us": 1794312988920424, "node": 2, "event": "SEND", "lamport": 797, "msg": "HEARTBEAT", "to": 1}
+{"t_us": 1794312988920562, "node": 2, "event": "SEND", "lamport": 797, "msg": "HEARTBEAT", "to": 3}
+{"t_us": 1794312988933798, "node": 2, "event": "EXIT", "lamport": 797, "req_ts": 791, "read": 216, "written": 217}
+{"t_us": 1794312988963792, "node": 2, "event": "SEND", "lamport": 798, "msg": "REPLY", "to": 3, "req_ts": 794}
+{"t_us": 1794312988992859, "node": 2, "event": "RECV", "lamport": 799, "msg": "REQUEST", "from": 1, "req_ts": 798}
+{"t_us": 1794312989002854, "node": 2, "event": "SEND", "lamport": 800, "msg": "REPLY", "to": 1, "req_ts": 798}
+{"t_us": 1794312989113428, "node": 2, "event": "REQUEST", "lamport": 801, "req_ts": 801}
+{"t_us": 1794312989114779, "node": 2, "event": "SEND", "lamport": 801, "msg": "REQUEST", "to": 1, "req_ts": 801}
+{"t_us": 1794312989114803, "node": 2, "event": "SEND", "lamport": 801, "msg": "REQUEST", "to": 3, "req_ts": 801}
+{"t_us": 1794312989115802, "node": 2, "event": "RECV", "lamport": 804, "msg": "REPLY", "from": 3, "req_ts": 801}
+{"t_us": 1794312989117154, "node": 2, "event": "RECV", "lamport": 805, "msg": "REPLY", "from": 1, "req_ts": 801}
+{"t_us": 1794312989118472, "node": 2, "event": "ENTER", "lamport": 805, "req_ts": 801}
+{"t_us": 1794312989157766, "node": 2, "event": "RECV", "lamport": 806, "msg": "REQUEST", "from": 3, "req_ts": 804}
+{"t_us": 1794312989173884, "node": 2, "event": "EXIT", "lamport": 806, "req_ts": 801, "read": 219, "written": 220}
+{"t_us": 1794312989175192, "node": 2, "event": "SEND", "lamport": 807, "msg": "REPLY", "to": 3, "req_ts": 804}
+{"t_us": 1794312989203616, "node": 2, "event": "REQUEST", "lamport": 808, "req_ts": 808}
+{"t_us": 1794312989205789, "node": 2, "event": "SEND", "lamport": 808, "msg": "REQUEST", "to": 1, "req_ts": 808}
+{"t_us": 1794312989205838, "node": 2, "event": "SEND", "lamport": 808, "msg": "REQUEST", "to": 3, "req_ts": 808}
+{"t_us": 1794312989208375, "node": 2, "event": "RECV", "lamport": 811, "msg": "REPLY", "from": 1, "req_ts": 808}
+{"t_us": 1794312989231914, "node": 2, "event": "RECV", "lamport": 812, "msg": "REPLY", "from": 3, "req_ts": 808}
+{"t_us": 1794312989232697, "node": 2, "event": "ENTER", "lamport": 812, "req_ts": 808}
+{"t_us": 1794312989292830, "node": 2, "event": "EXIT", "lamport": 812, "req_ts": 808, "read": 221, "written": 222}
+{"t_us": 1794312989421066, "node": 2, "event": "SEND", "lamport": 812, "msg": "HEARTBEAT", "to": 3}
+{"t_us": 1794312989421153, "node": 2, "event": "SEND", "lamport": 812, "msg": "HEARTBEAT", "to": 1}
+{"t_us": 1794312989769592, "node": 2, "event": "REQUEST", "lamport": 813, "req_ts": 813}
+{"t_us": 1794312989772744, "node": 2, "event": "SEND", "lamport": 813, "msg": "REQUEST", "to": 1, "req_ts": 813}
+{"t_us": 1794312989773115, "node": 2, "event": "SEND", "lamport": 813, "msg": "REQUEST", "to": 3, "req_ts": 813}
+{"t_us": 1794312989776313, "node": 2, "event": "RECV", "lamport": 816, "msg": "REPLY", "from": 3, "req_ts": 813}
+{"t_us": 1794312989780489, "node": 2, "event": "RECV", "lamport": 817, "msg": "REPLY", "from": 1, "req_ts": 813}
+{"t_us": 1794312989782393, "node": 2, "event": "ENTER", "lamport": 817, "req_ts": 813}
+{"t_us": 1794312989837559, "node": 2, "event": "EXIT", "lamport": 817, "req_ts": 813, "read": 222, "written": 223}
+{"t_us": 1794312989896928, "node": 2, "event": "REQUEST", "lamport": 818, "req_ts": 818}
+{"t_us": 1794312989909682, "node": 2, "event": "RECV", "lamport": 819, "msg": "REQUEST", "from": 3, "req_ts": 816}
+{"t_us": 1794312989912357, "node": 2, "event": "SEND", "lamport": 820, "msg": "REQUEST", "to": 1, "req_ts": 818}
+{"t_us": 1794312989912439, "node": 2, "event": "SEND", "lamport": 820, "msg": "REQUEST", "to": 3, "req_ts": 818}
+{"t_us": 1794312989915704, "node": 2, "event": "RECV", "lamport": 821, "msg": "REPLY", "from": 1, "req_ts": 818}
+{"t_us": 1794312989921034, "node": 2, "event": "SEND", "lamport": 821, "msg": "HEARTBEAT", "to": 1}
+{"t_us": 1794312989921103, "node": 2, "event": "SEND", "lamport": 821, "msg": "REPLY", "to": 3, "req_ts": 816}
+{"t_us": 1794312989925619, "node": 2, "event": "SEND", "lamport": 821, "msg": "HEARTBEAT", "to": 3}
+{"t_us": 1794312989990857, "node": 2, "event": "RECV", "lamport": 823, "msg": "REPLY", "from": 3, "req_ts": 818}
+{"t_us": 1794312989992934, "node": 2, "event": "ENTER", "lamport": 823, "req_ts": 818}
+{"t_us": 1794312990053327, "node": 2, "event": "EXIT", "lamport": 823, "req_ts": 818, "read": 224, "written": 225}
+{"t_us": 1794312990073567, "node": 2, "event": "RECV", "lamport": 824, "msg": "REQUEST", "from": 3, "req_ts": 823}
+{"t_us": 1794312990081865, "node": 2, "event": "RECV", "lamport": 826, "msg": "REQUEST", "from": 1, "req_ts": 821}
+{"t_us": 1794312990086747, "node": 2, "event": "SEND", "lamport": 827, "msg": "REPLY", "to": 3, "req_ts": 823}
+{"t_us": 1794312990086863, "node": 2, "event": "SEND", "lamport": 827, "msg": "REPLY", "to": 1, "req_ts": 821}
+{"t_us": 1794312990276353, "node": 2, "event": "REQUEST", "lamport": 828, "req_ts": 828}
+{"t_us": 1794312990281006, "node": 2, "event": "SEND", "lamport": 828, "msg": "REQUEST", "to": 1, "req_ts": 828}
+{"t_us": 1794312990281108, "node": 2, "event": "SEND", "lamport": 828, "msg": "REQUEST", "to": 3, "req_ts": 828}
+{"t_us": 1794312990284122, "node": 2, "event": "RECV", "lamport": 833, "msg": "REPLY", "from": 1, "req_ts": 828}
+{"t_us": 1794312990295022, "node": 2, "event": "RECV", "lamport": 834, "msg": "REQUEST", "from": 1, "req_ts": 833}
+{"t_us": 1794312990306964, "node": 2, "event": "RECV", "lamport": 836, "msg": "REPLY", "from": 3, "req_ts": 828}
+{"t_us": 1794312990310342, "node": 2, "event": "ENTER", "lamport": 836, "req_ts": 828}
+{"t_us": 1794312990375440, "node": 2, "event": "EXIT", "lamport": 836, "req_ts": 828, "read": 227, "written": 228}
+{"t_us": 1794312990382403, "node": 2, "event": "SEND", "lamport": 837, "msg": "REPLY", "to": 1, "req_ts": 833}
+{"t_us": 1794312990421506, "node": 2, "event": "SEND", "lamport": 837, "msg": "HEARTBEAT", "to": 1}
+{"t_us": 1794312990421593, "node": 2, "event": "SEND", "lamport": 837, "msg": "HEARTBEAT", "to": 3}
+{"t_us": 1794312990499861, "node": 2, "event": "RECV", "lamport": 840, "msg": "REQUEST", "from": 1, "req_ts": 839}
+{"t_us": 1794312990502935, "node": 2, "event": "SEND", "lamport": 841, "msg": "REPLY", "to": 1, "req_ts": 839}
+{"t_us": 1794312990921857, "node": 2, "event": "SEND", "lamport": 841, "msg": "HEARTBEAT", "to": 1}
+{"t_us": 1794312990921930, "node": 2, "event": "SEND", "lamport": 841, "msg": "HEARTBEAT", "to": 3}
+{"t_us": 1794312991422408, "node": 2, "event": "SEND", "lamport": 841, "msg": "HEARTBEAT", "to": 1}
+{"t_us": 1794312991422844, "node": 2, "event": "SEND", "lamport": 841, "msg": "HEARTBEAT", "to": 3}
+{"t_us": 1794312991922340, "node": 2, "event": "SEND", "lamport": 841, "msg": "HEARTBEAT", "to": 1}
+{"t_us": 1794312991922397, "node": 2, "event": "SEND", "lamport": 841, "msg": "HEARTBEAT", "to": 3}
+{"t_us": 1794312992422958, "node": 2, "event": "SEND", "lamport": 841, "msg": "HEARTBEAT", "to": 3}
+{"t_us": 1794312992423107, "node": 2, "event": "SEND", "lamport": 841, "msg": "HEARTBEAT", "to": 1}
+{"t_us": 1794312992923413, "node": 2, "event": "SEND", "lamport": 841, "msg": "HEARTBEAT", "to": 3}
+{"t_us": 1794312992923512, "node": 2, "event": "SEND", "lamport": 841, "msg": "HEARTBEAT", "to": 1}
+{"t_us": 1794312993423644, "node": 2, "event": "SEND", "lamport": 841, "msg": "HEARTBEAT", "to": 1}
+{"t_us": 1794312993423719, "node": 2, "event": "SEND", "lamport": 841, "msg": "HEARTBEAT", "to": 3}
+{"t_us": 1794312993924125, "node": 2, "event": "SEND", "lamport": 841, "msg": "HEARTBEAT", "to": 1}
+{"t_us": 1794312993924201, "node": 2, "event": "SEND", "lamport": 841, "msg": "HEARTBEAT", "to": 3}
+{"t_us": 1794312994424330, "node": 2, "event": "SEND", "lamport": 841, "msg": "HEARTBEAT", "to": 1}
+{"t_us": 1794312994424583, "node": 2, "event": "SEND", "lamport": 841, "msg": "HEARTBEAT", "to": 3}
+{"t_us": 1794312994924887, "node": 2, "event": "SEND", "lamport": 841, "msg": "HEARTBEAT", "to": 3}
+{"t_us": 1794312994925062, "node": 2, "event": "SEND", "lamport": 841, "msg": "HEARTBEAT", "to": 1}
+{"t_us": 1794312995424855, "node": 2, "event": "SEND", "lamport": 841, "msg": "HEARTBEAT", "to": 3}
+{"t_us": 1794312995424883, "node": 2, "event": "SEND", "lamport": 841, "msg": "HEARTBEAT", "to": 1}
+{"t_us": 1794312995925376, "node": 2, "event": "SEND", "lamport": 841, "msg": "HEARTBEAT", "to": 3}
+{"t_us": 1794312995925698, "node": 2, "event": "SEND", "lamport": 841, "msg": "HEARTBEAT", "to": 1}
+{"t_us": 1794312996118921, "node": 2, "event": "STOP", "lamport": 841, "reason": "duration"}
