@@ -467,28 +467,47 @@ def plot_hb(plt, levels, rows):
     labels = [f"{lv['hb_timeout_ms']:.0f}" for lv in levels]
     pos = list(range(len(levels)))
 
-    # 3) Tempo de detecção: pontos individuais, mediana e faixa teórica
-    fig, ax = plt.subplots(figsize=(3.5, 2.5))
+    # 3) Tempo de detecção: pontos individuais, mediana e faixa teórica.
+    # Acima da faixa, uma extensão hachurada mostra o tempo do comando de kill:
+    # o KILL é registrado antes do comando, então o valor medido inclui esse tempo.
+    fig, ax = plt.subplots(figsize=(3.5, 2.6))
+    legend_done = set()
+
+    def once(name):
+        if name in legend_done:
+            return None
+        legend_done.add(name)
+        return name
+
     for i, lv in enumerate(levels):
-        ax.add_patch(plt.Rectangle((i - 0.32, lv["theory_low_ms"]), 0.64,
-                                   lv["theory_high_ms"] - lv["theory_low_ms"],
-                                   color=BAND, zorder=1, linewidth=0,
-                                   label="faixa teórica" if i == 0 else None))
-        det = sorted(d for row in rows if row["hb_timeout_ms"] == lv["hb_timeout_ms"]
-                     for d in row["detections_ms"])
+        lv_rows = [row for row in rows if row["hb_timeout_ms"] == lv["hb_timeout_ms"]]
+        low, high = lv["theory_low_ms"], lv["theory_high_ms"]
+        ax.add_patch(plt.Rectangle((i - 0.32, low), 0.64, high - low, color=BAND, zorder=1,
+                                   linewidth=0, label=once("faixa teórica")))
+        kill_ms = [row["kill_cmd_ms"] for row in lv_rows if row.get("kill_cmd_ms") is not None]
+        if kill_ms:
+            ax.add_patch(plt.Rectangle((i - 0.32, high), 0.64, max(kill_ms), facecolor="white",
+                                       edgecolor="#c9c8c2", hatch="////", linewidth=0, zorder=1,
+                                       label=once("+ tempo do comando de kill")))
+        det = sorted(d for row in lv_rows for d in row["detections_ms"])
+        if not det:
+            # nenhuma detecção: os nós já tinham suspeitado do nó antes do kill
+            ax.annotate("sem detecções:\nsuspeitas falsas\nantes do kill", (i, (low + high) / 2),
+                        ha="center", va="center", fontsize=6.5, color=INK2, zorder=4)
+            continue
         # espalha os pontos na horizontal de forma determinística para não se sobreporem
         k = len(det)
         offs = [(-0.18 + 0.36 * j / (k - 1)) if k > 1 else 0 for j in range(k)]
-        ax.scatter([i + o for o in offs], det, s=14, color=BLUE, alpha=0.75, linewidths=0, zorder=3,
-                   label="detecções" if i == 0 else None)
+        ax.scatter([i + o for o in offs], det, s=14, color=BLUE, alpha=0.8, linewidths=0, zorder=3,
+                   label=once("detecções"))
         ax.plot([i - 0.28, i + 0.28], [lv["det_p50_ms"]] * 2, color=INK, linewidth=1.6, zorder=4,
-                label="mediana" if i == 0 else None)
+                label=once("mediana"))
     ax.set_xticks(pos, labels)
     ax.set_xlim(-0.6, len(levels) - 0.4)
-    ax.set_ylim(bottom=0)
+    ax.set_ylim(0, ax.get_ylim()[1] * 1.05)
     ax.set_xlabel("Timeout do heartbeat (ms)")
     ax.set_ylabel("Tempo de detecção (ms)")
-    ax.legend(frameon=False, loc="upper left")
+    ax.legend(frameon=False, loc="upper left", fontsize=7)
     save(fig, "hb_deteccao")
     plt.close(fig)
 
