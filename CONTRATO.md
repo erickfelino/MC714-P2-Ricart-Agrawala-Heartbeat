@@ -1,10 +1,10 @@
 # CONTRATO.md — Interfaces entre o nó (Pessoa A) e a infraestrutura (Pessoa B)
 
-**Versão:** 2 (07/11/2026)
+**Versão:** 3 (10/11/2026)
 
 Este documento é a referência única entre as duas frentes do trabalho:
-- O **nó real** (Pessoa A) deve produzir e consumir exatamente o que está aqui.
-- Os **scripts, o verificador, o contador e o nó falso** (Pessoa B) também.
+- O **nó** (Pessoa A) deve produzir e consumir exatamente o que está aqui.
+- O **contador, o ambiente Docker, o verificador e os scripts** (Pessoa B) também.
 
 **Regra:** qualquer mudança é feita **primeiro neste arquivo**, com nova versão no histórico no final, e avisada ao outro.
 
@@ -14,7 +14,7 @@ Este documento é a referência única entre as duas frentes do trabalho:
 
 | Item | Definição |
 |---|---|
-| Linguagem | Python 3.12, apenas biblioteca padrão no nó, no contador e no nó falso. |
+| Linguagem | Python 3.12. O nó e o contador usam **apenas a biblioteca padrão**. Os scripts de análise podem usar bibliotecas externas (por exemplo, matplotlib). |
 | IDs dos nós | Inteiros `1..N`. |
 | Codificação | UTF-8. |
 | Serialização na rede | **JSON, um objeto por linha** (terminado em `\n`), via TCP. |
@@ -28,18 +28,24 @@ Este documento é a referência única entre as duas frentes do trabalho:
 ```
 CONTRATO.md            ← este arquivo
 compose.yaml           ← padrão: 3 nós + contador (B)
-Dockerfile             ← imagem única para node, fake_node e counter (B)
-Makefile / README.md   ← build, up, test, down (B)
-node/                  ← nó real (A)       → executado com: python -m node
-fake_node/             ← nó falso (B)      → executado com: python -m fake_node
+Dockerfile             ← imagem única para node e counter (B)
+.dockerignore
+.gitignore
+Makefile / README.md   ← construir, iniciar, testar, remover (B)
+node/                  ← nó (A)            → executado com: python -m node
 counter/               ← contador (B)      → executado com: python -m counter
 checker/               ← verificador de logs (B)
-scripts/               ← injeção de falhas, geração de compose, experimentos (B)
-results/raw/<run_id>/  ← logs e dados brutos de cada execução (B)
+scripts/               ← geração de compose, execução, injeção de falhas, experimentos, análise (B)
+tests/                 ← logs de exemplo (corretos e com erros de propósito) e testes do verificador (B)
+results/raw/<run_id>/  ← logs, compose usado e dados brutos de cada execução (B)
+results/figures/       ← gráficos e tabelas finais (B)
 report/                ← relatório (A e B)
+docs/                  ← plano e anotações internas
 ```
 
-**Imagem Docker:** uma só, baseada em `python:3.12-slim`, com o repositório copiado em `/app` e o diretório de trabalho `/app`. Cada serviço do compose só muda o `command`.
+**Imagem Docker:** uma só, baseada em `python:3.12-slim`, com diretório de trabalho `/app`. Contém apenas `node/` e `counter/`. Cada serviço do compose só muda o `command`.
+
+**Logs:** todos os serviços montam a mesma pasta do computador em `/logs` (variável `LOGS_HOST` no compose; padrão `./results/raw/_dev/logs`).
 
 **O que A precisa garantir:** `python -m node` (rodando em `/app`) inicia o nó lendo apenas variáveis de ambiente.
 
@@ -52,7 +58,7 @@ report/                ← relatório (A e B)
 | Nó `i` | `node<i>` (`node1`, `node2`, ...) | `5000` |
 | Contador | `counter` | `6000` |
 
-Os endereços **não são fixos no código**. Eles chegam por configuração (Seção 6), o que permite rodar sem Docker (por exemplo, `127.0.0.1:5001`, `127.0.0.1:5002`, ...) e, se um dia for preciso, na nuvem do IC mudando apenas a configuração.
+Os endereços **não são fixos no código**. Eles chegam por configuração (Seção 6), o que permite rodar sem Docker (por exemplo, `127.0.0.1:5001`, `127.0.0.1:5002`, ...). O contador escuta na porta indicada em `COUNTER_ADDR`.
 
 ---
 
@@ -60,11 +66,11 @@ Os endereços **não são fixos no código**. Eles chegam por configuração (Se
 
 **Conexões**
 - Cada nó escuta na porta da sua própria entrada em `PEERS`.
-- Para enviar, abre ou reutiliza uma conexão TCP com o destino.
-- Se a conexão falhar, tenta reconectar no próximo envio.
+- Para enviar, abre ou reutiliza uma conexão TCP com o destino. Se a conexão falhar, ela é descartada e o próximo envio tenta reconectar.
 - Toda operação de conexão e de envio usa timeout (`CONNECT_TIMEOUT_MS`).
-- **A ordem FIFO por destino deve ser mantida**, inclusive com atraso injetado (Seção 4.2).
-- **Desacoplamento de Concorrência Local:** Chamadas de E/S de rede (`send_message`) devem ser executadas **fora** do lock de exclusão mútua local (`_lock`) do nó, garantindo que o processamento imediato de mensagens recebidas pela thread de rede não sofra bloqueios indesejados.
+- A abertura de conexão (`connect`) é feita **fora de qualquer lock compartilhado entre destinos**: um par morto não pode atrasar o envio aos outros.
+- **Desacoplamento de concorrência local:** chamadas de envio (`send_message`) são feitas **fora** do lock do Ricart-Agrawala (`_lock`), para que o processamento de mensagens recebidas não fique bloqueado.
+- **A ordem FIFO por destino deve ser mantida**, inclusive com atraso injetado (Seção 4.3).
 
 ### 4.1 Formatos
 
@@ -103,19 +109,20 @@ Campos comuns a todas as mensagens:
 
 ### 4.3 Atraso injetado (para os experimentos)
 - Cada mensagem **entre nós** (não para o contador) é atrasada em `NET_DELAY_MS + uniforme(0, NET_JITTER_MS)`, sorteado com o gerador `net` (Seção 6.2).
-- **A ordem FIFO por destino deve ser preservada.** Sugestão: o horário de envio de cada mensagem é `max(agora + atraso, horário de envio da mensagem anterior para o mesmo destino)`.
+- **O horário de envio é calculado quando a mensagem entra na fila**, e não quando a anterior termina de sair. Assim o atraso **não se acumula**: 10 mensagens seguidas com `NET_DELAY_MS=50` chegam todas com ~50 ms de atraso.
+- **A ordem FIFO por destino deve ser preservada.** Cada destino tem **uma fila e uma thread de envio**, e o horário de envio de cada mensagem é `max(agora + atraso, horário de envio da mensagem anterior para o mesmo destino)`.
 - Com `NET_DELAY_MS=0` e `NET_JITTER_MS=0`, não há atraso.
 
 ---
 
-## 5. Protocolo do contador (TCP, porta 6000)
+## 5. Protocolo do contador (TCP, porta de `COUNTER_ADDR`, padrão 6000)
 
 O contador é o **recurso compartilhado**. Ele **não tem lock nem incremento atômico**: oferece apenas `READ` e `WRITE` separados. Cada operação individual é atômica, mas nada impede outro nó de escrever entre o `READ` e o `WRITE` de alguém. É exatamente isso que a exclusão mútua precisa evitar.
 
-**Conexão e Servidor Multi-thread**
-- O servidor do contador deve aceitar conexões escutando em `0.0.0.0:6000` e tratar cada conexão TCP em **threads dedicadas ou concorrentes** (`threading.Thread`), garantindo que chamadas `accept()` não fiquem bloqueadas por requisições síncronas de um único cliente.
-- O cliente (`counter_client`) deve implementar mecanismo de **reconexão automática com retentativas** em caso de indisponibilidade inicial durante a subida do ambiente Docker.
-- As mensagens de requisição e resposta obrigatoriamente devem ser delimitadas por quebra de linha (`\n`).
+**Servidor e cliente**
+- O servidor escuta em `0.0.0.0` e trata cada conexão TCP em uma **thread própria**, para que o `accept()` nunca fique bloqueado por um cliente.
+- O cliente do nó (`counter_client`) **reconecta automaticamente com retentativas** se o contador ainda não estiver disponível durante a subida do ambiente.
+- Requisições e respostas são delimitadas por quebra de linha (`\n`). Cada nó usa uma conexão TCP, reutilizada.
 
 | Requisição | Resposta |
 |---|---|
@@ -125,7 +132,7 @@ O contador é o **recurso compartilhado**. Ele **não tem lock nem incremento at
 **Regras**
 - O valor inicial é `0`.
 - Em caso de erro, a resposta é `{"ok": false, "error": "<mensagem>"}`.
-- O contador grava `counter.jsonl` em `LOG_DIR`, uma linha por operação:
+- O contador grava `counter.jsonl` em `LOG_DIR`, uma linha por operação, com flush a cada linha. A ordem das linhas é exatamente a ordem em que as operações foram aplicadas.
 
 ```json
 {"t_us": 1762358400123456, "event": "READ",  "node": 2, "value": 41}
@@ -136,7 +143,7 @@ O contador é o **recurso compartilhado**. Ele **não tem lock nem incremento at
 1. `READ`, obtendo `v`.
 2. Espera `CS_DURATION_MS`.
 3. `WRITE` com `v + 1`.
-4. **Resiliência a Falhas (Try-Finally):** Todas as operações na Região Crítica devem ser englobadas em blocos `try...finally`. Mesmo em caso de timeout ou erro de I/O na comunicação com o contador, o nó deve executar a liberação da Região Crítica (`EXIT`) e processar sua fila de solicitações adiadas (`deferred_queue`).
+4. **Resiliência a falhas (`try...finally`):** mesmo em caso de timeout ou erro de comunicação com o contador, o nó registra `EXIT` e responde aos pedidos adiados. Nesse caso, o `EXIT` sai com `written: null` (e `read: null` se o próprio `READ` falhou).
 
 ---
 
@@ -152,9 +159,9 @@ O contador é o **recurso compartilhado**. Ele **não tem lock nem incremento at
 | `LOG_DIR` | `/logs` | Pasta onde o log é gravado. |
 | `RUN_ID` | `""` | Identificador da execução. Só é copiado para o log de `START`. |
 | `SEED` | `1` | Semente base dos geradores aleatórios. |
-| `DURATION_S` | `60` | Tempo, a partir do `START`, durante o qual o nó gera pedidos. |
-| `START_DELAY_S` | `3` | Espera antes de gerar o primeiro pedido e de começar a suspeitar de pares, para dar tempo de todos subirem. |
-| `DRAIN_S` | `5` | Depois de `DURATION_S`, tempo em que o nó continua respondendo a pedidos antes de sair. |
+| `START_DELAY_S` | `3` | Espera, a partir do `START`, antes de gerar o primeiro pedido e de começar a suspeitar de pares, para dar tempo de todos subirem. |
+| `DURATION_S` | `60` | Tempo durante o qual o nó gera pedidos, **contado a partir do fim do `START_DELAY_S`**. |
+| `DRAIN_S` | `5` | Depois de `DURATION_S`, tempo em que o nó continua respondendo a pedidos **e enviando heartbeats** antes de sair. |
 | `REQ_INTERVAL_MS` | `200` | Média do intervalo entre o fim de uma região crítica e o próximo pedido, com distribuição exponencial. |
 | `CS_DURATION_MS` | `50` | Espera entre o `READ` e o `WRITE` dentro da região crítica. |
 | `HB_INTERVAL_MS` | `500` | Intervalo `T` entre heartbeats. |
@@ -163,6 +170,8 @@ O contador é o **recurso compartilhado**. Ele **não tem lock nem incremento at
 | `NET_DELAY_MS` | `0` | Atraso fixo injetado em cada mensagem entre nós. |
 | `NET_JITTER_MS` | `0` | Atraso aleatório adicional máximo (uniforme). |
 | `CONNECT_TIMEOUT_MS` | `1000` | Timeout de conexão e de envio TCP, também usado com o contador. |
+
+**Duração total de um nó:** aproximadamente `START_DELAY_S + DURATION_S + DRAIN_S` (68 s com os valores padrão). Os scripts usam essa soma para saber quando a execução termina.
 
 ### 6.2 Geradores aleatórios
 
@@ -179,20 +188,21 @@ O mesmo `SEED` produz a mesma carga em execuções diferentes.
 1. Lê a configuração e registra `START` com **toda a configuração**.
 2. Abre o servidor TCP e começa a enviar heartbeats imediatamente.
 3. Aguarda `START_DELAY_S` e então:
-   - começa a gerar pedidos;
-   - começa a contar os timeouts de heartbeat de todos os pares a partir desse instante.
-4. Gera pedidos até completar `DURATION_S` desde o `START`. Um pedido em andamento nesse momento é concluído normalmente.
+   - ativa a detecção de falhas, contando os timeouts de todos os pares a partir desse instante;
+   - começa a gerar pedidos.
+4. Gera pedidos durante `DURATION_S`. Um pedido em andamento ao fim desse tempo é concluído normalmente.
 5. Depois de `DURATION_S`:
    - **não faz novos pedidos**;
    - **o detector para de marcar suspeitos**, para que nós encerrando normalmente não sejam confundidos com falhas;
-   - interrompe a transmissão ativa de novos `HEARTBEAT` (`hb.stop()`);
-   - continua respondendo `REQUEST` pendentes por `DRAIN_S`.
+   - **continua enviando heartbeats e respondendo `REQUEST`** por `DRAIN_S`. Isso evita que um nó que subiu um pouco depois dos outros (e ainda está detectando) suspeite de quem já está encerrando;
+   - ao fim do `DRAIN_S`, para os heartbeats.
 6. Executa a limpeza dos componentes em bloco `finally`, registra obrigatoriamente `STOP` e encerra com código de saída 0.
 
-**Nós suspeitos (modelo crash-stop):** um par suspeito é treated como morto para sempre.
+**Nós suspeitos (modelo crash-stop):** um par suspeito é tratado como morto para sempre.
 - Não se espera mais `REPLY` dele.
 - Os pedidos dele são removidos da fila de adiados.
-- Mensagens recebidas dele são registradas como `RECV` e ignoradas.
+- Mensagens `REQUEST`/`REPLY` recebidas dele são registradas como `RECV` e ignoradas.
+- Heartbeats continuam sendo enviados a ele (geram `SEND` ou `SEND_FAIL` no log).
 
 ---
 
@@ -218,14 +228,16 @@ O mesmo `SEED` produz a mesma carga em execuções diferentes.
 | `START` | `config` (objeto com todas as variáveis da Seção 6) | Logo ao iniciar. |
 | `REQUEST` | `req_ts` | Ao decidir pedir a região crítica, **antes** de enviar os `REQUEST`. |
 | `ENTER` | `req_ts` | **Depois** de receber todas as respostas necessárias, **antes** do `READ`. |
-| `EXIT` | `req_ts`, `read`, `written` | **Depois** da confirmação do `WRITE` e **antes** de enviar os `REPLY` adiados. |
-| `SEND` | `msg` (`REQUEST`, `REPLY` ou `HEARTBEAT`), `to`, `req_ts` (se houver) | No momento em que a mensagem é efetivamente escrita no socket, depois do atraso injetado. |
-| `SEND_FAIL` | `msg`, `to`, `error` | Quando o envio falha (conexão recusada, timeout). |
-| `RECV` | `msg`, `from`, `req_ts` (se houver) | Ao receber uma mensagem. |
-| `SUSPECT` | `peer`, `last_hb_us` | Ao marcar um par como suspeito. `last_hb_us` é o `t_us` do último heartbeat recebido dele, ou `null` se nunca recebeu nenhum. |
+| `EXIT` | `req_ts`, `read`, `written` | **Depois** da confirmação do `WRITE` e **antes** de enviar os `REPLY` adiados. `read`/`written` podem ser `null` se o contador falhar (Seção 5). |
+| `SEND` | `msg` (`REQUEST`, `REPLY` ou `HEARTBEAT`), `to`, `req_ts` (se houver) | No momento em que a mensagem é escrita no socket, depois do atraso injetado. |
+| `SEND_FAIL` | `msg`, `to`, `error`, `req_ts` (se houver) | Quando o envio falha (conexão recusada, timeout). |
+| `RECV` | `msg`, `from`, `req_ts` (se houver) | Ao receber `REQUEST` ou `REPLY`. **`HEARTBEAT` recebido não é registrado**, para não inflar o log. |
+| `SUSPECT` | `peer`, `last_hb_us` | Ao marcar um par como suspeito. `last_hb_us` é o `t_us` do último heartbeat recebido dele; se nunca recebeu nenhum, é o instante em que a detecção foi ativada (passo 3 da Seção 7). |
 | `STOP` | `reason` (`"duration"`) | Ao encerrar normalmente. |
 
 **Por que a ordem importa:** com essas regras, para dois nós que se revezam na região crítica, o `EXIT` de um sempre tem `t_us` menor que o `ENTER` do outro. Assim o verificador detecta sobreposição comparando apenas os horários.
+
+**Atenção: `SEND` não significa "entregue".** Significa que a mensagem foi escrita no socket local. Depois de um `docker kill`, os envios para o nó morto continuam aparecendo como `SEND` por um tempo, porque o TCP aceita os dados no buffer mesmo sem ninguém do outro lado. As métricas devem levar isso em conta (Seção 10).
 
 ### 8.3 Exemplos
 
@@ -256,24 +268,23 @@ O mesmo `SEED` produz a mesma carga em execuções diferentes.
 
 ## 10. O que o verificador vai checar
 
-O nó real (A) precisa cumprir isto, e o verificador (B) testa exatamente isto.
+O nó (A) precisa cumprir isto, e o verificador (B) testa exatamente isto.
 
 | Propriedade | Como é verificada |
 |---|---|
-| **Exclusão mútua** | Os intervalos `[ENTER, EXIT]` de nós diferentes nunca se sobrepõem. Para um nó morto na região crítica, o intervalo vai do `ENTER` até o `KILL`. |
-| **Contador correto** | Valor do último `WRITE` em `counter.jsonl` = número total de eventos `EXIT`. |
+| **Exclusão mútua** | Os intervalos `[ENTER, EXIT]` de nós diferentes nunca se sobrepõem. Para um nó morto na região crítica (tem `ENTER` sem `EXIT`), o intervalo vai do `ENTER` até o `KILL`. |
+| **Contador correto** | Valor do último `WRITE` em `counter.jsonl` = número de eventos `EXIT` com `written` diferente de `null`. |
 | **Vivacidade** | Todo `REQUEST` de um nó que não foi morto tem `ENTER` correspondente (mesmo `req_ts`) antes do `STOP` desse nó. |
 | **Sem suspeitas falsas** | Em execuções sem `KILL`, não existe nenhum `SUSPECT`. Com `KILL`, só existe `SUSPECT` do nó morto e sempre depois do `KILL`. |
 | **Completude** | Com `KILL` do nó `k`, todo nó que não foi morto registra `SUSPECT` com `peer = k`. |
 
----
-
-## 11. O que o nó falso (B) deve imitar
-
-O nó falso respeita as Seções 2, 3, 5, 6, 7 e 8, mas **sem algoritmo nenhum**:
-- Gera `REQUEST`, `ENTER` e `EXIT` com os tempos da configuração.
-- Acessa o contador de verdade.
-- Envia e recebe heartbeats de verdade.
+**Métricas extraídas dos logs**
+- **Tempo de espera:** `ENTER.t_us − REQUEST.t_us`, mesmo nó e mesmo `req_ts`.
+- **Mensagens por entrada:** contagem de `SEND` de tipo `REQUEST` e `REPLY` dividida pelo número de `ENTER`, **ignorando os envios para um nó morto feitos depois do seu `KILL`** (ver Seção 8.2). Teoria: `2(N−1)` sem falhas.
+- **Tempo de detecção:** `SUSPECT.t_us − KILL.t_us`, para cada nó vivo.
+- **Suspeitas falsas:** `SUSPECT` de um nó que não foi morto.
+- **Custo do heartbeat:** `SEND` de tipo `HEARTBEAT` por segundo. Teoria: `N(N−1)/T`.
+- **Vazão:** número de `EXIT` por segundo, dentro do período de carga.
 
 ---
 
@@ -283,3 +294,4 @@ O nó falso respeita as Seções 2, 3, 5, 6, 7 e 8, mas **sem algoritmo nenhum**
 |---|---|---|
 | 1 | 05/11/2026 | Versão inicial. |
 | 2 | 07/11/2026 | Atualização da resiliência do contador (bind em `0.0.0.0`, concorrência multi-thread e retentativas no cliente), desacoplamento do envio de E/S fora dos locks do Ricart-Agrawala, tratamento defensivo (`try...finally`) na Seção Crítica e encerramento garantido de `HEARTBEAT`/`STOP` no ciclo de vida. |
+| 3 | 10/11/2026 | **Rede:** uma fila e uma thread de envio por destino, com horário de envio calculado ao enfileirar (o atraso injetado não se acumula) e `connect` fora do lock global. **Ciclo de vida:** heartbeats continuam durante o `DRAIN_S` (evita suspeitas falsas no encerramento); `DURATION_S` contado a partir do fim do `START_DELAY_S`, como no código. **Log:** `SEND` não implica entrega; `RECV` de `HEARTBEAT` não é registrado; `EXIT` pode ter `read`/`written` nulos; `last_hb_us` nunca é nulo. **Verificador:** contador comparado só com `EXIT` que escreveram; seção de métricas restaurada. **Estrutura:** contrato na raiz, nó falso removido (o nó real já existe), pastas `tests/`, `results/figures/` e `docs/` adicionadas; imagem Docker contém só `node/` e `counter/`. |
